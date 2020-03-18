@@ -46,7 +46,7 @@
             margin: 10px;
             margin-left: 20%;
             background-color: white;
-            width: 25%;
+            width: 60%;
             padding:10px;
             border-radius: 5px;
         }
@@ -56,10 +56,13 @@
         .hypersearch select{
             margin: 10px;
             border-radius: 5px;
+            font-size: 20px;
         }
         .hypersearch input{
             margin: 10px;
             border-radius: 5px;
+            width: 80%;
+            font-size: 20px;
         }
         .hypersearch p{
             font-size: 20px;
@@ -69,7 +72,7 @@
             height: 50px;
             width: 100px;
             border-radius: 5px;
-            margin-left: 100px;
+            margin-left: 400px;
         }
         .hypersearch button:hover{
             background-color: #FFAA00 ;
@@ -83,19 +86,20 @@
 </head>
 <body>
     <header>
-            <section>
-                <div id="logo">
-                   <a href="index.html"><h1> IDEA<br>COOK<br>COOK </h1></a> 
-                </div>
-                <div>
-                    <input type="text" placeholder="ค้นหาสูตรอาหาร ...">
-                </div>
-                <button type="button"> <b>เพิ่มสูตรอาหาร</b> </button>
-                <section class="login_regis">
-                    <div>เข้าสู่ระบบ</div>
-                    <div>สมัครสมาชิก</div>
-                </section>
-            </section>
+        <div class="login_regis">
+            <div>เข้าสู่ระบบ</div>
+            <div>สมัครสมาชิก</div>
+        </div>
+        <div class="mainheader">
+            <div id="logo">
+                <a href="index.html"><h1> IDEA<br>COOK<br>COOK </h1></a> 
+            </div>
+            <div>
+                <input type="text" placeholder="ค้นหาสูตรอาหาร ...">
+            </div>
+            <button type="button"> <b>ค้นหา</b> </button>
+            <button type="button"> <b>เพิ่มสูตร</b> </button>
+        </div>
             
     </header>
     <section class="category">
