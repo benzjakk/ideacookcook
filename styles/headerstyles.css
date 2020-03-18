@@ -1,0 +1,59 @@
+header{
+    margin: 0px;
+    padding: 1px;
+    background-color: #BF1717;
+}
+header section{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+   
+   
+}
+header #logo {
+    color: white;
+    font-size: 15px;
+    padding: 0px 0px 0px 60px;
+    margin: 0px;
+    margin-top: 2px;
+    margin-right: 10%;
+    text-decoration: none;
+}
+header input{
+    margin-top: 50px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    width: 800px;
+    height: 25px;
+}
+
+header .login_regis div  {
+    color: white;
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    
+}
+header .login_regis{
+    margin-left: 80px;
+}
+header button{
+    border-radius: 5px;
+    height: 40px;
+    margin-top: 50px;
+    margin-left: 5px;
+    background-color: white;
+    border: none;
+}
+header button:hover{
+    background-color: whitesmoke;
+}
+header a:visited{
+    text-decoration: none;
+    color:white;
+}
