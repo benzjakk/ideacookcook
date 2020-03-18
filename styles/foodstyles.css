@@ -1,24 +1,14 @@
 
 body {
-    background:rgb(216, 178, 167);
+            
+    padding: 0px;
+    margin: 0;
+    background-color: #FBE7E2;
     font-family: Arial, Helvetica, sans-serif;
 }
 
- header {
-    background: rgb(170,5,5);
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction:row;
-    position: sticky;
-    top:0;
-}
 
-    div {
-        background: white;
-        margin:0;
-        font-size: 1.3vw;
-    }
+    
     
     section {
         width: 68vw;
@@ -112,7 +102,7 @@ body {
             }
 
                 .chef-3inR {
-                    background: rgb(216, 178, 167);
+                    background: #FBE7E2;
                     display: flex;
                     flex-direction: row;
                     width: 100%;   
@@ -130,12 +120,14 @@ body {
                     }
 
                     .c123 {
+                        background: white;
                         width:33.33%;
                         height:7vw;
                         vertical-align: center;
                         font-size: 1.6vw; 
                     }
                     .c3 {
+                        background: white;
                         width:33.33%;
                         height:7vw;
                         vertical-align: center;
@@ -151,6 +143,7 @@ body {
 
 
         .tutorial {
+            background: white;
             margin: 10px 0;
             padding:10px;
             display: flex;
@@ -160,6 +153,7 @@ body {
         }
 
         .review {
+            background: white;
             margin: 10px 0;
             padding:10px;
             display: flex;
@@ -169,7 +163,7 @@ body {
         }
 
             .stick {
-                background: rgb(216, 178, 167);;
+                background: #FBE7E2;
                 width:0.25%;
                 height:4vw;
                 transform: translateY(50%);
