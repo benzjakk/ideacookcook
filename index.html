@@ -1,12 +1,182 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>IDEAcookcook</title>
-    </head>
-    <body>
-        <header>
-            <p1>IDEA COOKCOOK Home Page!!!</p1>
-        </header>
+<html lang="en">
+<head>
+    <style>
+        body {
+            
+            padding: 0px;
+            margin: 0;
+            background-color: #FBE7E2;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .category{
+            margin: 10px;
+            margin-left: 20%;
+            background-color: white;
+            width: 60%;
+            padding:10px;
+            border-radius: 5px;
+        }
+        h2{
+            color: #BF1717;
+        }
+        .category div{
+            text-align: right;
+        }
+        .category a{
+            text-decoration: none;
+            color:black;
+            font-size: 10px;
+            
+        }
+        .category ul{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .category figure img{
+            width: 60px;
+        }
+        .category figure figcaption{
+            margin-top: 8px;
+            text-align: center;
+            
+        }
+        .hypersearch{
+            margin: 10px;
+            margin-left: 20%;
+            background-color: white;
+            width: 60%;
+            padding:10px;
+            border-radius: 5px;
+        }
+        .hypersearch li{
+            display: flex;
+        }
+        .hypersearch select{
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+        .hypersearch input{
+            margin: 10px;
+            border-radius: 5px;
+            width: 80%;
+            font-size: 20px;
+        }
+        .hypersearch p{
+            font-size: 20px;
+        }
         
-    </body>
+        .hypersearch button{
+            height: 50px;
+            width: 100px;
+            border-radius: 5px;
+            margin-left: 400px;
+        }
+        .hypersearch button:hover{
+            background-color: #FFAA00 ;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="/styles/headerstyles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEA CookCook</title>
+</head>
+<body>
+    <header>
+        <div class="login_regis">
+            <div>เข้าสู่ระบบ</div>
+            <div>สมัครสมาชิก</div>
+        </div>
+        <div class="mainheader">
+            <div id="logo">
+                <a href="index.html"><h1> IDEA<br>COOK<br>COOK </h1></a> 
+            </div>
+            <div>
+                <input type="text" placeholder="ค้นหาสูตรอาหาร ...">
+            </div>
+            <button type="button"> <b>ค้นหา</b> </button>
+            <button type="button"> <b>เพิ่มสูตร</b> </button>
+        </div>
+            
+    </header>
+    <section class="category">
+        <h2>หมวดหมู่</h2>
+        <ul>
+            <figure>
+                <img src="pic/cate1.png" alt="คาว">
+                <figcaption> <b>คาว</b> </figcaption>  
+            </figure>
+            <figure>
+                <img src="pic/cate2.png" alt="หวาน">
+                <figcaption><b>หวาน</b></figcaption>  
+            </figure>
+            <figure>
+                <img src="pic/cate3.png" alt="กินเล่น">
+                <figcaption><b>กินเล่น</b></figcaption>  
+            </figure>
+            <figure>
+                <img src="pic/cate4.png" alt="ประหยัด">
+                <figcaption><b>ประหยัด</b></figcaption>  
+            </figure>
+            <figure>
+                <img src="pic/cate5.png" alt="ไทย">
+                <figcaption><b>ไทย</b></figcaption>  
+            </figure>
+            <figure>
+                <img src="pic/cate6.png" alt="ต่างชาติ">
+                <figcaption><b>ต่างชาติ</b></figcaption>  
+            </figure>
+            
+        </ul>
+        <div> <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Icons made by Freepik</a>  <a href="https://www.flaticon.com/" title="Flaticon">from www.flaticon.com</a></div>
+    </section>
+    <section class="hypersearch">
+        <h2>ค้นหาขั้นสูง</h2>
+        <ul>
+            <li>
+                <p>ราคา : </p>
+                <select>
+                    <option value=1>น้อยกว่า 100</option>
+                    <option value=2>100 - 500</option>
+                    <option value=3>มากกว่า 500</option>
+                   
+                </select> 
+                <p>บาท </p>
+            </li>
+            <li>
+                <p>วัตถุดิบ : </p>
+                <input type="text">
+            </li>
+            <li>
+                <p>อุปกรณ์ : </p>
+                <input type="text"> 
+            </li>
+            <li>
+                <p>ระยะเวลา : </p>
+                <input type="text"> 
+            </li>
+            <li>
+                <p>ประเภทอาหาร : </p>
+                <select>
+                    <option value=1>คาว</option>
+                    <option value=2>หวาน</option>
+                    <option value=3>ทะเล</option>
+                </select> 
+            </li>
+            <li>
+                <p>สัญชาติ : </p>
+                <input type="text"> 
+            </li>
+            <li>
+                <p>แคลโลรี่ : </p>
+                <input type="text"> 
+            </li>
+           <button>ค้นหา</button>
+        </ul>
+
+    </section>
+</body>
 </html>
