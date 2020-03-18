@@ -16,10 +16,8 @@
             width: 60%;
             padding:10px;
             border-radius: 5px;
-           
-
         }
-        .category h2{
+        h2{
             color: #BF1717;
         }
         .category div{
@@ -43,6 +41,38 @@
             margin-top: 8px;
             text-align: center;
             
+        }
+        .hypersearch{
+            margin: 10px;
+            margin-left: 20%;
+            background-color: white;
+            width: 25%;
+            padding:10px;
+            border-radius: 5px;
+        }
+        .hypersearch li{
+            display: flex;
+        }
+        .hypersearch select{
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .hypersearch input{
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .hypersearch p{
+            font-size: 20px;
+        }
+        
+        .hypersearch button{
+            height: 50px;
+            width: 100px;
+            border-radius: 5px;
+            margin-left: 100px;
+        }
+        .hypersearch button:hover{
+            background-color: #FFAA00 ;
         }
         
     </style>
@@ -98,7 +128,51 @@
             
         </ul>
         <div> <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Icons made by Freepik</a>  <a href="https://www.flaticon.com/" title="Flaticon">from www.flaticon.com</a></div>
-        
+    </section>
+    <section class="hypersearch">
+        <h2>ค้นหาขั้นสูง</h2>
+        <ul>
+            <li>
+                <p>ราคา : </p>
+                <select>
+                    <option value=1>น้อยกว่า 100</option>
+                    <option value=2>100 - 500</option>
+                    <option value=3>มากกว่า 500</option>
+                   
+                </select> 
+                <p>บาท </p>
+            </li>
+            <li>
+                <p>วัตถุดิบ : </p>
+                <input type="text">
+            </li>
+            <li>
+                <p>อุปกรณ์ : </p>
+                <input type="text"> 
+            </li>
+            <li>
+                <p>ระยะเวลา : </p>
+                <input type="text"> 
+            </li>
+            <li>
+                <p>ประเภทอาหาร : </p>
+                <select>
+                    <option value=1>คาว</option>
+                    <option value=2>หวาน</option>
+                    <option value=3>ทะเล</option>
+                </select> 
+            </li>
+            <li>
+                <p>สัญชาติ : </p>
+                <input type="text"> 
+            </li>
+            <li>
+                <p>แคลโลรี่ : </p>
+                <input type="text"> 
+            </li>
+           <button>ค้นหา</button>
+        </ul>
+
     </section>
 </body>
 </html>

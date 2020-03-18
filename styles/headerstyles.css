@@ -10,8 +10,6 @@ header section{
     margin: 0;
     text-align: center;
     flex-wrap: wrap;
-
-   
 }
 header #logo {
     color: white;
@@ -52,7 +50,7 @@ header button{
     border: none;
 }
 header button:hover{
-    background-color: whitesmoke;
+    background-color: #FFAA00;
 }
 header a{
     text-decoration: none;
