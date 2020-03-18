@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            
+            padding: 0px;
+            margin: 0;
+            background-color: #FBE7E2;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .inputrecipe{
+            margin: 10px;
+            margin-left: 20%;
+            background-color: white;
+            width: 60%;
+            padding:10px;
+            border-radius: 5px;
+        }
+        h2{
+            color: #BF1717;
+        }
+        #but1{
+            height: 30px;
+            width: 60px;
+            border-radius: 5px;
+            margin-left: 1000px;
+        }
+        .input1{
+            margin: 10px;
+            border-radius: 5px;
+            width: 35%;
+            height: 200%;
+            font-size: 20px;
+        }
+        .inputrecipe li{
+            display: flex;
+        }
+        .inputrecipe select{
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+        .inputrecipe figure img{
+            width: 100px;
+        }
+        .inputrecipe input{
+            margin: 10px;
+            border-radius: 5px;
+            width: 35%;
+            font-size: 20px;
+        }
+        .inputrecipe p{
+            font-size: 20px;
+        }
+        .inputrecipe textarea{
+            font-size: 20px;
+        }
+        
+        .inputrecipe button{
+            height: 50px;
+            width: 100px;
+            border-radius: 5px;
+            margin-left: 500px;
+        }
+        .inputrecipe button:hover{
+            background-color: #FFAA00 ;
+        }
+        #but1:hover{
+            background-color: rgb(216, 29, 29) ;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles/headerstyles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="login_regis">
+            <div>เข้าสู่ระบบ</div>
+            <div>สมัครสมาชิก</div>
+        </div>
+        <div class="mainheader">
+            <div id="logo">
+                <a href="index.html"><h1> IDEA<br>COOK<br>COOK </h1></a> 
+            </div>
+            <div>
+                <input type="text" placeholder="ค้นหาสูตรอาหาร ...">
+            </div>
+            <button type="button"> <b>ค้นหา</b> </button>
+            <button type="button"> <b>เพิ่มสูตร</b> </button>
+        </div>
+           
+    </header>
+
+    <section class="inputrecipe">
+        <h2>ลงสูตรอาหาร</h2>
+        <ul>
+            <button id="but1" onclick="document.getElementsByClassName('input1').value = ''" >รีเซ็ท</button>
+            <li>
+                <p>ชื่อเมนูอาหาร : </p>
+                <input type="text" class="input1">
+            </li>
+            <li>
+                <p>คำอธิบาย : </p>                
+            </li>
+            <textarea rows = "5" cols = "70" name = "description">
+                
+            </textarea>
+            <li>
+                <p>อัพโหลดรูปภาพ</p>
+                <figure>
+                    <img src="pic/upload.png" alt="upload">
+                </figure>
+            </li>
+            <li>
+                <p>ราคา : </p>
+                <select>
+                    <option value=1>น้อยกว่า 100</option>
+                    <option value=2>100 - 500</option>
+                    <option value=3>มากกว่า 500</option>
+                   
+                </select> 
+                <p>บาท </p>
+            </li>
+            <li>
+                <p>วัตถุดิบ : </p>
+                <input type="text" class="input1">
+            </li>
+            <li>
+                <p>อุปกรณ์ : </p>
+                <input type="text" class="input1">
+            </li>
+            <li>
+                <p>ขั้นตอน : </p>                
+            </li>
+            <textarea rows = "5" cols = "70" name = "description">
+                
+            </textarea>
+            <li>
+                <p>อัพโหลดรูปภาพ</p>
+                <figure>
+                    <img src="pic/upload.png" alt="upload">
+                </figure>
+            </li>
+            <li>
+                <p>ระยะเวลา : </p>
+                <input type="text" class="input1">
+            </li>
+            <li>
+                <p>ประเภทอาหาร : </p>
+                <select>
+                    <option value=1>คาว</option>
+                    <option value=2>หวาน</option>
+                    <option value=3>ทะเล</option>
+                </select> 
+            </li>
+            <li>
+                <p>สัญชาติ : </p>
+                <input type="text" class="input1">
+            </li>
+            <li>
+                <p>แคลโลรี่ : </p>
+                <input type="text" class="input1">
+            </li>
+           <button>ยืนยัน</button>
+        </ul>
+
+    </section>
+
+</body>
+</html>
