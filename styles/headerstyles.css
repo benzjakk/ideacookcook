@@ -9,7 +9,8 @@ header section{
     padding: 0;
     margin: 0;
     text-align: center;
-   
+    flex-wrap: wrap;
+
    
 }
 header #logo {
@@ -53,7 +54,7 @@ header button{
 header button:hover{
     background-color: whitesmoke;
 }
-header a:visited{
+header a{
     text-decoration: none;
     color:white;
 }
