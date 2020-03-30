@@ -1,0 +1,142 @@
+.chef {
+    background: none;
+    width: 68vmin;
+    height: 17.5vmin;
+}
+
+    .chef-Top {
+        background: white;
+        display: flex;
+        flex-direction: row;
+        width:68vmin;
+        height:10.5vmin; 
+        border-top-left-radius: 15px;     
+        border-top-right-radius: 15px;
+    }
+
+    .chef-img:hover{
+        border: 0.5vmin solid rgb(170,5,5);
+        width: 8vmin;
+        height: 8vmin;
+        transform: translate(-0.5vmin,-0.5vmin);
+        /* opacity: 0.7; */
+    }
+    
+        .chef-box-img {
+            width:13vmin;
+            
+        }
+
+            .chef-img {
+                border: 0.5vmin solid white;
+                width: 8vmin;
+                height: 8vmin;
+                border-radius: 50%; 
+                margin:1.5vmin 0 0 2.25vmin;
+                align-self:center;
+                transform: translate(-0.5vmin,-0.5vmin);
+            }
+
+        .chef-name-active {
+            width:30vmin; 
+            font-size: 1.8vmin; 
+            margin: 2.5vmin 1.02vmin 0 0vmin;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .chef-name {
+                margin: 0.5vmin 0 1vmin 0;
+                font-size:2vmin ;
+            }
+
+        .more {
+            background: none;
+            padding: 1vmin 0 0 19vmin;
+            align-self: right;
+            
+        }
+
+        .more-dot {                    
+            padding:0.1vmin 1vmin 1vmin 1vmin;
+            font-size: 2vmin;
+        }
+
+        .more-dot:hover {
+            background-color: rgb(170,5,5);
+            color: white;
+        }
+
+    .chef-Bottom {
+        /* background:none;         */
+        width: 68vmin;
+        height: 7vmin;
+        font-size: 1.5vmin;        
+        display: flex;
+        flex-direction: column;
+        align-self: left;  
+        /* border-radius: 15px; */
+    }
+
+        .chef-3inR {
+            /* background: rgb(216, 178, 167); */
+            margin: 0.125vmin 0 0 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;   
+            height: 6.875vmin;
+            text-align: center;
+            
+        }
+
+            .c1 {
+                text-decoration: none !important;  
+                color:rgb(170,5,5);
+                background: white;
+                width:33.2%;
+                height:6.875vmin;
+                font-size: 1.6vmin;
+                border-bottom-left-radius: 15px;    
+            }
+
+            .c2 {
+                text-decoration: none !important;  
+                color:rgb(170,5,5);
+                background: white;
+                width:33.2%;
+                height:6.875vmin;
+                font-size: 1.6vmin;                
+            }
+
+            .c3 {
+                text-decoration: none !important;  
+                color:rgb(170,5,5);
+                background: white;
+                width:33.2%;
+                height:6.875vmin;
+                font-size: 1.6vmin;                
+                border-bottom-right-radius: 15px ;
+            }
+
+                .c{
+                    background: none;
+                    font-size: 1.6vmin;
+                    transform: translateY(+50%);
+                }
+
+
+                .c1:hover{
+                    background-color: rgb(170,5,5);
+                    color: white;
+                }
+
+                .c2:hover{
+                    background-color: rgb(170,5,5);
+                    color: white;
+                }
+
+                .c3:hover{
+                    background-color: rgb(170,5,5);
+                    color: white;
+                }

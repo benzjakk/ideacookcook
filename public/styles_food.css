@@ -1,0 +1,214 @@
+
+body {
+    background:rgb(216, 178, 167);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+ header {
+    background: rgb(170,5,5);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction:row;
+    position: sticky;
+    top:0;
+}
+
+    div {
+        background: white;
+        margin:0;
+        font-size: 1.3vw;
+    }
+    
+    section {
+        width: 68vw;
+        margin: 10px 16vw;
+        display: flex;
+        flex-direction: column;
+        background: none;
+        color: rgb(170, 5, 5);
+    }
+
+    
+
+        .food {
+            margin:0;
+        }
+
+            .food-basicInfo {
+                background: rgb(255, 255, 255);
+                color: rgb(170, 5, 5);
+                padding: 3%;
+                border-bottom-right-radius : 15px;     
+                border-bottom-left-radius: 15px;     
+            }
+
+            .food-img {
+                width: 100%;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;                
+            }
+
+        .chef {
+            background: none;
+            margin: 20px 0 10px 0;    
+            width: 68vw;
+            height: 18vw;
+        }
+
+            .chef-L {
+                background: white;
+                display: flex;
+                flex-direction: row;
+                width:68vw;
+                height:10.5vw; 
+                border-top-left-radius: 15px;     
+                border-top-right-radius: 15px;
+            }
+
+            .chef-img :hover{
+                border: tomato;
+                border-width: 10px;
+            }
+            
+                .chef-box-img {
+                    background: none;
+                    width:13vw;
+                }
+
+                    .chef-img {
+                        width: 8vw;
+                        height: 8vw;
+                        border-radius: 50%; 
+                        margin:1.5vw 0 0 2.25vw;
+                        align-self:center;
+                    }
+
+                .chef-name-active {
+                    width:30vw; 
+                    font-size: 1.8vw; 
+                    margin: 2.5vw 1.02vw 0 0vw;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                    .chef-name {
+                        margin: 0.5vw 0 1vw 0;
+                        font-size:2vw ;
+                    }
+
+                .more {
+                    background: none;
+                    padding: 1vw 0 0 19vw;
+                    align-self: right;
+                    
+                }
+
+                .more-dot {                    
+                    padding:0.1vw 1vw 1vw 1vw;
+                    font-size: 2vw;
+                }
+
+                .more-dot:hover {
+                    background-color: rgb(170,5,5);
+                    color: white;
+                }
+
+            .chef-R {
+                background:white;
+                margin: 0.125vw 0 0 0;
+                width: 68vw;
+                height: 7vw;
+                font-size: 1.5vw;        
+                display: flex;
+                flex-direction: column;
+                align-self: left;  
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px; 
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px ;
+            }
+
+                .chef-3inR {
+                    background: rgb(216, 178, 167);
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;   
+                    height: auto;
+                    text-align: center;
+                }
+
+                    .c1 {
+                        width:33.33%;
+                        height:7vw;
+                        vertical-align: center;
+                        font-size: 1.6vw;
+                        border-bottom-left-radius: 15px;    
+                    }
+
+                    .c2 {
+                        width:33.33%;
+                        height:7vw;
+                        vertical-align: center;
+                        font-size: 1.6vw; 
+                    }
+                    .c3 {
+                        width:33.33%;
+                        height:7vw;
+                        vertical-align: center;
+                        font-size: 1.6vw;
+                        border-bottom-right-radius: 15px ;
+                        }
+
+                        .c{
+                            background: none;
+                            font-size: 1.6vw;
+                            transform: translateY(80%);
+                        }
+
+
+                        .c1:hover{
+                            background-color: rgb(170,5,5);
+                            color: white;
+                        }
+
+                        .c2:hover{
+                            background-color: rgb(170,5,5);
+                            color: white;
+                        }
+
+                        .c3:hover{
+                            background-color: rgb(170,5,5);
+                            color: white;
+                        }
+
+
+
+
+
+        .tutorial {
+            margin: 10px 0;
+            padding:10px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            height:500px;
+        }
+
+        .review {
+            margin: 10px 0;
+            padding:10px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            height:500px;
+        }
+
+            .stick {
+                background: none;
+                width:0.25%;
+                height:4vw;
+                transform: translateY(50%);
+                margin: 0;
+            }
