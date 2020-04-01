@@ -34,14 +34,14 @@ const FoodChef=({chefName,message,numOfRecipes,chefRating,chefReviews,chefPic})=
 
                     <div className="space"> </div>
 
-                    <Link className="c2" to="">
+                    <Link className="c2" to="/reviews">
                         <div className="c"><strong>{chefRating}</strong></div>
                         <div className="c">rating</div>
                     </Link>
 
                     <div className="space"></div>
                     
-                    <Link className="c3" to="">
+                    <Link className="c3" to="allRanking.js">
                         <div className="c"><strong>{chefReviews}</strong></div>
                         <div className="c">reviews</div>
                     </Link>
