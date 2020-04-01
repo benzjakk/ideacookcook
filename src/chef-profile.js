@@ -99,7 +99,7 @@ function ChefProfile () {
 
     return (             
         <div className="chef-profile">
-            <header></header>
+            {/* <header></header> */}
             <section>
                 <div className="chef-profile-detail1">
                      {/* coversize=68*20  */}
