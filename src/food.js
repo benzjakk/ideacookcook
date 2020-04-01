@@ -7,7 +7,7 @@ import TopReviews from "./topReviews";
 class food extends Component {
     render(){
     let foodName="ข้าวผัดกิมจิ" ;
-    const foodPic='url(/pic/food1.jpg)'; 
+    let foodPic="/pic/food1.jpg"; 
     let foodCost="80" ;
     let foodRate="4.52"; 
     let isfav=false ;

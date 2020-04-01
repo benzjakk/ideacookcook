@@ -27,7 +27,7 @@ const FoodBasicInfo=({foodName,foodPic,foodCost,foodRate,isfav})=> {
 
     return(
         <div className="food-basicInfo">
-            <img className="food-img" style={{backgroundImage:foodPic}}/>
+            <img className="food-img" src={foodPic}/>
             <div className="food-name"><strong>{foodName}</strong></div>
             <div className="Info">
                 <div className="cost"><strong>{foodCost} ฿</strong></div>

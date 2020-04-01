@@ -1,9 +1,5 @@
 import React,{Component} from "react";
 import "./page_switch_Recipes.css"
-import {FaStream,FaStar} from 'react-icons/fa';
-import {TiFlag} from 'react-icons/ti';
-import {IoIosTime} from 'react-icons/io';
-import {AiOutlineFire,AiFillFire} from 'react-icons/ai';
 
 const RRR=(props)=> {
     const star=(s)=>{
@@ -15,38 +11,17 @@ const RRR=(props)=> {
         if(s==5)return("star5");
     }
 
-    const checkCal=(recipe,cal)=>{
-        if(cal=='all'|| recipe.cal==cal)
-            return(
-                <div>
-                <div className="pic">
-                    <div className="picFront" style={{backgroundImage:recipe.img}}>
-                    </div>
-                    <div className="picBack">
-                        <div className="name">{recipe.name}</div>
-                        <div className="info">                            
-                            <div className="icons">                                
-                                <div className="myIcons"><FaStream /></div>
-                                <div className="myIcons"><IoIosTime /></div>
-                                <div className="myIcons"><FaStar /></div>                                
-                            </div>
-                            <div className="afterIconsA">
-                                <div>{recipe.numOfSteps} steps</div>
-                                <div>{recipe.time} min</div>
-                                <div>{recipe.rating}</div>
-                            </div>
-                        </div>                        
-                    </div>
-                </div>
-                </div>
-            );
-        else return(null);
-    }
-
-    if(props.page=="high" || props.page=="medium" || props.page=="low" || props.page=="all"){    
+    if(props.page=="recipes"){    
         const listRcp = props.L.map((recipe) =>
-            <div>{checkCal(recipe,props.page)}</div>
-        )
+            <div>
+                <div className="pic" style={{backgroundImage:'url(/pic/food1.jpg)'}}>
+                    <div class="info">                
+                        <div className="fName">{recipe.name}</div>
+                        <div>{recipe.cal} cal</div>
+                    </div>
+                </div>
+            </div>)
+
         return(
             <div className="recipe-box">
                 {listRcp}
@@ -56,6 +31,8 @@ const RRR=(props)=> {
     else if(props.page=="reviews"){      
         const listRv = props.L.map((review) =>
         <div className="review-box">
+            {/* <div className="a"/>
+            <div className="b"/> */}
             <img className="pic"/>
             <div class="info">
                 <div class="fName">{review.name}</div>
@@ -63,8 +40,8 @@ const RRR=(props)=> {
                 <div>{review.comment}</div>
                 <div>- {review.by} -</div>
             </div>
-        </div>
-        )
+        </div>)
+
         return(
             <div class="info">
                 {listRv}
@@ -72,23 +49,23 @@ const RRR=(props)=> {
         );
     }
 
-    // else{
-    //     const listA = props.L.map((about) =>
-    //     <div className="">
-    //         <div>
-    //         <div>{about.message}</div>
-    //         <div>{about.contact}</div>
-    //         <div>{about.joined}</div>
-    //         </div>
-    //     </div>)
+    else{
+        const listA = props.L.map((about) =>
+        <div className="">
+            <div>
+            <div>{about.message}</div>
+            <div>{about.contact}</div>
+            <div>{about.joined}</div>
+            </div>
+        </div>)
 
-    //     return(
+        return(
             
-    //         <div>
-    //             {listA}
-    //         </div>
-    //     );
-    // }
+            <div>
+                {/* {listA} */}
+            </div>
+        );
+    }
 }
 
 class SW_Pages extends Component {
