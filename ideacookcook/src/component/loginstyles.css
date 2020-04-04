@@ -51,7 +51,7 @@ span.psw {
   width: 80%; /* Could be more or less, depending on screen size */
 }
 .modal {
-  display: none; /* Hidden by default */
+  display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;

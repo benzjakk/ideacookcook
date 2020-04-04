@@ -1,20 +1,21 @@
 import React, { Component } from "react";
-import { useState } from "react";
 
 class Loginer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { showModal: true };
+  }
+  handleClose = () => {
+    this.setState({ showModal: false });
+  };
+
   render() {
-    const [isOpen, setOpen] = useState(true);
     return (
       <div
-        id="id01"
         class="modal"
-        style={{ visibility: isOpen ? "visible" : "hidden" }}
+        style={{ visibility: this.state.showModal ? "visible" : "hidden" }}
       >
-        <span
-          onclick={() => setOpen(!isOpen)}
-          class="close"
-          title="Close Modal"
-        >
+        <span onClick={this.handleClose} class="close" title="Close Modal">
           &times;
         </span>
         <form class="modal-content animate" action="/action_page.php">
