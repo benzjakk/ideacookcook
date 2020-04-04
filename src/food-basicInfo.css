@@ -7,11 +7,12 @@
     justify-content: center; 
 }
 
-.food-img {
+.food-basicInfo .food-img {
     /* background-image: url({}); */
     /* background-image: url(/pic/food1.jpg); */
-    background-size:initial ;
+    background-size: cover;
     background-repeat: no-repeat;
+    min-height:40vmin;
     background-position: center;
     /* height:35vmin; */
     border-top-left-radius: 15px;
@@ -19,7 +20,7 @@
          
 }
 
-.Info {
+.food-basicInfo .Info {
     background: white;
     color: rgb(170, 5, 5);
     height: calc(9.5vmin - 4.85vmin);
