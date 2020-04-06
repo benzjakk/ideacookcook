@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import cate1 from "./pic/cate1.png";
 class Category extends Component {
   state = {};
   render() {
@@ -8,14 +8,13 @@ class Category extends Component {
         <h2>หมวดหมู่</h2>
         <ul>
           <figure>
-            <img src="pic/cate1.png" alt="คาว"></img>
+            <img src={cate1} alt="คาว"></img>
             <figcaption>
-              {" "}
-              <b>คาว</b>{" "}
+              <b>คาว</b>
             </figcaption>
           </figure>
           <figure>
-            <img src="pic/cate2.png" alt="หวาน"></img>
+            <img src="./pic/cate2.png" alt="หวาน"></img>
             <figcaption>
               <b>หวาน</b>
             </figcaption>
@@ -46,10 +45,9 @@ class Category extends Component {
           </figure>
         </ul>
         <div>
-          {" "}
           <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
             Icons made by Freepik
-          </a>{" "}
+          </a>
           <a href="https://www.flaticon.com/" title="Flaticon">
             from www.flaticon.com
           </a>

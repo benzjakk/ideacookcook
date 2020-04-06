@@ -1,9 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
 import Header from "./component/header.jsx";
-import Category from "./component/category";
+import Category from "./component/category.js";
 function App() {
-  return <Category />;
+  return (
+    <React.Fragment>
+      <Header />
+      <Category />
+    </React.Fragment>
+  );
 }
 
 export default App;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/headerstyles.css";
+import "./styles/headerstyles.css";
 class Header extends Component {
   state = {};
   render() {
