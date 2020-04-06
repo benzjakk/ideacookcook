@@ -1,0 +1,31 @@
+.category {
+  margin: 10px;
+  margin-left: 20%;
+  background-color: white;
+  width: 60%;
+  padding: 10px;
+  border-radius: 5px;
+}
+h2 {
+  color: #bf1717;
+}
+.category div {
+  text-align: right;
+}
+.category a {
+  text-decoration: none;
+  color: black;
+  font-size: 10px;
+}
+.category ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.category figure img {
+  width: 60px;
+}
+.category figure figcaption {
+  margin-top: 8px;
+  text-align: center;
+}

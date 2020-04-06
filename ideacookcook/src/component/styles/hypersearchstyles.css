@@ -1,0 +1,35 @@
+.hypersearch {
+  margin: 10px;
+  margin-left: 20%;
+  background-color: white;
+  width: 60%;
+  padding: 10px;
+  border-radius: 5px;
+}
+.hypersearch li {
+  display: flex;
+}
+.hypersearch select {
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.hypersearch input {
+  margin: 10px;
+  border-radius: 5px;
+  width: 80%;
+  font-size: 20px;
+}
+.hypersearch p {
+  font-size: 20px;
+}
+
+.hypersearch button {
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  margin-left: 400px;
+}
+.hypersearch button:hover {
+  background-color: #ffaa00;
+}
