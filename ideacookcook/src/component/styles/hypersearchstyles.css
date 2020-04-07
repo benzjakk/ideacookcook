@@ -35,3 +35,13 @@
   background-color: #ffaa00;
   cursor: pointer;
 }
+@media screen and (max-width: 903px) {
+  .hypersearch p {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 740px) {
+  .hypersearch p {
+    font-size: 13px;
+  }
+}
