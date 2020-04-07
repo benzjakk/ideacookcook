@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import "./styles/headerstyles.css";
 import Loginer from "./loginer.jsx";
+import Register from "./register.jsx";
 
 class Header extends Component {
-  openLoginer = () => {
+  openLoginer() {
     window.Loginer.setState({ showModal: true });
-  };
+  }
+  openRegister() {
+    window.Register.setState({ showModal: true });
+  }
 
   render() {
     return (
@@ -13,7 +17,7 @@ class Header extends Component {
         <header>
           <div class="login_regis">
             <div onClick={this.openLoginer}>เข้าสู่ระบบ</div>
-            <div>สมัครสมาชิก</div>
+            <div onClick={this.openRegister}>สมัครสมาชิก</div>
           </div>
           <div class="mainheader">
             <div id="logo">
@@ -42,9 +46,13 @@ class Header extends Component {
           </div>
         </header>
         <Loginer
-          id="loginer"
           ref={(Loginer) => {
             window.Loginer = Loginer;
+          }}
+        />
+        <Register
+          ref={(Register) => {
+            window.Register = Register;
           }}
         />
       </React.Fragment>

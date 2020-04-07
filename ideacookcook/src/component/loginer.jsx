@@ -5,18 +5,17 @@ class Loginer extends Component {
   state = {
     showModal: false,
   };
-  closeLoginer = () => {
+  closeModal = () => {
     this.setState({ showModal: false });
   };
 
   render() {
     return (
       <div
-        id="id01"
         class="modal"
         style={{ display: this.state.showModal ? "block" : "none" }}
       >
-        <span onClick={this.closeLoginer} class="close" title="Close Modal">
+        <span onClick={this.closeModal} class="close" title="Close Modal">
           &times;
         </span>
         <form class="modal-content animate" action="/action_page.php">
@@ -49,7 +48,7 @@ class Loginer extends Component {
           </div>
 
           <div class="container">
-            <button type="button" onClick={this.closeLoginer} class="cancelbtn">
+            <button type="button" onClick={this.closeModal} class="cancelbtn">
               Cancel
             </button>
             <span class="psw">

@@ -28,8 +28,10 @@
   height: 50px;
   width: 100px;
   border-radius: 5px;
-  margin-left: 400px;
+  margin-left: 40%;
+  font-weight: bolder;
 }
 .hypersearch button:hover {
   background-color: #ffaa00;
+  cursor: pointer;
 }
