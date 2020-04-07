@@ -2,20 +2,17 @@ import React, { Component } from "react";
 import "./styles/loginerstyles.css";
 
 class Loginer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { showModal: true };
-  }
+  state = {
+    showModal: false,
+  };
   closeLoginer = () => {
     this.setState({ showModal: false });
   };
-  openLoginer() {
-    this.setState({ showModal: true });
-  }
 
   render() {
     return (
       <div
+        id="id01"
         class="modal"
         style={{ display: this.state.showModal ? "block" : "none" }}
       >
@@ -52,11 +49,7 @@ class Loginer extends Component {
           </div>
 
           <div class="container">
-            <button
-              type="button"
-              onclick="document.getElementById('id01').style.display='none'"
-              class="cancelbtn"
-            >
+            <button type="button" onClick={this.closeLoginer} class="cancelbtn">
               Cancel
             </button>
             <span class="psw">

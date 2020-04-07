@@ -3,12 +3,8 @@ import "./styles/headerstyles.css";
 import Loginer from "./loginer.jsx";
 
 class Header extends Component {
-  state = {
-    showLoginer: false,
-  };
   openLoginer = () => {
-    this.setState({ showLoginer: true });
-    document.getElementById("loginer").openLoginer();
+    window.Loginer.setState({ showModal: true });
   };
 
   render() {
@@ -45,7 +41,12 @@ class Header extends Component {
             </a>
           </div>
         </header>
-        {this.state.showLoginer ? <Loginer id="loginer" /> : null}
+        <Loginer
+          id="loginer"
+          ref={(Loginer) => {
+            window.Loginer = Loginer;
+          }}
+        />
       </React.Fragment>
     );
   }
