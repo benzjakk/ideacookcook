@@ -20,6 +20,7 @@ header #logo {
   text-decoration: none;
 }
 header input {
+  margin-left: 40px;
   margin-top: 50px;
   border: none;
   border-radius: 5px;

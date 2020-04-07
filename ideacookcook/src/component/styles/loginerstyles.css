@@ -11,6 +11,7 @@ input[type="password"] {
 /* Set a style for all buttons */
 .container1 button {
   background-color: #4caf50;
+  border-radius: 15px;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -25,6 +26,7 @@ input[type="password"] {
 
 /* Extra styles for the cancel button */
 .cancelbtn {
+  border-radius: 15px;
   width: auto;
   padding: 10px 18px;
   background-color: #f44336;
@@ -45,6 +47,7 @@ span.psw {
 
 /* Modal Content/Box */
 .modal-content {
+  border-radius: 15px;
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
