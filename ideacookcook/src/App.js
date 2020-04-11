@@ -1,15 +1,13 @@
 import React from "react";
 import "./component/styles/appstyles.css";
 import Header from "./component/header.jsx";
-import Category from "./component/category.jsx";
-import Hypersearch from "./component/hypersearch";
+import Home from "./page/home.jsx";
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <Category />
-      <Hypersearch />
+      <Home />
     </React.Fragment>
   );
 }
