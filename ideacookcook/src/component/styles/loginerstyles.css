@@ -1,5 +1,6 @@
 .container1 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="file"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -8,15 +9,6 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
-.container1 input[type="file"],
-input[type="password"] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
 /* Set a style for all buttons */
 .container1 button {
   background-color: #4caf50;
@@ -59,7 +51,7 @@ span.psw {
   border-radius: 15px;
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
+  border: 0px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
 .modal {

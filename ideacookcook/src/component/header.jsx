@@ -21,7 +21,7 @@ class Header extends Component {
           </div>
           <div class="mainheader">
             <div id="logo">
-              <a href="index.html">
+              <a href="/">
                 <h1>
                   {" "}
                   IDEA<br></br>COOK<br></br>COOK{" "}

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./styles/loginerstyles.css";
 
 class Register extends Component {
   state = {
