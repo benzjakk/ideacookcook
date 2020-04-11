@@ -1,68 +1,109 @@
 import React,{Component} from "react";
 import "./page_switch_Recipes.css"
+import {FaStream,FaStar} from 'react-icons/fa';
+import CheckRating from './CheckRating';
+import {IoIosTime} from 'react-icons/io';
 
 const RRR=(props)=> {
-    const star=(s)=>{
-        if(s==0)return("star0");
-        if(s==1)return("star1");
-        if(s==2)return("star2");
-        if(s==3)return("star3");
-        if(s==4)return("star4");
-        if(s==5)return("star5");
-    }
-
-    if(props.page=="recipes"){    
+    
+    if(props.page=='all'){
         const listRcp = props.L.map((recipe) =>
-            <div>
-                <div className="pic" style={{backgroundImage:'url(/pic/food1.jpg)'}}>
-                    <div class="info">                
-                        <div className="fName">{recipe.name}</div>
-                        <div>{recipe.cal} cal</div>
-                    </div>
+            <div className="pic">
+                <div className="mybg"></div>
+                <div className="imgBox">
+                    <div className="img" style={{backgroundImage:recipe.img}}/>
                 </div>
-            </div>)
-
+                <div className="content">
+                    <h2>{recipe.name}</h2>
+                    <div className="info">                            
+                        <div className="icons">                                
+                            <div className="myIcons"><FaStream /></div>
+                            <div className="myIcons"><IoIosTime /></div> 
+                            <div className="myIcons"><FaStar /></div>                               
+                        </div>
+                        <div className="afterIconsB">
+                            <div>{recipe.numOfSteps}</div>
+                            <div>{recipe.time}</div>
+                            <div>{recipe.rating}</div>
+                        </div>
+                        <div className="afterIconsA">
+                            <div>steps</div>
+                            <div>min</div>
+                            <div>stars</div>
+                        </div>
+                </div>
+                </div>      
+            </div>
+        )
         return(
-            <div className="recipe-box">
-                {listRcp}
+            <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
+                <div className="recipe-box">{listRcp}</div>
+                <div style={{alignSelf:"center",color:"grey",fontSize:"2vmin",padding:"3vmin",textAlign:"center"}}>no more recipes found</div>
             </div>
         );
     }
-    else if(props.page=="reviews"){      
+
+    else if(props.page!="reviews"){          
+        const valueToGet = props.page;
+        const items = props.L.filter(item => item.cal == valueToGet);
+        const listRcp = items.map((recipe) =>
+        <div className="pic">
+        <div className="mybg"></div>
+        <div className="imgBox">
+            <div className="img" style={{backgroundImage:recipe.img}}/>
+        </div>
+        <div className="content">
+            <h2>{recipe.name}</h2>
+            <div className="info">                            
+                <div className="icons">                                
+                    <div className="myIcons"><FaStream /></div>
+                    <div className="myIcons"><IoIosTime /></div> 
+                    <div className="myIcons"><FaStar /></div>                               
+                </div>
+                <div className="afterIconsB">
+                    <div>{recipe.numOfSteps}</div>
+                    <div>{recipe.time}</div>
+                    <div>{recipe.rating}</div>
+                </div>
+                <div className="afterIconsA">
+                    <div>steps</div>
+                    <div>min</div>
+                    <div>stars</div>
+                </div>
+        </div>
+        </div>      
+    </div>
+        )
+        return(
+            <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
+                <div className="recipe-box">{listRcp}</div>
+                <div style={{alignSelf:"center",color:"grey",fontSize:"2vmin",margin:"3vmin",textAlign:"center"}}>no more recipes found</div>
+            </div>
+        );
+    }
+    else{      
+        const checkComment=(comment)=>{
+            if(comment!="")return(<div className="comment">{comment}</div>);
+            else return(null);
+        }
         const listRv = props.L.map((review) =>
-        <div className="review-box">
-            {/* <div className="a"/>
-            <div className="b"/> */}
-            <img className="pic"/>
+        <div className="review-info">
+            <div className="pic" style={{backgroundImage:'url(/pic/food1.jpg)'}}/>
             <div class="info">
                 <div class="fName">{review.name}</div>
-                <div className={star(review.rated)}></div>
-                <div>{review.comment}</div>
-                <div>- {review.by} -</div>
+                <div className="myRating">
+                    {CheckRating(review.rated)}
+                    <p className="num">{review.rated}</p>
+                </div>
+                {checkComment(review.comment)}
+                <div className="reviewBy">- {review.by} -</div>
             </div>
-        </div>)
-
+        </div>
+        )
         return(
-            <div class="info">
+            <div class="review-box">
                 {listRv}
-            </div>
-        );
-    }
-
-    else{
-        const listA = props.L.map((about) =>
-        <div className="">
-            <div>
-            <div>{about.message}</div>
-            <div>{about.contact}</div>
-            <div>{about.joined}</div>
-            </div>
-        </div>)
-
-        return(
-            
-            <div>
-                {/* {listA} */}
+                <div style={{color:"grey",fontSize:"2vmin",margin:"3vmin",textAlign:"center"}}>no more reviews found</div>
             </div>
         );
     }
@@ -71,7 +112,7 @@ const RRR=(props)=> {
 class SW_Pages extends Component {
     render() {
         return(
-            <div>
+            <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
             <RRR L={this.props.L} page={this.props.page} rated={this.props.rated}/>
             </div>
         );

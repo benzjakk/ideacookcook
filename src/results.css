@@ -1,0 +1,110 @@
+body {
+    /* background: rgb(184, 185, 190); */
+}
+.result .food-box {
+    height: 45vmin;
+    width: 30vmin;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 1vmin 2vmin 3vmin 2vmin;
+    box-shadow: 0vmin 0vmin 1vmin rgb(184, 185, 190);
+    transition: 0.5s;
+}
+
+.result .fpBox {
+    background-position: center;
+    background-size: cover;
+    height: 29vmin;
+    width: 29vmin;
+    margin:0.5vmin;
+    overflow: hidden;
+}
+
+.result .food-box:hover {
+    box-shadow: 1vmin 1vmin 2vmin  rgb(105, 105, 105);
+    transform: translate(-1vmin,-1vmin);
+    transition: 0.5s;
+}
+
+.food-box:hover .fp {
+}
+
+.result .fp {
+    background-position: center;
+    background-size: cover;
+    height: 30vmin;
+    width: 30vmin;
+}
+
+.result .food-info {
+    width:26vmin;
+    height:15vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 2vmin;
+}
+
+.result .food-info-name {
+    font-size: 2vmin;
+    font-weight: bolder;
+    width: 26vmin;
+    color: rgb(170,5,5);
+}
+
+.result .food-info-name:hover{
+    color:red;
+    transition: 0.5s;
+}
+
+.result .f-info {
+    font-size: 1.5vmin;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1vmin;
+}
+
+.f-info div {
+    margin-right: 1vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.5vmin;
+}
+
+.result .steps , .result .time {
+    font-size: 1.5vmin;
+    width: 7.5vmin;
+    margin: 0;
+    text-align: center;
+    padding: 0.5vmin 0;
+}
+
+.result .time {
+    background-color: rgb(170,5,5);
+    color: white;        
+    border: 0.1vmin solid rgb(170,5,5);
+    font-weight: bolder;
+    border-top-left-radius:0.5vmin;
+    border-bottom-left-radius: 0.5vmin;
+}
+
+.result .steps {
+    color:rgb(170,5,5);
+    border: 0.1vmin solid rgb(170,5,5);
+    font-weight: bolder;
+    border-top-right-radius: 0.5vmin;
+    border-bottom-right-radius:0.5vmin ;
+}
+
+.result-box {
+    width:85vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
