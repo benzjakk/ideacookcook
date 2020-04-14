@@ -1,92 +1,111 @@
 header {
-  margin: 0px;
-  padding: 1px;
-  background-color: #bf1717;
-}
-header .mainheader {
+  background-color: white;
+  position: sticky;
+  top:0;
+  height: 80px;  
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+header .mainheader {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 0;
   margin: 0;
   text-align: center;
+  top:0;
+  height: 80px;
+  width: 100%;
 }
 header #logo {
-  color: white;
-  font-size: 15px;
-  padding: 0px 0px 0px 60px;
-  margin: 0px;
-  margin-top: 2px;
-  margin-right: 10%;
-  text-decoration: none;
+  background-color: rgb(170,5,5);
+  border-radius: 50%;
+  color: rgb(170,5,5);
+  font-size: 5px;
+  margin:0 1vw;
+  width: 44px;
 }
 header input {
-  margin-left: 40px;
-  margin-top: 50px;
+  background-color: rgb(233, 233, 233);
   border: none;
-  border-radius: 5px;
-  padding: 8px;
-  width: 800px;
-  height: 25px;
+  border-radius: 30px;
+  padding: 9px 2vw;
+  width: calc(88.5vw - 450px);
+  height: 26px;
+  font-size: 17px;
+}
+
+header .login_regis {
+  position: absolute;
+  display: flex;
+  right: 1vw;
+  z-index: 10;
 }
 
 header .login_regis div {
-  color: white;
+  color: black;
   font-size: 15px;
   padding: 0;
-  margin: 0;
-  margin-left: 10px;
-}
-header .login_regis {
-  position: relative;
+  margin-left: 0.5vw;
+  width:100px;
+  background-color: rgb(235, 235, 235);
+  border-radius: 30px;
+  height:44px;
+  text-align: center;
   display: flex;
-  flex-direction: row;
-  padding: 0;
-  margin: 0;
-  margin-left: 85%;
+  flex-direction: column;
+  justify-content: center;
 }
-header .login_regis {
-  width: 200px;
-}
+
 header .login_regis div:hover {
+  background-color: black;
+  color: white;
   cursor: pointer;
 }
 header button {
-  border-radius: 5px;
-  height: 40px;
-  margin-top: 50px;
-  margin-left: 5px;
+  font-size: 17px;
+  height: 44px;
+  width:100px ;
+  border-radius: 30px;
+  color: rgb(170,5,5);
   background-color: white;
   border: none;
+  margin-left: 1vw;
 }
 header button:hover {
-  background-color: #ffaa00;
+  background-color: rgb(170,5,5);
+  color: white;
   cursor: pointer;
 }
 header a {
   text-decoration: none;
   color: white;
 }
-@media screen and (max-width: 1230px) {
+/* @media screen and (max-width: 1230px) {
   header input {
-    width: 300px;
+    width: 400px;
   }
   header .login_regis {
     margin-left: 75%;
   }
-}
+} */
 
 @media screen and (max-width: 675px) {
   header input {
-    margin-top: 30px;
-    width: 150px;
-  }
-  header #logo {
-    font-size: 10px;
+    /* width: 130px; */
+    width: calc(93.5vw - 200px);   
   }
   header button {
-    margin-top: 30px;
+    width: 57px;
+    font-size: 12px;
   }
-  header .login_regis {
-    margin-left: 65%;
+
+  header .login_regis div {
+    /* width: 70px;
+    font-size: 12px; */
+    visibility: hidden;
+    width: 0;
   }
 }

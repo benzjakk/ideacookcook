@@ -29,11 +29,15 @@ h2 {
   margin-top: 8px;
   text-align: center;
 }
+.category figure{
+  transition: 0.5s;
+}
 .category figure:hover {
   cursor: pointer;
   border-radius: 50px;
-
-  margin-top: 1px;
+  transition: 0.5s;
+  margin-top: 0px;
+  padding-bottom: 16px;
 }
 @media screen and (max-width: 1720px) {
   .category figure img {
