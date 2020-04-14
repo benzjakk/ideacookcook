@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles/hypersearchstyles.css";
+import InputWithT from "./inputwithtag.jsx";
 
 class Hypersearch extends Component {
   state = {};
@@ -19,11 +20,11 @@ class Hypersearch extends Component {
           </li>
           <li>
             <p>วัตถุดิบ : </p>
-            <input type="text"></input>
+            <InputWithT />
           </li>
           <li>
             <p>อุปกรณ์ : </p>
-            <input type="text"></input>
+            <InputWithT />
           </li>
           <li>
             <p>ระยะเวลา : </p>
