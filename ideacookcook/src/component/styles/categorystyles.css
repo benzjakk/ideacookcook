@@ -29,13 +29,13 @@ h2 {
   margin-top: 8px;
   text-align: center;
 }
-.category figure{
+.category figure {
   transition: 0.5s;
 }
 .category figure:hover {
   cursor: pointer;
   border-radius: 50px;
-  transition: 0.5s;
+  transition: 0.25s;
   margin-top: 0px;
   padding-bottom: 16px;
 }

@@ -1,12 +1,41 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class Register extends Component {
-  state = {
-    showModal: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false,
+      uname: "",
+      psw: "",
+      email: "",
+      name: "",
+      surname: "",
+      phonenum: "",
+      facebook: "",
+      ig: "",
+      line: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   closeModal = () => {
     this.setState({ showModal: false });
   };
+
+  handleSubmit = (e) => {
+    console.log("submit");
+  };
+
+  handleChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({ [name]: value });
+
+    return true;
+  }
 
   render() {
     return (
@@ -17,34 +46,64 @@ class Register extends Component {
         <span onClick={this.closeModal} class="close" title="Close Modal">
           &times;
         </span>
-        <form class="modal-content animate" action="/action_page.php">
+        <form class="modal-content animate" onSubmit={this.handleSubmit}>
           <div class="container1">
-            <label for="uname">
+            <label>
               <b>Username</b>
             </label>
-            <input type="text" placeholder="Required" name="uname" required />
+            <input
+              type="text"
+              placeholder="Required"
+              name="uname"
+              required
+              onChange={this.handleChange}
+            />
 
-            <label for="psw">
+            <label>
               <b>Password</b>
             </label>
-            <input type="password" placeholder="Required" name="psw" required />
+            <input
+              type="password"
+              placeholder="Required"
+              name="psw"
+              required
+              onChange={this.handleChange}
+            />
 
-            <label for="email">
+            <label>
               <b>E-mail</b>
             </label>
-            <input type="text" placeholder="Required" name="email" required />
+            <input
+              type="text"
+              placeholder="Required"
+              name="email"
+              required
+              onChange={this.handleChange}
+            />
 
-            <label for="name">
+            <label>
               <b>Name</b>
             </label>
-            <input type="text" placeholder="Requied" name="name" required />
+            <input
+              type="text"
+              placeholder="Requied"
+              name="name"
+              required
+              onChange={this.handleChange}
+            />
 
-            <label for="sirname">
-              <b>Sirname</b>
+            <label>
+              <b>Surname</b>
             </label>
-            <input type="text" placeholder="Requied" name="sirname" required />
+            <input
+              type="text"
+              placeholder="Requied"
+              name="surname"
+              required
+              onChange={this.handleChange}
+            />
 
-            <label for="phonenum">
+            <label>
               <b>Phone Number</b>
             </label>
             <input
@@ -52,24 +111,40 @@ class Register extends Component {
               placeholder="Required"
               name="phonenum"
               required
+              onChange={this.handleChange}
             />
 
-            <label for="facebook">
+            <label>
               <b>Facebook</b>
             </label>
-            <input type="text" placeholder="Not Required " name="facebook" />
+            <input
+              type="text"
+              placeholder="Not Required "
+              name="facebook"
+              onChange={this.handleChange}
+            />
 
-            <label for="ig">
+            <label>
               <b>Instagram</b>
             </label>
-            <input type="text" placeholder="Not Required " name="ig" />
+            <input
+              type="text"
+              placeholder="Not Required "
+              name="ig"
+              onChange={this.handleChange}
+            />
 
-            <label for="line">
+            <label>
               <b>Line</b>
             </label>
-            <input type="text" placeholder="Not Required " name="line" />
+            <input
+              type="text"
+              placeholder="Not Required "
+              name="line"
+              onChange={this.handleChange}
+            />
 
-            <button type="submit">Register</button>
+            <button>Register</button>
           </div>
 
           <div class="container">

@@ -8,7 +8,9 @@ class Loginer extends Component {
   closeModal = () => {
     this.setState({ showModal: false });
   };
-
+  handleSubmit = () => {
+    console.log("submit");
+  };
   render() {
     return (
       <div
@@ -18,9 +20,9 @@ class Loginer extends Component {
         <span onClick={this.closeModal} class="close" title="Close Modal">
           &times;
         </span>
-        <form class="modal-content animate" action="/action_page.php">
+        <form class="modal-content animate" onSubmit={this.handleSubmit}>
           <div class="container1">
-            <label for="uname">
+            <label>
               <b>Username</b>
             </label>
             <input
@@ -30,7 +32,7 @@ class Loginer extends Component {
               required
             />
 
-            <label for="psw">
+            <label>
               <b>Password</b>
             </label>
             <input
@@ -41,10 +43,6 @@ class Loginer extends Component {
             />
 
             <button type="submit">Login</button>
-            <label>
-              <input type="checkbox" checked="checked" name="remember" />{" "}
-              Remember me
-            </label>
           </div>
 
           <div class="container">

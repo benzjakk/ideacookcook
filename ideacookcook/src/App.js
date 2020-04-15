@@ -10,10 +10,10 @@ function App() {
     <Router>
       <React.Fragment>
         <Header />
-        <switch>
+        <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/editprofile" component={Editprofile} />
-        </switch>
+        </Switch>
       </React.Fragment>
     </Router>
   );
