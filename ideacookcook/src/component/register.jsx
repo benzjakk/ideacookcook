@@ -26,9 +26,7 @@ class Register extends Component {
   };
 
   handleSubmit = async (event) => {
-    this.setState();
     event.preventDefault();
-    console.log(this.state);
     await axios
       .post(
         "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/CreateUser",
@@ -94,7 +92,7 @@ class Register extends Component {
                     display: this.state.registerSatatus ? "none" : "block",
                   }}
                 >
-                  Can't Register, Please try again!!!
+                  Oops something wrong<br></br> Please try again!!!
                 </button>
               </div>
             ) : null}

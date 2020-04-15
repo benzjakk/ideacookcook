@@ -1,16 +1,49 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./styles/loginerstyles.css";
 
 class Loginer extends Component {
   state = {
     showModal: false,
+    showResult: false,
+    signinStatus: false,
+    email: "",
+    psw: "",
   };
+
   closeModal = () => {
     this.setState({ showModal: false });
   };
-  handleSubmit = (event) => {
-    console.log("submit");
+
+  handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(this.state);
+    await axios
+      .post(
+        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/signin",
+        {
+          email: this.state.email,
+          password: this.state.psw,
+        }
+      )
+      .then((res) => {
+        console.log(res.data.description);
+        if (res.data.description === "Successfully sign-in") {
+          this.setState({ signinSatatus: true });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(this.state.signinSatatus);
+    this.setState({ showResult: true });
+  };
+  handleChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({ [name]: value });
+    return true;
   };
   render() {
     return (
@@ -23,14 +56,37 @@ class Loginer extends Component {
         </span>
         <form class="modal-content animate" onSubmit={this.handleSubmit}>
           <div class="container1">
+            {this.state.showResult ? (
+              <div>
+                <button
+                  class="goodresult"
+                  type="button"
+                  style={{
+                    display: this.state.signinSatatus ? "block" : "none",
+                  }}
+                >
+                  Signin Success
+                </button>
+                <button
+                  class="badresult"
+                  type="button"
+                  style={{
+                    display: this.state.signinSatatus ? "none" : "block",
+                  }}
+                >
+                  Oops something wrong<br></br> Please try again!!!
+                </button>
+              </div>
+            ) : null}
             <label>
-              <b>email</b>
+              <b>Email</b>
             </label>
             <input
               type="text"
               placeholder="Enter Email"
               name="email"
               required
+              onChange={this.handleChange}
             />
 
             <label>
@@ -41,6 +97,7 @@ class Loginer extends Component {
               placeholder="Enter Password"
               name="psw"
               required
+              onChange={this.handleChange}
             />
 
             <button>Login</button>
