@@ -8,8 +8,9 @@ class Loginer extends Component {
   closeModal = () => {
     this.setState({ showModal: false });
   };
-  handleSubmit = () => {
+  handleSubmit = (event) => {
     console.log("submit");
+    event.preventDefault();
   };
   render() {
     return (
@@ -23,12 +24,12 @@ class Loginer extends Component {
         <form class="modal-content animate" onSubmit={this.handleSubmit}>
           <div class="container1">
             <label>
-              <b>Username</b>
+              <b>email</b>
             </label>
             <input
               type="text"
-              placeholder="Enter Username"
-              name="uname"
+              placeholder="Enter Email"
+              name="email"
               required
             />
 
@@ -42,7 +43,7 @@ class Loginer extends Component {
               required
             />
 
-            <button type="submit">Login</button>
+            <button>Login</button>
           </div>
 
           <div class="container">

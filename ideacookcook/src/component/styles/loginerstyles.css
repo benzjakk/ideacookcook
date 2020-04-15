@@ -20,11 +20,21 @@ input[type="file"] {
   cursor: pointer;
   width: 100%;
 }
-
 .container1 button:hover {
   opacity: 0.8;
 }
 
+.container1 .goodresult:hover {
+  opacity: 1;
+}
+
+.container1 .badresult {
+  background-color: #f44336;
+}
+
+.container1 .badresult:hover {
+  opacity: 1;
+}
 /* Extra styles for the cancel button */
 .cancelbtn {
   border-radius: 15px;

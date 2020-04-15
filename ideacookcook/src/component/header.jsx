@@ -4,6 +4,10 @@ import Loginer from "./loginer.jsx";
 import Register from "./register.jsx";
 
 class Header extends Component {
+  state = {
+    currentUser: null,
+    currentMemID: null,
+  };
   openLoginer() {
     window.Loginer.setState({ showModal: true });
   }
@@ -11,14 +15,24 @@ class Header extends Component {
     window.Register.setState({ showModal: true });
   }
 
+  updateCurrentUser = () => {};
+
   render() {
     return (
       <React.Fragment>
         <header>
-          <div class="login_regis">
-            <div onClick={this.openLoginer}>เข้าสู่ระบบ</div>
-            <div onClick={this.openRegister}>สมัครสมาชิก</div>
-          </div>
+          {this.state.currentUser ? (
+            <div class="login_regis">
+              <div onClick={this.openLoginer}>{this.state.currentUser}</div>
+              <div onClick={this.openRegister}>Logout</div>
+            </div>
+          ) : (
+            <div class="login_regis">
+              <div onClick={this.openLoginer}>เข้าสู่ระบบ</div>
+              <div onClick={this.openRegister}>สมัครสมาชิก</div>
+            </div>
+          )}
+
           <div class="mainheader">
             <div id="logo">
               <a href="/">
