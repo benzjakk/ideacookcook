@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./styles/headerstyles.css";
 import Loginer from "./loginer.jsx";
 import Register from "./register.jsx";
@@ -15,7 +16,21 @@ class Header extends Component {
     window.Register.setState({ showModal: true });
   }
 
-  updateCurrentUser = () => {};
+  updateCurrentUser = async () => {
+    console.log("updatecurrentUser");
+    this.setState({
+      currentMemID: window.Loginer.state.currentMemID,
+    });
+    await axios
+      .get(
+        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/data/" +
+          window.Loginer.state.currentMemID
+      )
+      .then((res) => {
+        this.setState({ currentUser: res.data.data.KnownName });
+      })
+      .catch((error) => console.log(error));
+  };
 
   render() {
     return (
@@ -60,6 +75,7 @@ class Header extends Component {
           </div>
         </header>
         <Loginer
+          triggerUserCurrentUpdate={this.updateCurrentUser}
           ref={(Loginer) => {
             window.Loginer = Loginer;
           }}

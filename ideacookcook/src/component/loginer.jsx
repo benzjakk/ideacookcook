@@ -7,6 +7,7 @@ class Loginer extends Component {
     showModal: false,
     showResult: false,
     signinStatus: false,
+    currentMemID: null,
     email: "",
     psw: "",
   };
@@ -17,7 +18,6 @@ class Loginer extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(this.state);
     await axios
       .post(
         "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/signin",
@@ -27,15 +27,20 @@ class Loginer extends Component {
         }
       )
       .then((res) => {
-        console.log(res.data.description);
         if (res.data.description === "Successfully sign-in") {
-          this.setState({ signinSatatus: true });
+          this.setState({
+            signinStatus: true,
+            currentUser: this.state.email,
+            currentMemID: res.data.MemID,
+          });
+          console.log("Signin Success");
         }
       })
       .catch((error) => {
         console.log(error);
       });
-    console.log(this.state.signinSatatus);
+    this.props.triggerUserCurrentUpdate();
+    console.log(this.state.signinStatus);
     this.setState({ showResult: true });
   };
   handleChange = (event) => {
@@ -62,7 +67,7 @@ class Loginer extends Component {
                   class="goodresult"
                   type="button"
                   style={{
-                    display: this.state.signinSatatus ? "block" : "none",
+                    display: this.state.signinStatus ? "block" : "none",
                   }}
                 >
                   Signin Success
@@ -71,7 +76,7 @@ class Loginer extends Component {
                   class="badresult"
                   type="button"
                   style={{
-                    display: this.state.signinSatatus ? "none" : "block",
+                    display: this.state.signinStatus ? "none" : "block",
                   }}
                 >
                   Oops something wrong<br></br> Please try again!!!
