@@ -8,6 +8,7 @@ class Loginer extends Component {
     showResult: false,
     signinStatus: false,
     currentMemID: null,
+    currentUser: null,
     email: "",
     psw: "",
   };
@@ -30,15 +31,26 @@ class Loginer extends Component {
         if (res.data.description === "Successfully sign-in") {
           this.setState({
             signinStatus: true,
-            currentUser: this.state.email,
             currentMemID: res.data.MemID,
           });
+          localStorage.setItem("currentMemID", this.state.currentMemID);
           console.log("Signin Success");
         }
       })
       .catch((error) => {
         console.log(error);
       });
+    await axios
+      .get(
+        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/data/" +
+          this.state.currentMemID
+      )
+      .then((res) => {
+        console.log(res);
+        this.setState({ currentUser: res.data.data.KnownName });
+        localStorage.setItem("currentUser", this.state.currentUser);
+      })
+      .catch((error) => console.log(error));
     this.props.triggerUserCurrentUpdate();
     console.log(this.state.signinStatus);
     this.setState({ showResult: true });

@@ -9,6 +9,11 @@ class Header extends Component {
     currentUser: null,
     currentMemID: null,
   };
+
+  componentDidMount = () => {
+    this.updateCurrentUser();
+  };
+
   openLoginer() {
     window.Loginer.setState({ showModal: true });
   }
@@ -16,20 +21,17 @@ class Header extends Component {
     window.Register.setState({ showModal: true });
   }
 
+  handleLogout = async () => {
+    await localStorage.removeItem("currentUser");
+    await localStorage.removeItem("currentMemID");
+    this.updateCurrentUser();
+  };
+
   updateCurrentUser = async () => {
-    console.log("updatecurrentUser");
-    this.setState({
-      currentMemID: window.Loginer.state.currentMemID,
+    await this.setState({
+      currentUser: localStorage.getItem("currentUser"),
+      currentMemID: localStorage.getItem("currentMemID"),
     });
-    await axios
-      .get(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/data/" +
-          window.Loginer.state.currentMemID
-      )
-      .then((res) => {
-        this.setState({ currentUser: res.data.data.KnownName });
-      })
-      .catch((error) => console.log(error));
   };
 
   render() {
@@ -38,8 +40,8 @@ class Header extends Component {
         <header>
           {this.state.currentUser ? (
             <div class="login_regis">
-              <div onClick={this.openLoginer}>{this.state.currentUser}</div>
-              <div onClick={this.openRegister}>Logout</div>
+              <div>{this.state.currentUser}</div>
+              <div onClick={this.handleLogout}>Logout</div>
             </div>
           ) : (
             <div class="login_regis">
