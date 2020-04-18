@@ -1,21 +1,23 @@
 body {
-    /* background-color: rgb(243, 139, 139); */
+    background-color: white;
+    overflow-x: hidden;
 }
 
 .result section {
     background-color: white;
-    position: relative;
+    /* position: relative; */
     color: rgb(170, 5, 5);
     width: 100vw;
     display: flex;
     flex-direction: column; 
-    align-items: center;
-    overflow-y: hidden;  
-    height: 92vh;
-    margin-top: 8vh;
+    /* overflow: scroll;   */
+    margin: 0;
+    padding: 0;
+    /* height: 92vh; */
+    /* margin-top: 8vh; */
 }
 
-.result section .resulttt {
+/* .result section .resulttt {
     width:100%;
     display: flex;
     flex-direction: column;
@@ -33,21 +35,26 @@ body {
 .result section .resulttt .small {
     color:grey;
     font-size: 2vmin;
-}
+} */
 
 .result section .pageHeader {
+    background-color: white;
+    width: 100vw;
+    position: sticky;
+    top:80px;
     align-self: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    z-index: 2;
-    height: 7vh;
+    z-index: 20;
+    height: 53px;
     align-items: center;
-    padding: 4vh 0 2vh 0;
+    padding: 15px 0;
+    opacity: 0.97;
 }
 
-.result .pageHeader .isNotClicked strong,.pageHeader .isClicked strong{
-    font-size: 1.7vmin;
+.result .pageHeader .isNotClicked strong,.result .pageHeader .isClicked strong{
+    font-size: 13px;
     text-align: center;
 }
 
@@ -57,14 +64,14 @@ body {
     justify-content: center;
     align-items: center;
     color: rgb(170, 5, 5);
-    width:13vmin;
-    height: 7vh;
+    width:97px;
+    height: 53px;
     cursor: pointer;
 }
 
 .result .pageHeader .isNotClicked:hover{
-    border-radius: 4vmin;
-    height: 7vh;
+    border-radius: 27px;
+    height: 53px;
     background-color:rgb(231, 231, 231) ;
 }
 
@@ -75,20 +82,16 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    width:13vmin;
-    height: 7vh;
-    border-radius: 4vmin;
+    width:97px;
+    height: 53px;
+    border-radius: 27px;
 }
 
 .result .allResult {
     width: 100vw;
-    height: 79.5vh;
-    padding-top: 0.5vh;
-    overflow-y:scroll ;
 }
 
-.allResult::-webkit-scrollbar {
-    /* position: absolute; */
+/* .allResult::-webkit-scrollbar {
     width: 1vmin;
   }
 
@@ -103,4 +106,4 @@ body {
   
 .allResult::-webkit-scrollbar-thumb:hover {
     background: #b30000; 
-  }
+  } */

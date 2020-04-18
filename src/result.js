@@ -1,23 +1,22 @@
 import React,{Component} from "react";
 import "./result.css";
 import Results from "./results";
-// import {FaCircle} from "react-icons/fa";
 
 const allRecipes=[
-    {foodid:"f001",name:"ข้าวผัดกิมจิ",img:'url(/pic/food1.jpg)',cal:"high",numOfReviews:19,time:90,rating:"4.2",numOfSteps:8},
-    {foodid:"f002",name:"ข้าวผัดกิมจิอิอิอู้อู้ว้าวๆเยี่ยมยอดสุดๆไปเลยนะคะเนี่ย",img:'url(/pic/food1.jpg)',cal:"high",numOfReviews:19,time:90,rating:4.2,numOfSteps:8},
+    {foodid:"f001",name:"ข้าวผัดกิมจิ",img:'url(/pic/food1.jpg)',cal:"high",numOfReviews:19,time:50,rating:"4.2",numOfSteps:8},
+    {foodid:"f002",name:"ข้าวผัดกิมจิอิอิอู้อู้ว้าวๆเยี่ยมยอดสุดๆไปเลยนะคะเนี่ย",img:'url(/pic/food1.jpg)',cal:"high",numOfReviews:19,time:40,rating:4.2,numOfSteps:8},
     {foodid:"f003",name:"food3",img:'url(/pic/food1.jpg)',cal:"high",numOfReviews:19,time:90,rating:4.5,numOfSteps:8},
-    {foodid:"f004",name:"ข้าวผัดกิมจิข้าวผัดกิมจิข้าวผัดกิมจิข้าวผัดกิมจิ",img:'url(/pic/food1.jpg)',cal:"high",numOfReviews:19,time:90,rating:4.2,numOfSteps:8},
-    {foodid:"f005",name:"food5",img:'url(/pic/food1.jpg)',cal:"high",numOfReviews:19,time:90,rating:3.1,numOfSteps:8},
-    {foodid:"f006",name:"food6",img:'url(/pic/food1.jpg)',cal:"medium",numOfReviews:19,time:90,rating:"5.0",numOfSteps:8},
-    {foodid:"f007",name:"food7",img:'url(/pic/food1.jpg)',cal:"medium",numOfReviews:19,time:90,rating:4.7,numOfSteps:8},
-    {foodid:"f008",name:"food8",img:'url(/pic/food1.jpg)',cal:"medium",numOfReviews:19,time:90,rating:1.5,numOfSteps:8},
-    {foodid:"f009",name:"food9",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:90,rating:4.2,numOfSteps:8},
-    {foodid:"f010",name:"food10",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:90,rating:3.5,numOfSteps:8},
-    {foodid:"f011",name:"food11",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:90,rating:4.2,numOfSteps:8},
-    {foodid:"f012",name:"food12",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:90,rating:4.2,numOfSteps:8},
-    {foodid:"f013",name:"food13",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:90,rating:4.2,numOfSteps:8},
-    {foodid:"f014",name:"food14",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:90,rating:4.2,numOfSteps:8}
+    {foodid:"f004",name:"ข้าวผัดกิมจิข้าวผัดกิมจิข้าวผัดกิมจิข้าวผัดกิมจิ",img:'url(/pic/food1.jpg)',cal:"high",numOfReviews:19,time:70,rating:4.2,numOfSteps:8},
+    {foodid:"f005",name:"food5",img:'url(/pic/food1.jpg)',cal:"high",numOfReviews:19,time:75,rating:3.1,numOfSteps:8},
+    {foodid:"f006",name:"food6",img:'url(/pic/food1.jpg)',cal:"medium",numOfReviews:19,time:20,rating:"5.0",numOfSteps:8},
+    {foodid:"f007",name:"food7",img:'url(/pic/food1.jpg)',cal:"medium",numOfReviews:19,time:30,rating:4.7,numOfSteps:8},
+    {foodid:"f008",name:"food8",img:'url(/pic/food1.jpg)',cal:"medium",numOfReviews:19,time:45,rating:1.5,numOfSteps:8},
+    {foodid:"f009",name:"food9",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:100,rating:4.2,numOfSteps:8},
+    {foodid:"f010",name:"food10",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:50,rating:3.5,numOfSteps:8},
+    {foodid:"f011",name:"food11",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:35,rating:4.2,numOfSteps:8},
+    {foodid:"f012",name:"food12",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:10,rating:4.2,numOfSteps:8},
+    {foodid:"f013",name:"food13",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:25,rating:4.2,numOfSteps:8},
+    {foodid:"f014",name:"food14",img:'url(/pic/food1.jpg)',cal:"low",numOfReviews:19,time:50,rating:4.2,numOfSteps:8}
 ];
 
 class Result extends Component {
@@ -56,7 +55,7 @@ class Result extends Component {
                         <div className={this.moveDot()}><FaCircle/></div>
                     </div> */}
                     <div className="allResult">
-                        <Results RSs={allRecipes}/>
+                        <Results RSs={allRecipes} SortBy={this.state.isPage}/>
                     </div>
                 </section>
             </div>

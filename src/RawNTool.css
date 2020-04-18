@@ -1,0 +1,73 @@
+.RawNTool{
+    width:100vw;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(212, 212, 212); */
+    /* box-shadow: 0 0 8px grey; */
+}
+
+.RawNTool .all {
+    width: 600px;
+    height: 500px;
+    margin:0 50px;
+    overflow: hidden;
+    display: flex;
+    flex-direction:column;
+    z-index: 5;    
+    border-radius: 15px;
+    box-shadow: 0 0 8px grey;
+}
+
+.allRaws,.allTools{
+    width: 460px;
+    height: 340px;
+    padding:0px 70px 20px 70px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;    
+    z-index: 5;
+}
+
+.allRaws::-webkit-scrollbar,.allTools::-webkit-scrollbar{
+    width: 7px;
+}
+
+.allRaws::-webkit-scrollbar-thumb,.allTools::-webkit-scrollbar-thumb{
+    background-color: rgb(170,5,5);
+    border-radius: 10px;
+}
+
+
+.RNT{
+    display: flex;
+    flex-direction: row;
+    color: rgb(0, 0, 0);
+    height: fit-content;
+    justify-content: space-between;
+}
+
+.RNT div{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 150px;
+    word-wrap: break-word;
+    min-height: 50px;
+    margin: 0px 10px 20px 10px;
+}
+
+.headerrr{
+    z-index: 10;
+    height: 60px;
+    color: black;
+    font-size: 45px;
+    font-weight: 600;
+    padding: 30px 50px 20px 50px;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}

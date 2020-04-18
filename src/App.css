@@ -13,15 +13,19 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {  
+  background-image: url("/pic/headerr.jpg");
+  background-size: cover;
+  transform: translate(10px,0px);
+  
+  background-color: grey;
+  position: sticky;
+  top:0;
+  z-index: 20;
+  height:80px;  
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {

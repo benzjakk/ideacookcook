@@ -1,180 +1,251 @@
 .food-basicInfo {
-    background-color: white;    
-    padding:0;
-    border-radius : 15px;     
+    background-color: black;    
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center; 
+    width: 1000px;
+    height: 650px;
+    overflow: hidden;    
+    box-shadow: 0 0 16px rgb(168, 168, 168);
+    border-radius: 15px;
 }
 
 .food-basicInfo .food-img {
-    /* background-image: url({}); */
-    /* background-image: url(/pic/food1.jpg); */
+    width: 650px;
+    height: 650px;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height:40vmin;
-    background-position: center;
-    /* height:35vmin; */
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-         
+    background-position: center;         
 }
 
 .food-basicInfo .Info {
     background: white;
-    color: rgb(170, 5, 5);
-    height: calc(9.5vmin - 4.85vmin);
-    border-bottom-right-radius : 15px;     
-    border-bottom-left-radius: 15px; 
+    color: black;
+    width: 290px;
+    padding: 30px 30px 0 30px;
     display: flex;
     flex-direction: column;  
 }
 
 .food-name {
-    background: white;
-    opacity: 0.7;
-    padding:0.8vmin 3vmin;
-    height: 3.25vmin;
-    font-size: 2.5vmin;
+    font-size: 30px;
     color: black;
-    transform: translateY(-4.85vmin);
 }
 
-.cost {
-    padding: 1.5vmin 3vmin 0.25vmin 3vmin;
-    font-size: 2.5vmin;
-    color: (170,5,5);
-    margin: 0;
-    transform: translateY(-4.85vmin);
+.food-basicInfo .myStar {
+  margin-top: 5px;
+  font-size: 20px;
 }
 
-.ratingStars {
-    width:62vmin;
-    height:2.75vmin;
-    margin-left: 3vmin;
+.food-basicInfo .maDot {
+  font-size: 4px;
+  transform: translateY(-2px);
+  margin: 0 6px;
+}
+
+.food-basicInfo .f-info {
+  display: flex;
+  flex-direction: row;
+  border-radius: 4px;
+  overflow: hidden;
+  margin:10px 2px;
+}
+
+.food-basicInfo .steps , .food-basicInfo .time {
+  font-size: 11px;
+  width: 60px;
+  text-align: center;
+  padding: 4px 0;
+  font-weight: bolder;
+  margin:0;
+  border: 1px solid grey;
+}
+
+.food-basicInfo .time {
+  background-color: grey;
+  color: white;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;       
+}
+
+.food-basicInfo .steps {
+  color:grey;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;   
+}
+
+.food-basicInfo .chefPic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.food-basicInfo .chefName {
+    font-size: 15px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.food-basicInfo .numOfRecipes {
+    font-size: 13px;
+}
+
+.food-basicInfo .more {
+  position: absolute;
+  background-color:rgb(231, 231, 231);
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 700;
+  right: 0;
+  padding:0 20px;
+  font-size:12px;
+  border-radius:20px;
+  cursor: pointer;
+}
+
+.food-basicInfo .more:hover{
+  background-color: rgb(214, 214, 214);
+}
+
+.food-basicInfo .allReviews{
+    width: 321px;
+    transform: translateX(-30px);
+    padding-left: 30px;
+    height: 300px;
+    overflow: auto;
+    margin-top: 10px;
+    transition: 0.5s;
+    /* border-top: 1px solid rgb(204, 204, 204);
+    border-bottom: 1px solid rgb(204, 204, 204); */
+}
+
+.food-basicInfo .allReviews:hover{
+  background-color: rgb(245, 245, 245);
+}
+
+.allReviews::-webkit-scrollbar {
+    right: 0;
+    width: 6px;
+  }
+
+  .allReviews::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey;  */
+  }
+   
+  .allReviews::-webkit-scrollbar-thumb {
+    background: rgb(170, 5, 5);
+    border-radius: 10px;
+  }
+  
+  .allReviews::-webkit-scrollbar-thumb:hover {
+    background: grey; 
+  }
+
+.food-basicInfo .myPic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+
+.TheRate .myStar {
+  margin: 0;
+  transition: 0.5s;
+}
+
+.TheRate:hover .myStar{
+  color: rgb(170, 5, 5);
+}
+
+.myRate div {
+  margin-left: 5px;
+}
+
+.food-basicInfo .ratehere {
+  display:flex;
+  flex-direction:row;
+  font-size:13px;
+  font-weight:600;
+  z-index: 1;
+  transform: translate(3px,1px);
+  border-radius: 15px;
+  padding: 7px 0 7px 12px;
+  width: 210px;
+  background-color: white;
+}
+
+.food-basicInfo .TheRate {
+  position: absolute;
+  transform: translateX(70px);
+  width: 100px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.food-basicInfo .rrrrr{
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+ .food-basicInfo .myComment {
+   position: absolute;
+    width: 207px;
+    z-index: 0;
+    padding: 30px 28px 10px 15px;
+    border-radius: 15px;
+    word-wrap: break-word;
+    outline: none;
+    height: 25px;
+    resize: none;
+    font-size: 15px;
+    border:1px solid rgb(204,204,204);
+}
+
+.myComment ::-webkit-scrollbar-thumb{
+    visibility: hidden;
+}
+
+.myComment::-webkit-scrollbar {
+    position: absolute;
+    width: 5px;
+  }
+
+  .myComment::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey;  */
+  }
+   
+  .myComment::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 10px;
+    visibility: hidden;
+  }
+  
+  .myComment::-webkit-scrollbar-thumb:hover {
+    background: rgb(170, 5, 5); 
+  }
+
+  .food-basicInfo .button{
+    position: absolute;
     display: flex;
-    flex-direction: row;
-    transform: translateY(-4.85vmin);
-}
-
-.star0 {
-    background-image: url(/pic/star0.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-
-.star0-5 {
-    background-image: url(/pic/star0-5.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-.star1 {
-    background-image: url(/pic/star1.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-.star1-5 {
-    background-image: url(/pic/star1-5.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-.star2 {
-    background-image: url(/pic/star2.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-
-.star2-5 {
-    background-image: url(/pic/star2-5.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-
-.star3 {
-    background-image: url(/pic/star3.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-
-.star3-5 {
-    background-image: url(/pic/star3-5.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-
-.star4 {
-    background-image: url(/pic/star4.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-
-.star4-5 {
-    background-image: url(/pic/star4-5.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-
-.star5 {
-    background-image: url(/pic/star5.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width:18vmin;
-    height:3vmin;
-    
-}
-
-.heart-red {
-    background-image: url(/pic/heart-red.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width: 3vmin;
-    height:2.9vmin;
-    transform: translateX(35vmin);
-}
-
-.heart-white {
-    background-image: url(/pic/heart-white.png);
-    background-size:contain ;
-    background-repeat: no-repeat;
-    width: 3vmin;
-    height:2.9vmin;
-    transform: translateX(35vmin);
-}
-
-.rating {
-    padding-left: 0.5vmin;
-    font-size: 1.5vmin;
-    color: (170,5,5);
-    width:5.6vmin;
-    transform: translate(-2.5vmin,46%);
-}
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translate(200px,-1px);
+    font-size: 15px;
+    color: rgb(170, 5, 5);
+    padding-left: 5px;
+    width: 24px;
+    height: 53px;
+    cursor: pointer;
+    /* background-color: blue; */
+    border-left: 1px solid rgb(204, 204, 204);
+  }

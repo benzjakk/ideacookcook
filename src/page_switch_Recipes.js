@@ -37,8 +37,18 @@ const RRR=(props)=> {
         )
         return(
             <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
-                <div className="recipe-box">{listRcp}</div>
-                <div style={{alignSelf:"center",color:"grey",fontSize:"2vmin",padding:"3vmin",textAlign:"center"}}>no more recipes found</div>
+                <div className="recipe-box">
+                    {listRcp}
+                    <div style={{
+                        alignSelf:"center",
+                        color:"black",
+                        fontSize:"15px",
+                        padding:" 10px",
+                        textAlign:"center",
+                        width:"200px",
+                        margin:"10px"}}>no more recipes found</div>
+                </div>
+                
             </div>
         );
     }
@@ -76,8 +86,17 @@ const RRR=(props)=> {
         )
         return(
             <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
-                <div className="recipe-box">{listRcp}</div>
-                <div style={{alignSelf:"center",color:"grey",fontSize:"2vmin",margin:"3vmin",textAlign:"center"}}>no more recipes found</div>
+                <div className="recipe-box">
+                    {listRcp}
+                    <div style={{
+                        alignSelf:"center",
+                        color:"black",
+                        fontSize:"15px",
+                        padding:" 10px",
+                        textAlign:"center",
+                        width:"200px",
+                        margin:"10px"}}>no more recipes found</div>
+                    </div>
             </div>
         );
     }
@@ -101,9 +120,15 @@ const RRR=(props)=> {
         </div>
         )
         return(
+            <div style={{
+                display:"flex",
+                flexDirection:"column",
+                height:"calc(100vh - 295px)"
+            }}>
             <div class="review-box">
                 {listRv}
                 <div style={{color:"grey",fontSize:"2vmin",margin:"3vmin",textAlign:"center"}}>no more reviews found</div>
+            </div>
             </div>
         );
     }

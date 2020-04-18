@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import "./App.css";
 import Food from "./food";
 import ChefProfile from "./chef-profile";
 import Result from "./result";

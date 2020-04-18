@@ -2,50 +2,51 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
-    padding-top: 2vmin;
+    align-self: flex-start;
+    top:0;
+    width: calc(100vw - 10px);
+    padding-top: 15px;
 }
 .review-info {
     background-color: white;
     color: black;
-    padding: 1vmin;
-    width: 50vw;
+    padding: 8px;
+    width: 800px;
     display: flex;
     flex-direction: row;
-    box-shadow: 0vmin 1vmin 1.5vmin rgb(105, 105, 105);
-    border-radius: 3vmin;
+    box-shadow: 0vmin 8px 12px rgb(105, 105, 105);
+    border-radius: 24px;
 }
 
 .review-info +.review-info{
-    margin-top: 2vmin;
+    margin-top: 15px;
 }
 
 .review-info .pic{
     background-size: cover;
     background-position: center;
-    width: 8vmin;
-    height: 8vmin;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    transform: translate(1vmin,1vmin);
+    transform: translate(8px,8px);
 }
 
 .review-info .info {
-    margin-left: 2vmin ;
-    width: 42vmin;
+    margin-left: 15px ;
+    width: 500px;
     display: flex;
     flex-direction: column;
-    padding: 1vmin 0;  
+    padding: 8px 0;  
 }
 
 .fName {
     font-weight: bolder;
-    font-size: 2vmin;
+    font-size: 15px;
 }
 
 .review-info .info div {
-    padding:1vmin;
-    
-    font-size: 2vmin;
+    padding:8px;    
+    font-size: 15px;
 }
 
 
@@ -65,47 +66,38 @@
 }
 
 .review-info .num {
-    margin-left: 1vmin;
-    transform: translateY(-0.15vmin);
-    width: 3vmin;
-    height: 2vmin;
+    margin-left: 8px;
+    transform: translateY(-1px);
+    width: 22px;
+    height: 15px;
     background: rgb(170,5,5);
     color: white;
-    border: 0.1vmin solid rgb(170,5,5);
+    border: 1px solid rgb(170,5,5);
 }
-
-.review-info .reviewBy {
-}
-
-
-
 
 
 
 .recipe-box {
-    padding-top: 1vmin;
-    min-width: 50vw;
-    max-width: 85vw;
     display:flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: row; 
+    padding-left: 10vw;   
 }
 
 .recipe-box .pic{
     position: relative;
-    margin: 0 1.5vmin 4.5vmin 1.5vmin;
-    width: 30vmin;
-    height: 30vmin;
+    margin: 0px 11px 0px 11px;
+    width: calc(230px * 3/2 - 10px);
+    height: calc(230px* 3/2 - 10px);
+    border: 5px solid white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    box-shadow: 0vmin 1vmin 1vmin rgb(105, 105, 105);
-    box-sizing: border-box;
-    border-radius: 2vmin;
+    box-shadow: 8px 8px 16px rgb(105, 105, 105);
+    /* box-sizing: border-box; */
     cursor: pointer;
-    transition: 0.3s;
+    /* transition: 4s; */
 }
 
 .recipe-box .mybg{
@@ -187,7 +179,7 @@
 
 .recipe-box .content {
     position: absolute;
-    width: 28vmin;
+    width: 92%;
     z-index: 3;
     display: flex;
     flex-direction: column;
@@ -197,9 +189,9 @@
 
 .recipe-box .content h2 {
     color: white;
-    margin: 2vmin;
+    margin: 15px;
     text-align: center;
-    transform: translateY(-5vmin);
+    transform: translateY(-37px);
     opacity: 0;
     visibility: hidden;
     transition: 0.4s;
@@ -213,7 +205,7 @@
 }
 
 .recipe-box .info {
-    width: 20vmin;
+    width: 150px;
     display: flex;
     flex-direction: row;
     align-items: start;
@@ -221,7 +213,7 @@
     visibility: hidden;
     opacity: 0;
     transition: 0.4s;
-    transform: translateY(5vmin);
+    transform: translateY(37px);
     
 }
 
@@ -232,9 +224,9 @@
 }
 
 .icons{
-    width: 2.5vmin;
-    height: 10vmin;    
-    margin-right: 1vmin;
+    width: 19px;
+    height: 75px;    
+    margin-right: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -245,24 +237,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 2.5vmin;
-    height: 2.5vmin;
-    border-radius: 1.5vmin;
-    font-size: 1.6vmin;
+    width: 19px;
+    height: 19px;
+    border-radius: 11px;
+    font-size: 12px;
     color: white;
 }
 
 .afterIconsA, .afterIconsB {
-    height: 10vmin;
+    height: 75px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 1vmin;
+    margin: 0 7px;
 }
 .afterIconsA div{  
-    height: 3vmin;
+    height: 22px;
     color: white;
-    font-size: 1.8vmin;
+    font-size: 13px;
     text-align: right;
     display: flex;
     flex-direction: column;
@@ -270,15 +262,11 @@
 }
 
 .afterIconsB div{  
-    height: 3vmin;
+    height: 22px;
     color: white;
-    font-size: 1.8vmin;
+    font-size: 13px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
-
-
-

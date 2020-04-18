@@ -1,0 +1,38 @@
+.reviews{
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews .review{
+    display: flex;
+    flex-direction: row;
+    width: 290px;
+    padding: 10px 0;
+}
+
+.reviews .reviewerPic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.reviews .comment {
+    width: 230px;
+    margin-left:10px;
+    padding: 5px 10px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 15px;
+    word-wrap: break-word;
+    background-color: white;
+}
+
+.reviews .comment div{
+    font-size: 13px;
+}
+
+.reviews .myStar {
+    /* background-color: wheat; */
+    margin: 0;
+    font-size: 13px;
+}

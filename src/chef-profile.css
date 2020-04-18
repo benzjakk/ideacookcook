@@ -1,44 +1,28 @@
 body {
     background-color: white;
-    overflow: hidden;
-}
-.chef-profile {
-    margin:0;
 }
 
-header {
-    background-color: rgb(223, 223, 223);
-    /* border: 0.1vmin solid grey; */
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-1vmin,0);
-    height:8vh;
-    width: 150vw;
-    z-index: 6;
+.chef-profile {
+    margin:0;
 }
     
 .chef-profile section {
     background-color: white;
-    position: relative;
+    /* left:0; */
+    /* position: relative; */
     color: rgb(170, 5, 5);
     width: 100vw;
+    /* border: 10px solid black; */
+    /* justify-self: center; */
     display: flex;
     flex-direction: column; 
-    overflow: hidden;  
-    height: 92vh;
-    margin-top: 8vh;
+    /* overflow: scroll;   */
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 80px);
+    /* margin-top: 8vh; */
 }   
 
-.chef-profile-detail1 {
-    position: relative;
-    height: 95vmin;
-    display: flex;
-    flex-direction: column; 
-    overflow: hidden;
-    z-index: 2;
-}
 
 .dark {
     position: absolute;
@@ -220,22 +204,25 @@ header {
 }
 
 .chef-profile-bottom {
-    padding: 3vh 5vmin;
-    position: absolute;
-    align-self: center;
-    width: 85vw;
-    transform: translateY(0vmin);
+    background-color: white;
+    /* opacity: 0.95; */
+    padding: 20px 35px;
+    /* position: sticky; */
+    /* top:80px; */
+    left: 0;
+    width: 100vw;
     display: flex;
     flex-direction: row;
-    z-index: 5;
-    height:15.5vh;
+    z-index: 15;
+    height:120px;
+    /* box-shadow: 10px 0 10px rgb(221, 221, 221); */
 }
 
 .chef-profile-picture {
     background-position: center;
     background-size:cover ;
-    width:15.5vh;
-    height: 15v5h;
+    width:120px;
+    height: 120px;
     border-radius:50%;
     z-index: 1;
 }
@@ -244,15 +231,15 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 2vmin;
+    padding-left: 20px;
     z-index: 2;
-    height: 15.5vh;
+    height: 100%;
 }
 
 .chef-profile-name {
+    width: 310px;
     color:black;
-    width:40vw;
-    font-size: 4.5vmin;
+    font-size: 32px;
     display:flex;
     flex-direction: row;
 }
@@ -260,79 +247,77 @@ header {
 .chef-profile .R-R {
     display:flex;
     flex-direction: row;
-    transform: translateX(-1vmin);
+    transform: translateX(-8px);
 }
 
 .chef-profile .R-R strong {
-    font-size: 1.8vmin;
+    font-size: 13px;
     color: black;
-    margin: 0 1vmin;
+    margin: 0 8px;
 }
 
 .chef-profile .myStar {
     color: black;
+    font-size: 18px;
 }
 
 .myRating {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    transform: translateY(-0.15vmin);
-    
+    align-items: center;    
 }
 
 .myRating p{
     color: white;
-    font-size: 1.5vmin;
+    font-size: 12px;
     font-weight: 550;
     text-align: center;
-    padding-top: 0.2vmin;
-    height: 2.3vmin;
-    width: 5vmin;
+    padding: 3px;
+    width: 25px;
     background-color: grey;
-    transform: translate(1vmin,0vmin);
-    border-radius: 2vmin;
+    margin-left: 8px;
+    border-radius: 20px;
 }
 
 .RR {
     background-color: white;
-    position: absolute;
+    width: 100%;
+    justify-content: center;
     align-self: center;
-    transform: translateY(18.5vh);
     display: flex;
     flex-direction: row;
     z-index: 11;
     align-items: flex-end;
-}
- p + p{
-    margin-left: 0.5vmin;
+    /* margin-top: 15px; */
+    padding-bottom: 5px;
 }
 
 .RR .isClicked{
     background-color:  black;
     color: white;
-    height:6vh;
-    width:6.5vw;
+    height:45px;
+    width:100px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 1.2vw;
+    font-size: 17px;
     font-weight: bolder;
-    border-radius: 4vmin;
+    border-radius: 30px;
 }
 .RR .isNotClicked{
+    background-color: white;
     color: black;
-    height: 6vh;
-    width:6.5vw;
+    height: 45px;
+    width:100px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 1.2vw;
+    font-size: 17px;
     font-weight: bolder;
     cursor: pointer;
-    border-radius: 4vmin;
+    border-radius: 30px;
 }
 .RR .isNotClicked:hover{
     background: rgb(235, 235, 235);
@@ -347,59 +332,54 @@ header {
     }
 } */
 
-.chef-profile-infoPages {
-    position: absolute;
+/* .chef-profile-infoPages {
     width: 100vw;
     z-index: 10;
     display: flex;
     flex-direction: column;
-    transform: translateY(30.5vh);
-    height: 61.5vh;
-}
+} */
 
 .chef-profile .pageHeader {
-        position: absolute;
-        width:100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        z-index: 2;
-        height: 5vh;
-        color: black;
-        align-items: center;
-        transform: translateY(24.5vh);
+    width:400px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 2;
+    height: 45px;
+    color: black;
+    align-items: center;
     }
 
     .chef-profile .All , .chef-profile .Low , .chef-profile .Medium , .chef-profile .High{
-        font-size: 0.6vmin;
+        font-size: 5px;
         position: absolute;
-        z-index: 10;
     }
     
     .chef-profile .All {
-        transform: translateX(25.25vw);
+        transform: translateX(47.5px);
         animation: 0.2s moveDot;
         transition: 0.2s;
     }
     
     .chef-profile .Low {
-        transform: translateX(31.62vw);
+        transform: translateX(147.5px);
         transition: 0.1s;
     }
     
     .chef-profile .Medium {
-        transform: translateX(38vw);
+        transform: translateX(247.5px);
         transition: 0.1s;
     }
 
     .chef-profile .High {
-        transform: translateX(44.4vw);
+        transform: translateX(347.5px);
         transition: 0.1s;
     }
 
-    .pageHeader .isNotClicked .dot {
+    /* .pageHeader .isNotClicked .dot {
         visibility: hidden;
-    }
+    } */
 
     .pageHeader .isNotClicked {
         display: flex;
@@ -408,15 +388,15 @@ header {
         align-items: center;
         color:rgb(163, 163, 163);
         font-weight: bolder;
-        width:6.4vw;
-        height: 3vh;
+        width:100px;
+        height: 25px;
         cursor: pointer;
-        font-size: 1.5vmin;
+        font-size: 12px;
     }
 
     .pageHeader .isNotClicked:hover{
-        border-radius: 2vmin;
-        height: 3vh;
+        border-radius: 20px;
+        height: 25px;
         background-color: rgb(235, 235, 235);
     }
 
@@ -427,37 +407,42 @@ header {
         align-items: center;
         color: black;
         font-weight: bolder;
-        width:6.4vw;
-        height: 3vh;
-        font-size: 1.5vmin;
+        width:100px;
+        height: 25px;
+        font-size: 12px;
     }
 
 .page_switch {
-    color: white;
-    overflow-y: scroll;
+    /* color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    overflow-x: scroll; */
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    min-height: calc(100vh - 335px);
+    max-height: calc(100vh - 295px);
+    margin: 0;
+    align-self: center;
+    overflow-x:scroll;
+    align-items: center;
 }
 
 .page_switch::-webkit-scrollbar {
-    /* position: absolute; */
-    width: 1vmin;
+    right: 0;
+    width: 10px;
   }
 
-  /* Track */
 .page_switch::-webkit-scrollbar-track {
     /* box-shadow: inset 0 0 5px grey;  */
-    border-radius: 10px;
   }
    
-  /* Handle */
 .page_switch::-webkit-scrollbar-thumb {
     background: black;
     border-radius: 10px;
   }
   
-  /* Handle on hover */
 .page_switch::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
+    background: rgb(170, 5, 5); 
   }
