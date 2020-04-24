@@ -1,23 +1,31 @@
 import React, { Component } from "react";
 import "./styles/hypersearchstyles.css";
 import InputWithT from "./inputwithtag.jsx";
+import axios from "axios";
 
 class Hypersearch extends Component {
   state = {};
+
+  componentDidMount = () => {
+    this.fetchTag();
+  };
+
+  async fetchTag() {
+    await axios
+      .get(
+        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/Tag"
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => console.log(error));
+  }
+
   render() {
     return (
-      <section class="hypersearch">
+      <section className="hypersearch">
         <h2>ค้นหาขั้นสูง</h2>
         <ul>
-          <li>
-            <p>ราคา : </p>
-            <select>
-              <option value={1}>น้อยกว่า 100</option>
-              <option value={2}>100 - 500</option>
-              <option value={3}>มากกว่า 500</option>
-            </select>
-            <p>บาท </p>
-          </li>
           <li>
             <p>วัตถุดิบ : </p>
             <InputWithT />

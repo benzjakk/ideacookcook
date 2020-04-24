@@ -46,7 +46,6 @@ class Loginer extends Component {
           this.state.currentMemID
       )
       .then((res) => {
-        console.log(res);
         this.setState({ currentUser: res.data.data.KnownName });
         localStorage.setItem("currentUser", this.state.currentUser);
       })
@@ -65,18 +64,18 @@ class Loginer extends Component {
   render() {
     return (
       <div
-        class="modal"
+        className="modal"
         style={{ display: this.state.showModal ? "block" : "none" }}
       >
-        <span onClick={this.closeModal} class="close" title="Close Modal">
+        <span onClick={this.closeModal} className="close" title="Close Modal">
           &times;
         </span>
-        <form class="modal-content animate" onSubmit={this.handleSubmit}>
-          <div class="container1">
+        <form className="modal-content animate" onSubmit={this.handleSubmit}>
+          <div className="container1">
             {this.state.showResult ? (
               <div>
                 <button
-                  class="goodresult"
+                  className="goodresult"
                   type="button"
                   style={{
                     display: this.state.signinStatus ? "block" : "none",
@@ -85,7 +84,7 @@ class Loginer extends Component {
                   Signin Success
                 </button>
                 <button
-                  class="badresult"
+                  className="badresult"
                   type="button"
                   style={{
                     display: this.state.signinStatus ? "none" : "block",
@@ -120,13 +119,14 @@ class Loginer extends Component {
             <button>Login</button>
           </div>
 
-          <div class="container">
-            <button type="button" onClick={this.closeModal} class="cancelbtn">
+          <div className="container">
+            <button
+              type="button"
+              onClick={this.closeModal}
+              className="cancelbtn"
+            >
               Cancel
             </button>
-            <span class="psw">
-              Forgot <a href="#">password?</a>
-            </span>
           </div>
         </form>
       </div>

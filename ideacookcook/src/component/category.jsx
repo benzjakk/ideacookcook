@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import cate1 from "./pic/cate1.png";
 import cate2 from "./pic/cate2.png";
 import cate3 from "./pic/cate3.png";
-import cate4 from "./pic/cate4.png";
+//import cate4 from "./pic/cate4.png";
 import cate5 from "./pic/cate5.png";
 import cate6 from "./pic/cate6.png";
 import "./styles/categorystyles.css";
@@ -10,7 +10,7 @@ class Category extends Component {
   state = {};
   render() {
     return (
-      <section class="category">
+      <section className="category">
         <h2>หมวดหมู่</h2>
         <ul>
           <figure>
@@ -29,12 +29,6 @@ class Category extends Component {
             <img src={cate3} alt="กินเล่น"></img>
             <figcaption>
               <b>กินเล่น</b>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src={cate4} alt="ประหยัด"></img>
-            <figcaption>
-              <b>ประหยัด</b>
             </figcaption>
           </figure>
           <figure>

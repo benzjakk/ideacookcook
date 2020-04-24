@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import "./styles/headerstyles.css";
 import Loginer from "./loginer.jsx";
 import Register from "./register.jsx";
@@ -39,18 +38,20 @@ class Header extends Component {
       <React.Fragment>
         <header>
           {this.state.currentUser ? (
-            <div class="login_regis">
-              <div>{this.state.currentUser}</div>
+            <div className="login_regis">
+              <a href="/editprofile">
+                <div>{this.state.currentUser}</div>
+              </a>
               <div onClick={this.handleLogout}>Logout</div>
             </div>
           ) : (
-            <div class="login_regis">
+            <div className="login_regis">
               <div onClick={this.openLoginer}>เข้าสู่ระบบ</div>
               <div onClick={this.openRegister}>สมัครสมาชิก</div>
             </div>
           )}
 
-          <div class="mainheader">
+          <div className="mainheader">
             <div id="logo">
               <a href="/">
                 <h1>
