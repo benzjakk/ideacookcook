@@ -1,16 +1,18 @@
 import React, {Component, useState} from "react";
 import './step.css';
 import {FaChevronRight} from 'react-icons/fa';
-const upOrDown=(step)=>{
-    if(step.numOfSteps%2==1)
+const upOrDown=(step,index)=>{
+    if(index%2==1)
     return(
         <div className="steps">
             <div className="backkk"/>
             {/* <div className="backkk2"/> */}
-            <div className="stepPic" style={{backgroundImage:step.pic}}/>
+            <div className="stepPic">
+                {step.StepPic!=''? <img src={step.StepPic}/>:<div/>}
+            </div>
             <div className="stepDescription">  
-                <div className="St">{step.numOfSteps<10? "0":""}{step.numOfSteps}</div>              
-                {step.description}
+                <div className="St">{index<10? "0":""}{index}</div>              
+                {step.Description}
             </div>
         </div>
     );
@@ -20,17 +22,19 @@ const upOrDown=(step)=>{
             <div className="backkkk"/>
             {/* <div className="backkkk2"/> */}
             <div className="stepDescription">  
-                <div className="St">{step.numOfSteps<10? "0":""}{step.numOfSteps}</div>              
-                {step.description}
+                <div className="St">{index<10? "0":""}{index}</div>              
+                {step.Description}
             </div>
-            <div className="stepPic" style={{backgroundImage:step.pic}}/>
+            <div className="stepPic">
+                {step.StepPic!=''? <img src={step.StepPic}/>:<div/>}
+            </div>
         </div>
     );
 }
 const STs=(props)=> {
-    const listSTs = props.L.map((step) =>
+    const listSTs = props.L.map((step,index) =>
     <div >
-        {upOrDown(step)}
+        {upOrDown(step,index+1)}
     </div>
     )
     return(

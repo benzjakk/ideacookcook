@@ -4,6 +4,7 @@ import {MdPhone} from 'react-icons/md';
 import './chef-profile.css';
 import CheckRating from './CheckRating';
 import SW_Pages from './page_switch_Recipes';
+import axios from "axios";
 
 const allRecipes=[
     {foodid:"f002",name:"ข้าวผัดกิมจิอิอิอุ้วๆว้าวว้าวเยี่ยมยอดสุดๆไปเลยนะคะเนี่ย",img:'url(/pic/food1.jpg)',cal:"high",nation:"Korean",time:90,rating:4.2,numOfSteps:8},
@@ -46,17 +47,30 @@ const isPage=(props,page)=>{
         else return("isNotClicked");
 }
 
-
-
 class ChefProfile extends Component {    
     constructor(props) {
         super(props);
         this.state={
             page:"All",
-            aboutIsOpen:"false"
+            aboutIsOpen:"false",
+            Data:this.props.match.params.id,
+            Profile:[],
+            Recipes:[],
+            Reviews:[]
         };
     }   
-    
+    componentDidMount=()=> {
+        axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/Profile/'+ this.state.Data)
+        .then(res => {
+            console.log(res.data.description);
+            this.setState({
+                Profile:res.data.data,
+                Recipes:res.data.data.Recipes,
+                Reviews:res.data.data.Review});
+            console.log(this.state.Recipes);
+            console.log(this.state.Reviews);
+        });
+    }
     isRecipesOrReviews=()=>{
         if(this.state.page!="Reviews")return(
             <div className="pageHeader">
@@ -81,11 +95,11 @@ class ChefProfile extends Component {
     }
 
     Page_switch=()=>{
-        if (this.state.page=="All")return(<div className="page_switch"><SW_Pages page="all" L={allRecipes}/></div>);
-        if (this.state.page=='Low')return(<div className="page_switch"><SW_Pages page="low" L={allRecipes}/></div>);
-        if (this.state.page=='Medium')return(<div className="page_switch"><SW_Pages page="medium" L={allRecipes}/></div>);
-        if (this.state.page=='High')return(<div className="page_switch"><SW_Pages page="high" L={allRecipes}/></div>);
-        if (this.state.page=="Reviews")return(<div className="page_switch"><SW_Pages page="reviews" L={allReviews}/></div>);
+        if (this.state.page!="Reviews")return(<div className="page_switch"><SW_Pages page={this.state.page} L={this.state.Recipes}/></div>);
+        // if (this.state.page=='Low')return(<div className="page_switch"><SW_Pages page="low" L={this.state.Recipes}/></div>);
+        // if (this.state.page=='Medium')return(<div className="page_switch"><SW_Pages page="medium" L={this.state.Recipes}/></div>);
+        // if (this.state.page=='High')return(<div className="page_switch"><SW_Pages page="high" L={this.state.Recipes}/></div>);
+        else if (this.state.page=="Reviews")return(<div className="page_switch"><SW_Pages page={this.state.page} L={this.state.Reviews}/></div>);
     }
 
     setArrow=(a)=>{
@@ -97,19 +111,35 @@ class ChefProfile extends Component {
         <div className="chef-profile" >
             <header></header>            
             <section>
-                <div className="chef-profile-bottom">                        
-                        <div className="chef-profile-picture" style={{backgroundImage:chefPic}}></div>
+                <div className="chef-profile-bottom">
+                        <div className="chef-profile-picture">                        
+                            {this.state.Profile.ProfilePicture!=''?
+                                <img src={this.state.Profile.ProfilePicture}/>:
+                                <div style={{
+                                    width:"100%",
+                                    height:"100%",
+                                    textAlign:"center",
+                                    color:"black",
+                                    fontSize:"56px",
+                                    fontWeight:"700",
+                                    textTransform:"uppercase",
+                                    transform:"translateY(20px)"}}>
+                                        {(""+ this.state.Profile.KnownName)[0]}
+                                </div>
+                            }
+                        </div>
                         <div className="chef-profile-bottom-top">
                             <div className="chef-profile-name">
-                                <strong>{chefKnownName}</strong>
+                                <strong>{this.state.Profile.KnownName}</strong>
                             </div>
                             <div className="myRating">
-                                {CheckRating(chefRating)}<p>{chefRating}</p>
+                                {CheckRating(this.state.Profile.AvgRating)}
+                                <p>{this.state.Profile.AvgRating}</p>
                             </div>
                             <div className="R-R">
-                                <strong>{numOfRecipes} recipes</strong>
-                                <div style={{color:"grey",fontSize:"4px" , transform:"translateY(2px)"}}><FaCircle/></div>
-                                <strong>{numOfReviews} reviews</strong>
+                                <strong>{this.state.Recipes.length} recipes</strong>
+                                <div style={{color:"grey",fontSize:"4px" , transform:"translateY(4px)"}}><FaCircle/></div>
+                                <strong>{this.state.Reviews.length} reviews</strong>
                             </div>
                         </div>
                 </div>

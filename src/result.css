@@ -1,10 +1,10 @@
 body {
-    background-color: white;
+    background-color: #FBE7E2;
     overflow-x: hidden;
 }
 
 .result section {
-    background-color: white;
+    /* background-color: white; */
     /* position: relative; */
     color: rgb(170, 5, 5);
     width: 100vw;
@@ -88,6 +88,7 @@ body {
 }
 
 .result .allResult {
+    padding-top: 20px;
     width: 100vw;
 }
 

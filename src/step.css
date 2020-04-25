@@ -64,6 +64,13 @@
       /* box-shadow: 0 0 8px grey; */
   }
 
+  .bigStep .stepPic img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: contain;
+  }
+
   .bigStep .backkk{
       position: absolute;
       z-index: 0;

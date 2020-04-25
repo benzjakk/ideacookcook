@@ -5,8 +5,8 @@ import {FaCarrot, FaCircle, FaToolbox, FaUtensilSpoon} from 'react-icons/fa';
 const Tools=(props)=> {
     const listTs = props.L.map((tool) =>
     <div className="RNT">
-        <div style={{width:"180px",wordWrap:"break-word"}}>{tool.name}</div>
-        <div style={{width:"50px",textAlign:"center"}}>{tool.quantity}</div>
+        <div style={{width:"180px",wordWrap:"break-word"}}>{tool}</div>
+        {/* <div style={{width:"50px",textAlign:"center"}}>{tool.Quantity}</div> */}
     </div>
     )
     return(
@@ -22,9 +22,9 @@ const Tools=(props)=> {
 const Raws=(props)=> {
     const listRs = props.L.map((raw) =>
     <div className="RNT">
-        <div style={{width:"180px",wordWrap:"break-word"}}>{raw.name}</div>
-        <div style={{width:"50px",textAlign:"center"}}>{raw.quantity}</div>
-        <div style={{width:"90px",textAlign:"right"}}>{raw.unit}</div>
+        <div style={{width:"180px",wordWrap:"break-word"}}>{raw.RawFood}</div>
+        <div style={{width:"50px",textAlign:"center"}}>{raw.Quantity}</div>
+        <div style={{width:"90px",textAlign:"right"}}>{raw.Unit}</div>
     </div>
     )
     return(

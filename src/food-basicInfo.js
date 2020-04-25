@@ -3,13 +3,12 @@ import './food-basicInfo.css';
 import CheckRating from './CheckRating';
 import Reviews from './reviews';
 import {FaPaperPlane, FaCircle} from 'react-icons/fa';
+import {Link} from 'react-router-dom';
 
 class FoodBasicInfo extends Component {
     constructor(props) {
         super(props);
         this.state={
-            myName:"chef_idea",
-            myPic:"url(/pic/user5.jpg)",
             Rate:"0"
         };
     }
@@ -17,7 +16,12 @@ class FoodBasicInfo extends Component {
     render(){
     return(
         <div className="food-basicInfo">
-            <div className="food-img" style={{backgroundImage:this.props.foodPic}}/>
+            <div className="food-img" >
+                {this.props.foodPic!=''?
+                    <img src={this.props.foodPic}/>
+                    :<div/>
+                }
+            </div>
             <div className="Info">
                 <div className="food-name"><strong>{this.props.foodName}</strong></div>
                 <div style={{display:"flex",flexDirection:"row",height:"25px",marginLeft:"1px"}}>
@@ -60,26 +64,46 @@ class FoodBasicInfo extends Component {
                     padding:"10px 0",
                     height:"50px",
                     position:"relative"}}>
-                    <div className="chefPic" style={{backgroundImage:this.props.chefPic}}/>
+                    <Link className="chefPic" to={'/Profile/'+this.props.chefID} style={{textDecoration:"none",color:"unset"}}>
+                        {this.props.chefPic!=''?
+                            <img src={this.props.chefPic}/>
+                            :<div style={{width:"100%",height:"100%",textAlign:"center",color:"black",fontSize:"14px",fontWeight:"700",textTransform:"uppercase",transform:"translateY(5px)"}}>{this.props.chefName[0]}</div>
+                        }
+                    </Link>
                     <div style={{
                         display:"flex",
                         flexDirection:"column",
                         padding:"0 10px",
                         justifyContent:"center"}}>
-                        <div className="chefName">{this.props.chefName}</div>
+                        <Link className="chefName" to={'/Profile/'+this.props.chefID} style={{textDecoration:"none",color:"unset"}}>{this.props.chefName}</Link>
                         <div className="numOfRecipes">{this.props.numOfRecipes} recipes</div>
                     </div>                    
-                    <div className="more">more</div>
+                    <Link className="more" to={'/Profile/'+this.props.chefID} style={{textDecoration:"none",color:"unset"}}>more</Link>
                 </div>
                 <div style={{
                     fontSize:"17px",
                     fontWeight:"bolder"
-                }}>{this.props.numOfReviews} reviews</div>
+                }}>{this.props.numOfReviews} review{this.props.numOfReviews>1?"s":""}</div>
                 <div className="allReviews">
                     <Reviews RVs={this.props.allReviews}/>
                 </div>
                 <div style={{display:"flex",flexDirection:"row" ,marginTop:"10px"}}>
-                    <div className="myPic" style={{backgroundImage:this.state.myPic}}/>
+                    <div className="myPic">
+                        {this.props.myPic!=''?
+                            <img src={this.props.myPic}/>
+                            :<div style={{
+                                width:"100%",
+                                height:"100%",
+                                textAlign:"center",
+                                color:"black",
+                                fontSize:"14px",
+                                fontWeight:"700",
+                                textTransform:"uppercase",
+                                transform:"translateY(5px)"}}>
+                                    {this.props.myName[0]}
+                            </div>
+                        }
+                    </div>
                     <div style={{display:"flex",flexDirection:"column",marginLeft:"10px"}}>
                         <div className="ratehere">
                             Rate here :

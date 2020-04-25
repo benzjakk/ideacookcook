@@ -3,6 +3,7 @@ import './food.css'
 import FoodBasicInfo from "./food-basicInfo";
 import Step from './Step';
 import RawNTool from './RawNTool';
+import axios from "axios";
 
 const allReviews=[
     {reviewBy:"Samy",pic:"url(/pic/user1.jpg)",rated:4,comment:"ooh ooh"},
@@ -49,48 +50,43 @@ const allSteps=[
     }
 ];
 
-const allRaws=[
-    {name:"หมูสามชั้น",quantity:"2",unit:"กรัม"},
-    {name:"น้ำตาลทรายอิอิอิอิvbvbvbvbvbvbvbvbvbvbvbvbอิอิอิอิ",quantity:"2",unit:"กิโลกรัม"},
-    {name:"ผักชี",quantity:"2",unit:"กรัม"},
-    {name:"มะขือเทศ",quantity:"2",unit:"กรัม"},
-    {name:"น้ำปลา",quantity:"2",unit:"กรัม"},
-    {name:"หมูสามชั้น",quantity:"2",unit:"กรัม"},
-    {name:"น้ำตาลทราย",quantity:"2",unit:"กรัม"},
-    {name:"ผักชี",quantity:"2",unit:"กรัม"},
-    {name:"มะขือเทศ",quantity:"2",unit:"กรัม"},
-    {name:"น้ำปลา",quantity:"2",unit:"กรัม"}
-
-];
-
-
-let foodName="Kaopad-Kimchi" ;
-const foodPic='url(/pic/food1.jpg)'; 
-let time="80" ;
-let foodRate=4.52; 
-let numOfSteps=8 ;
-let cal="medium";
-let foodType="ผัด";
-let foodNation="Korean";
-
-let chefName="chef_idea"; 
-let numOfRecipes="56";
-let chefPic='url(/pic/chef1.jpg)';
-
 class food extends Component {
     constructor(props) {
         super(props);
         this.state={
-            isPage:"Raw&Tool"
+            isPage:"Raw&Tool",
+            match:this.props.match.params.id,
+            Member:[],
+            Data:[],
+            Reviews:[],
+            RawFood:[],
+            Tools:[],
+            Steps:[]
         };
     }
 
     thePage=()=>{
-        if(this.state.isPage=="Raw&Tool")return(<div><RawNTool Rs={allRaws} Ts={allRaws}/></div>);
-        else if(this.state.isPage=="Steps")return(<div><Step L={allSteps}/></div>);
+        if(this.state.isPage=="Raw&Tool")return(<div><RawNTool Rs={this.state.RawFood} Ts={this.state.Tools}/></div>);
+        else if(this.state.isPage=="Steps")return(<div><Step L={this.state.Steps}/></div>);
+    }
+
+    componentDidMount=()=> {
+        axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Menu/'+this.state.match)
+        .then(res => {
+            console.log(res.data.data);
+            this.setState({
+                Data:res.data.data,
+                Reviews:res.data.data.review,
+                Member:res.data.data.Member,
+                RawFood:res.data.data.RawFood,
+                Tools:res.data.data.Tool,
+                Steps:res.data.data.Steps});
+            console.log(this.state.RawFood);
+        });
     }
 
     render(){   
+        console.log(this.props)
 
     return (
         <div className="food">  
@@ -98,21 +94,28 @@ class food extends Component {
             <section>                    
                 <div style={{marginTop:"10px"}}/>
                 <FoodBasicInfo
-                    foodName={foodName}
-                    foodPic={foodPic}
-                    foodRate={foodRate}
-                    time={time}
-                    numOfSteps={numOfSteps}
-                    cal={cal}
-                    foodType={foodType}
-                    foodNation={foodNation}
+                    foodName={this.state.Data.RecipesName}
+                    foodPic={this.state.Data.RecipesPic}
+                    foodRate={this.state.Data.OverallRating}
+                    time={this.state.Data.Time}
+                    timeStamp={this.state.Data.TimeStamp}/* */
+                    numOfSteps={this.state.Data.NoStep}
+                    cal={this.state.Data.Calories}
+                    foodType={this.state.Data.FoodType}
+                    foodNation={this.state.Data.FoodNation}
+                    description={this.state.Data.Description}/* */
 
-                    chefPic={chefPic}
-                    chefName={chefName}
-                    numOfRecipes={numOfRecipes}
+                    chefPic={this.state.Member.ProfilePicture}
+                    chefName={this.state.Member.KnownName}
+                    numOfRecipes={this.state.Member.MenuNo}
+                    chefID={this.state.Data.MemID}/* */
 
-                    numOfReviews={5}
-                    allReviews={allReviews}
+                    numOfReviews={this.state.Reviews.length}
+                    allReviews={this.state.Reviews}
+
+                    
+                    myName="chef_idea"
+                    myPic=""
                 />
                 <div className="pageHeader">
                     <div className={this.state.isPage=="Raw&Tool"? "isClicked":"isNotClicked"} onClick={()=>this.setState({isPage: "Raw&Tool"})}>

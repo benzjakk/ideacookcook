@@ -6,15 +6,18 @@ import {IoIosTime} from 'react-icons/io';
 
 const RRR=(props)=> {
     
-    if(props.page=='all'){
+    if(props.page=='All'){
         const listRcp = props.L.map((recipe) =>
             <div className="pic">
                 <div className="mybg"></div>
                 <div className="imgBox">
-                    <div className="img" style={{backgroundImage:recipe.img}}/>
+                    {recipe.RecipesPic!=''?
+                        <img className="img" src={recipe.RecipesPic}/>
+                        : <div className="img" style={{background:"grey"}}/>
+                    }
                 </div>
                 <div className="content">
-                    <h2>{recipe.name}</h2>
+                    <h2>{recipe.RecipesName}</h2>
                     <div className="info">                            
                         <div className="icons">                                
                             <div className="myIcons"><FaStream /></div>
@@ -22,9 +25,9 @@ const RRR=(props)=> {
                             <div className="myIcons"><FaStar /></div>                               
                         </div>
                         <div className="afterIconsB">
-                            <div>{recipe.numOfSteps}</div>
-                            <div>{recipe.time}</div>
-                            <div>{recipe.rating}</div>
+                            <div>{recipe.NoStep}</div>
+                            <div>{recipe.Time}</div>
+                            <div>{recipe.OverallRating}</div>
                         </div>
                         <div className="afterIconsA">
                             <div>steps</div>
@@ -53,36 +56,39 @@ const RRR=(props)=> {
         );
     }
 
-    else if(props.page!="reviews"){          
+    else if(props.page!="Reviews"){          
         const valueToGet = props.page;
-        const items = props.L.filter(item => item.cal == valueToGet);
+        const items = props.L.filter(item => item.Calories == valueToGet);
         const listRcp = items.map((recipe) =>
-        <div className="pic">
-        <div className="mybg"></div>
-        <div className="imgBox">
-            <div className="img" style={{backgroundImage:recipe.img}}/>
-        </div>
-        <div className="content">
-            <h2>{recipe.name}</h2>
-            <div className="info">                            
-                <div className="icons">                                
-                    <div className="myIcons"><FaStream /></div>
-                    <div className="myIcons"><IoIosTime /></div> 
-                    <div className="myIcons"><FaStar /></div>                               
+            <div className="pic">
+                <div className="mybg"></div>
+                <div className="imgBox">
+                    {recipe.RecipesPic!=''?
+                        <img className="img" src={recipe.RecipesPic}/>
+                        : <div className="img" style={{background:"grey"}}/>
+                    }
                 </div>
-                <div className="afterIconsB">
-                    <div>{recipe.numOfSteps}</div>
-                    <div>{recipe.time}</div>
-                    <div>{recipe.rating}</div>
+                <div className="content">
+                    <h2>{recipe.RecipesName}</h2>
+                    <div className="info">                            
+                        <div className="icons">                                
+                            <div className="myIcons"><FaStream /></div>
+                            <div className="myIcons"><IoIosTime /></div> 
+                            <div className="myIcons"><FaStar /></div>                               
+                        </div>
+                        <div className="afterIconsB">
+                            <div>{recipe.NoStep}</div>
+                            <div>{recipe.Time}</div>
+                            <div>{recipe.OverallRating}</div>
+                        </div>
+                        <div className="afterIconsA">
+                            <div>steps</div>
+                            <div>min</div>
+                            <div>stars</div>
+                        </div>
                 </div>
-                <div className="afterIconsA">
-                    <div>steps</div>
-                    <div>min</div>
-                    <div>stars</div>
-                </div>
-        </div>
-        </div>      
-    </div>
+                </div>      
+            </div>
         )
         return(
             <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
@@ -107,15 +113,17 @@ const RRR=(props)=> {
         }
         const listRv = props.L.map((review) =>
         <div className="review-info">
-            <div className="pic" style={{backgroundImage:'url(/pic/food1.jpg)'}}/>
+            {review.RecipesPic!=''?
+                <img className="pic" src={review.RecipesPic}/>
+                : <div className="pic" style={{backgroundColor:"grey"}}/>}
             <div class="info">
-                <div class="fName">{review.name}</div>
+                <div class="fName">{review.RecipesName}</div>
                 <div className="myRating">
-                    {CheckRating(review.rated)}
-                    <p className="num">{review.rated}</p>
+                    {CheckRating(review.Rating)}
+                    <p className="num">{review.Rating}</p>
                 </div>
-                {checkComment(review.comment)}
-                <div className="reviewBy">- {review.by} -</div>
+                {checkComment(review.Comment)}
+                <div className="reviewBy">- {review.KnownName} -</div>
             </div>
         </div>
         )
@@ -127,7 +135,13 @@ const RRR=(props)=> {
             }}>
             <div class="review-box">
                 {listRv}
-                <div style={{color:"grey",fontSize:"2vmin",margin:"3vmin",textAlign:"center"}}>no more reviews found</div>
+                <div style={{
+                    color:"grey",
+                    fontSize:"2vmin",
+                    margin:"3vmin",
+                    textAlign:"center"}}>
+                    no more reviews found
+                </div>
             </div>
             </div>
         );

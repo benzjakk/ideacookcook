@@ -6,11 +6,12 @@
 .reviews .review{
     display: flex;
     flex-direction: row;
-    width: 290px;
+    width: 340px;
     padding: 10px 0;
 }
 
 .reviews .reviewerPic {
+    background-color: rgb(233, 233, 233);
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -18,7 +19,7 @@
 }
 
 .reviews .comment {
-    width: 230px;
+    width: 281px;
     margin-left:10px;
     padding: 5px 10px;
     border: 1px solid rgb(204, 204, 204);
@@ -27,7 +28,7 @@
     background-color: white;
 }
 
-.reviews .comment div{
+.reviews .comment .s{
     font-size: 13px;
 }
 

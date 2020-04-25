@@ -4,21 +4,26 @@ import "./App.css";
 import Food from "./food";
 import ChefProfile from "./chef-profile";
 import Result from "./result";
-class App extends Component{
-    render(){
+
+import List from "./List";
+
+function App (){
 
     return (
+        // <div>
+        //     <List/>
+        // </div>
         <Router>
         <div>  
             <Switch>
-                <Route component={Food} path="/food"/>
-                <Route component={ChefProfile} path="/chefProfile"/>
-                <Route component={Result} path="/result"/>
+                <Route component={ChefProfile} exact path="/Profile/:id"/>
+                <Route component={Result} exact path="/result/:id"/>
+                <Route component={Food} exact path="/result/:id/:id"/>
+
             </Switch>
         </div>
         </Router>
     );
-    } 
 }
 
 
