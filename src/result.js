@@ -8,30 +8,45 @@ class Result extends Component {
         super(props);
         this.state={
             isPage:"Latest",
+            Loaded:false,
             R:[],
             words:this.props.match.params.id
         };
     }
     componentDidMount=()=> {
-        axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName',
-        {
-            'keyword':this.state.words
-        })
-        // axios.post('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListParameter',
+        // axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName',
         // {
-        //     "Calories" : "Low",
-        //     "Time" : 30,
-        //     "RawFood" : ["คอหมู"],
-        //     "Tool" : ["กระทะ"],
-        //     "FoodNation" : "v",
-        //     "FoodType" : ""
+        //     params:{'keyWord':this.state.words}
         // })
-        // .catch((error)=>{
-        //     console.log(error);
-        // });
+        axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListParameter',
+        {
+            params:{"Calories" : "Low",
+            "Time" : 30,
+            "RawFood" : ["คอหมู"],
+            "Tool" : ["กระทะ"],
+            "FoodNation" : "",
+            "FoodType" : ""}
+        })
+        .catch((error)=>{
+            console.log(error);
+            this.setState({Loaded:true});
+        });
+        // axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName',
+        // {
+        //     params:{'keyWord':this.state.words}
+        // })
+        axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListParameter',
+        {
+            params:{"Calories" : "Low",
+            "Time" : 30,
+            "RawFood" : ["คอหมู"],
+            "Tool" : ["กระทะ"],
+            "FoodNation" : "",
+            "FoodType" : ""}
+        })
         .then(res => {
             console.log(res.data);
-            this.setState({R:res.data.data});
+            this.setState({R:res.data.data,Loaded:true});
         });
     }
     moveDot=()=>{
@@ -40,7 +55,7 @@ class Result extends Component {
         else return("dot-mid");
     }
     render() {
-        // console.log(this.props)
+        console.log(this.state.Loaded)
         return(
             <div className="result">
                 <header></header>
@@ -56,9 +71,11 @@ class Result extends Component {
                             <strong>Duration</strong>
                         </div>     
                     </div>
+                    {this.state.Loaded==true?
                     <div className="allResult">
                         <Results RSs={this.state.R} SortBy={this.state.isPage} words={this.state.words}/>
                     </div>
+                    :<div style={{width:"100vw",textAlign:"center",fontSize:"50px",marginTop:"200px"}}>Loading...</div>}
                 </section>
             </div>
         );
