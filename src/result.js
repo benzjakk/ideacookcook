@@ -14,36 +14,36 @@ class Result extends Component {
         };
     }
     componentDidMount=()=> {
-        // axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName',
-        // {
-        //     params:{'keyWord':this.state.words}
-        // })
-        axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListParameter',
+        axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName',
         {
-            params:{"Calories" : "Low",
-            "Time" : 30,
-            "RawFood" : ["คอหมู"],
-            "Tool" : ["กระทะ"],
-            "FoodNation" : "",
-            "FoodType" : ""}
+            params:{'keyWord':this.state.words}
         })
+        // axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListParameter',
+        // {
+        //     params:{"Calories" : "Low",
+        //     "Time" : 30,
+        //     "RawFood" : ["คอหมู"],
+        //     "Tool" : ["กระทะ"],
+        //     "FoodNation" : "",
+        //     "FoodType" : ""}
+        // })
         .catch((error)=>{
             console.log(error);
             this.setState({Loaded:true});
         });
-        // axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName',
-        // {
-        //     params:{'keyWord':this.state.words}
-        // })
-        axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListParameter',
+        axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName',
         {
-            params:{"Calories" : "Low",
-            "Time" : 30,
-            "RawFood" : ["คอหมู"],
-            "Tool" : ["กระทะ"],
-            "FoodNation" : "",
-            "FoodType" : ""}
+            params:{'keyWord':this.state.words}
         })
+        // axios.get('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListParameter',
+        // {
+        //     params:{"Calories" : "Low",
+        //     "Time" : 30,
+        //     "RawFood" : ["คอหมู"],
+        //     "Tool" : ["กระทะ"],
+        //     "FoodNation" : "",
+        //     "FoodType" : ""}
+        // })
         .then(res => {
             console.log(res.data);
             this.setState({R:res.data.data,Loaded:true});
