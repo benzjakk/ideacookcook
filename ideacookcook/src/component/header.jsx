@@ -43,7 +43,6 @@ class Header extends Component {
       "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/RecipesName"
     )
       .then((res) => {
-        console.log(res.data.data);
         this.setState({ recipeName: res.data.data });
       })
       .catch((error) => {
@@ -79,10 +78,7 @@ class Header extends Component {
               </a>
             </div>
             <div>
-              <Autocomplete
-                placeholder="ค้นหาสูตรอาหาร ...."
-                suggestions={this.state.recipeName}
-              />
+              <Autocomplete suggestions={this.state.recipeName} />
             </div>
             <a href="food.html">
               <button type="button">

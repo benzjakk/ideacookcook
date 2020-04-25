@@ -32,7 +32,6 @@ class InputWithT extends Component {
 
   async handleAddition(tag) {
     await this.setState((state) => ({ tags: [...state.tags, tag] }));
-    console.log(this.state.tags);
   }
 
   handleDrag(tag, currPos, newPos) {
@@ -67,6 +66,7 @@ class InputWithT extends Component {
     return (
       <div>
         <ReactTags
+          placeholder="    + เพิ่ม Tag"
           tags={tags}
           suggestions={suggestions}
           delimiters={delimiters}

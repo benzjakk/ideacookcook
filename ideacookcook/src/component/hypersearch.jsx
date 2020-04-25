@@ -55,7 +55,7 @@ class Hypersearch extends Component {
             <p>ชั่วโมง </p>
           </li>
           <li>
-            <p>ประเภทอาหาร : </p>
+            <p>ประเภท : </p>
             <input list="FoodTypeTag" />
             <datalist id="FoodTypeTag">
               {this.state.FoodTypeTag.map((tag, index) => {

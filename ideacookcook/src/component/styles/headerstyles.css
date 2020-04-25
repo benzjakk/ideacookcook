@@ -64,7 +64,7 @@ header .login_regis div {
 }
 
 header .login_regis div:hover {
-  background-color: black;
+  background-color: rgb(170, 5, 5);
   color: white;
   cursor: pointer;
 }

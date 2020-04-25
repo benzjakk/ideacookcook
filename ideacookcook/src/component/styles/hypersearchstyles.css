@@ -6,6 +6,7 @@
   padding: 10px;
   border-radius: 5px;
 }
+
 .hypersearch li {
   display: flex;
 }
@@ -27,12 +28,14 @@
 .hypersearch button {
   height: 50px;
   width: 100px;
-  border-radius: 5px;
+  border-radius: 20px;
   margin-left: 40%;
+  font-size: 25px;
   font-weight: bolder;
 }
 .hypersearch button:hover {
-  background-color: #ffaa00;
+  background-color: rgb(170, 5, 5);
+  color: white;
   cursor: pointer;
 }
 @media screen and (max-width: 903px) {
