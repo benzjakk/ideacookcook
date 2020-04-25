@@ -29,6 +29,7 @@ class Loginer extends Component {
       )
       .then((res) => {
         if (res.data.description === "Successfully sign-in") {
+          console.log(res.data);
           this.setState({
             signinStatus: true,
             currentMemID: res.data.MemID,

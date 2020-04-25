@@ -4,22 +4,34 @@ import InputWithT from "./inputwithtag.jsx";
 import axios from "axios";
 
 class Hypersearch extends Component {
-  state = {};
+  state = {
+    RawFoodTag: [],
+    ToolTag: [],
+    FoodTypeTag: [],
+    FoodNationTag: [],
+  };
 
   componentDidMount = () => {
     this.fetchTag();
   };
 
-  async fetchTag() {
+  fetchTag = async () => {
     await axios
       .get(
         "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/Tag"
       )
       .then((res) => {
-        console.log(res);
+        const restmp = res.data.data;
+        console.log(restmp);
+        this.setState({
+          FoodNationTag: restmp.FoodNationTag,
+          RawFoodTag: restmp.RawFoodTag,
+          ToolTag: restmp.ToolTag,
+          FoodTypeTag: restmp.FoodTypeTag,
+        });
       })
       .catch((error) => console.log(error));
-  }
+  };
 
   render() {
     return (
@@ -28,11 +40,11 @@ class Hypersearch extends Component {
         <ul>
           <li>
             <p>วัตถุดิบ : </p>
-            <InputWithT />
+            <InputWithT Tag={this.state.RawFoodTag} />
           </li>
           <li>
             <p>อุปกรณ์ : </p>
-            <InputWithT />
+            <InputWithT Tag={this.state.ToolTag} />
           </li>
           <li>
             <p>ระยะเวลา : </p>
@@ -45,15 +57,21 @@ class Hypersearch extends Component {
           </li>
           <li>
             <p>ประเภทอาหาร : </p>
-            <select>
-              <option value={1}>คาว</option>
-              <option value={2}>หวาน</option>
-              <option value={3}>ทะเล</option>
-            </select>
+            <input list="FoodTypeTag" />
+            <datalist id="FoodTypeTag">
+              {this.state.FoodTypeTag.map((tag) => {
+                return <option value={tag}></option>;
+              })}
+            </datalist>
           </li>
           <li>
             <p>สัญชาติ : </p>
-            <input type="text"></input>
+            <input list="FoodNationTag" />
+            <datalist id="FoodNationTag">
+              {this.state.FoodNationTag.map((tag) => {
+                return <option value={tag}></option>;
+              })}
+            </datalist>
           </li>
           <li>
             <p>แคลลอรี่ : </p>

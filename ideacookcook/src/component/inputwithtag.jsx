@@ -1,18 +1,9 @@
 import React, { Component } from "react";
-//import { render } from "react-dom";
-import { COUNTRIES } from "./dataTag/countries.js";
 import "./styles/inputwithloginstyles.css";
 import { WithContext as ReactTags } from "react-tag-input";
 
-const suggestions = COUNTRIES.map((country) => {
-  return {
-    id: country,
-    text: country,
-  };
-});
-
 const KeyCodes = {
-  comma: 188,
+  //comma: 188,
   enter: 13,
 };
 
@@ -22,11 +13,9 @@ class InputWithT extends Component {
     super(props);
 
     this.state = {
-      tags: [
-        { id: "Thailand", text: "Thailand" },
-        { id: "India", text: "India" },
-      ],
-      suggestions: suggestions,
+      Tag: [],
+      suggestions: [],
+      tags: [],
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
@@ -41,8 +30,9 @@ class InputWithT extends Component {
     });
   }
 
-  handleAddition(tag) {
-    this.setState((state) => ({ tags: [...state.tags, tag] }));
+  async handleAddition(tag) {
+    await this.setState((state) => ({ tags: [...state.tags, tag] }));
+    console.log(this.state.tags);
   }
 
   handleDrag(tag, currPos, newPos) {
@@ -60,7 +50,19 @@ class InputWithT extends Component {
     console.log("The tag at index " + index + " was clicked");
   }
 
+  updateTag() {
+    this.state.Tag = this.props.Tag;
+
+    this.state.suggestions = this.state.Tag.map((tag) => {
+      return {
+        id: tag,
+        text: tag,
+      };
+    });
+  }
+
   render() {
+    this.updateTag();
     const { tags, suggestions } = this.state;
     return (
       <div>
@@ -72,6 +74,7 @@ class InputWithT extends Component {
           handleAddition={this.handleAddition}
           handleDrag={this.handleDrag}
           handleTagClick={this.handleTagClick}
+          //autocomplete={true}
         />
       </div>
     );
