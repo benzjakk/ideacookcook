@@ -22,7 +22,6 @@ class Hypersearch extends Component {
       )
       .then((res) => {
         const restmp = res.data.data;
-        console.log(restmp);
         this.setState({
           FoodNationTag: restmp.FoodNationTag,
           RawFoodTag: restmp.RawFoodTag,
@@ -59,8 +58,8 @@ class Hypersearch extends Component {
             <p>ประเภทอาหาร : </p>
             <input list="FoodTypeTag" />
             <datalist id="FoodTypeTag">
-              {this.state.FoodTypeTag.map((tag) => {
-                return <option value={tag}></option>;
+              {this.state.FoodTypeTag.map((tag, index) => {
+                return <option value={tag} key={index}></option>;
               })}
             </datalist>
           </li>
@@ -68,8 +67,8 @@ class Hypersearch extends Component {
             <p>สัญชาติ : </p>
             <input list="FoodNationTag" />
             <datalist id="FoodNationTag">
-              {this.state.FoodNationTag.map((tag) => {
-                return <option value={tag}></option>;
+              {this.state.FoodNationTag.map((tag, index) => {
+                return <option value={tag} key={index}></option>;
               })}
             </datalist>
           </li>

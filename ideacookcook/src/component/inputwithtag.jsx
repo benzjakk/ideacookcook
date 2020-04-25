@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./styles/inputwithloginstyles.css";
+import "./styles/inputwithT.css";
 import { WithContext as ReactTags } from "react-tag-input";
 
 const KeyCodes = {
@@ -74,7 +74,7 @@ class InputWithT extends Component {
           handleAddition={this.handleAddition}
           handleDrag={this.handleDrag}
           handleTagClick={this.handleTagClick}
-          //autocomplete={true}
+          autocomplete={true}
         />
       </div>
     );

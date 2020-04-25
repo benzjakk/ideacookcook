@@ -9,6 +9,7 @@ class Loginer extends Component {
     signinStatus: false,
     currentMemID: null,
     currentUser: null,
+    profilePicture: null,
     email: "",
     psw: "",
   };
@@ -20,11 +21,10 @@ class Loginer extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     await axios
-      .post(
+      .get(
         "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/signin",
         {
-          email: this.state.email,
-          password: this.state.psw,
+          params: { email: this.state.email, password: this.state.psw },
         }
       )
       .then((res) => {
@@ -32,25 +32,20 @@ class Loginer extends Component {
           console.log(res.data);
           this.setState({
             signinStatus: true,
-            currentMemID: res.data.MemID,
+            currentMemID: res.data.data.MemID,
+            currentUser: res.data.data.KnownName,
+            profilePicture: res.data.data.ProfilePicture,
           });
+          localStorage.setItem("currentUser", this.state.currentUser);
           localStorage.setItem("currentMemID", this.state.currentMemID);
+          localStorage.setItem("profilePicture", this.state.profilePicture);
           console.log("Signin Success");
         }
       })
       .catch((error) => {
         console.log(error);
       });
-    await axios
-      .get(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/data/" +
-          this.state.currentMemID
-      )
-      .then((res) => {
-        this.setState({ currentUser: res.data.data.KnownName });
-        localStorage.setItem("currentUser", this.state.currentUser);
-      })
-      .catch((error) => console.log(error));
+
     this.props.triggerUserCurrentUpdate();
     console.log(this.state.signinStatus);
     this.setState({ showResult: true });

@@ -4,12 +4,14 @@
 }
 
 div.ReactTags__tags {
+  margin: 10px;
+  margin-top: 15px;
   position: relative;
 }
 
 /* Styles for the input */
 div.ReactTags__tagInput {
-  width: 200px;
+  width: 150px;
   border-radius: 2px;
   display: inline-block;
 }

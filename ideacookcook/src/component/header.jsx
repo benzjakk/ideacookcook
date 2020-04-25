@@ -2,22 +2,27 @@ import React, { Component } from "react";
 import "./styles/headerstyles.css";
 import Loginer from "./loginer.jsx";
 import Register from "./register.jsx";
+import Autocomplete from "./autocomplete";
+import Axios from "axios";
 
 class Header extends Component {
   state = {
     currentUser: null,
     currentMemID: null,
+    recipeName: null,
   };
 
   componentDidMount = () => {
     this.updateCurrentUser();
+    this.updateData();
   };
 
   openLoginer() {
-    window.Loginer.setState({ showModal: true });
+    window.Loginer.setState({ showModal: true, showResult: false });
   }
   openRegister() {
-    window.Register.setState({ showModal: true });
+    window.Register.setState({ showModal: true, showResult: false });
+    //<input type="text" placeholder="ค้นหาสูตรอาหาร ..." />
   }
 
   handleLogout = async () => {
@@ -31,6 +36,19 @@ class Header extends Component {
       currentUser: localStorage.getItem("currentUser"),
       currentMemID: localStorage.getItem("currentMemID"),
     });
+  };
+
+  updateData = async () => {
+    await Axios.get(
+      "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/RecipesName"
+    )
+      .then((res) => {
+        console.log(res.data.data);
+        this.setState({ recipeName: res.data.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   render() {
@@ -61,7 +79,10 @@ class Header extends Component {
               </a>
             </div>
             <div>
-              <input type="text" placeholder="ค้นหาสูตรอาหาร ..."></input>
+              <Autocomplete
+                placeholder="ค้นหาสูตรอาหาร ...."
+                suggestions={this.state.recipeName}
+              />
             </div>
             <a href="food.html">
               <button type="button">
@@ -77,6 +98,7 @@ class Header extends Component {
             </a>
           </div>
         </header>
+
         <Loginer
           triggerUserCurrentUpdate={this.updateCurrentUser}
           ref={(Loginer) => {
