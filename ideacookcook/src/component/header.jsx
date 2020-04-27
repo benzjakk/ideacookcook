@@ -22,7 +22,6 @@ class Header extends Component {
   }
   openRegister() {
     window.Register.setState({ showModal: true, showResult: false });
-    //<input type="text" placeholder="ค้นหาสูตรอาหาร ..." />
   }
 
   handleLogout = async () => {

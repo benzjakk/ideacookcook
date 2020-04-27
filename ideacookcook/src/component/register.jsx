@@ -26,6 +26,7 @@ class Register extends Component {
   };
 
   handleSubmit = async (event) => {
+    document.getElementById("regisbut").innerHTML = "Loading...";
     event.preventDefault();
     await axios
       .post(
@@ -46,6 +47,7 @@ class Register extends Component {
         console.log(res.data.description);
         if (res.data.description === "Successfully created") {
           this.setState({ registerSatatus: true });
+          window.location.pathname = "/";
         }
       })
       .catch((error) => {
@@ -53,6 +55,7 @@ class Register extends Component {
       });
     this.setState({ showResult: true });
     console.log(this.state.registerSatatus);
+    document.getElementById("regisbut").innerHTML = "Register";
   };
 
   handleChange(event) {
@@ -193,7 +196,9 @@ class Register extends Component {
               onChange={this.handleChange}
             />
 
-            <button type="submit">Register</button>
+            <button type="submit" id="regisbut">
+              Register
+            </button>
           </div>
 
           <div className="container">

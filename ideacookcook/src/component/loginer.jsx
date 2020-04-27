@@ -50,6 +50,7 @@ class Loginer extends Component {
     this.props.triggerUserCurrentUpdate();
     console.log(this.state.signinStatus);
     this.setState({ showResult: true });
+    document.getElementById("loginbut").innerHTML = "Login";
   };
   handleChange = (event) => {
     const target = event.target;

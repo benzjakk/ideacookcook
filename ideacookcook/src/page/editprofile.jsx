@@ -11,7 +11,8 @@ class Editprofile extends Component {
     LastName: "",
     Line: "",
     PhoneNo: "",
-    ProfilePicture: defualtProPic,
+    ProfilePicture: null,
+    ProfilePictureURL: defualtProPic,
   };
 
   componentDidMount() {
@@ -24,7 +25,6 @@ class Editprofile extends Component {
     )
       .then((res) => {
         const restmp = res.data.data;
-        console.log(restmp);
         this.setState({
           Facebook: restmp.Facebook,
           FirstName: restmp.FirstName,
@@ -35,7 +35,7 @@ class Editprofile extends Component {
           PhoneNo: restmp.PhoneNo,
         });
         if (restmp.ProfilePicture !== "") {
-          this.setState({ ProfilePicture: restmp.ProfilePicture });
+          this.setState({ ProfilePictureURL: restmp.ProfilePicture });
         }
       })
       .catch((error) => {
@@ -44,6 +44,7 @@ class Editprofile extends Component {
   };
 
   handleSubmit = async (event) => {
+    document.getElementById("editbut").innerHTML = "Loading...";
     event.preventDefault();
     await Axios.patch(
       "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/UserData",
@@ -53,7 +54,7 @@ class Editprofile extends Component {
         LastName: this.state.LastName,
         Instagram: this.state.Instagram,
         KnownName: this.state.KnownName,
-        LastName: this.state.LastName,
+        Facebook: this.state.Facebook,
         Line: this.state.Line,
       }
     )
@@ -62,39 +63,41 @@ class Editprofile extends Component {
         if (res.data.description === "Successfully update data") {
           alert("Successfully update data");
           localStorage.setItem("currentUser", this.state.KnownName);
+        } else {
+          alert("Failed to update data!!!");
         }
       })
       .catch((error) => {
         console.log(error);
       });
+    document.getElementById("editbut").innerHTML = "Edit";
   };
 
-  handleChangeFile = (event) => {
-    this.setState({
-      ProfilePicture: URL.createObjectURL(event.target.files[0]),
-    });
-  };
   handleUploadFile = async () => {
-    if (this.state.ProfilePicture !== defualtProPic) {
-      console.log("start upload");
+    document.getElementById("uploadbut").innerHTML = "Loading...";
+    if (this.state.ProfilePicture !== null) {
       const fd = new FormData();
-      fd.append(
-        localStorage.getItem("currentMemID"),
-        this.state.ProfilePicture
-      );
-
+      fd.append("MemID", localStorage.getItem("currentMemID"));
+      fd.append("Picture", this.state.ProfilePicture);
       await Axios.patch(
         "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/UserPhoto",
         fd
       )
         .then((res) => {
-          console.log(res);
+          if (res.data.description === "Successfully add photo and url") {
+            alert("Uploading Success");
+          } else {
+            alert("Failed to Upload!!!");
+          }
         })
         .catch((error) => {
           console.log(error);
         });
-      console.log("done upload");
+    } else {
+      alert("No choosen file.");
     }
+
+    document.getElementById("uploadbut").innerHTML = "Upload";
   };
   handleChange = (event) => {
     const target = event.target;
@@ -102,6 +105,12 @@ class Editprofile extends Component {
     const name = target.name;
     this.setState({ [name]: value });
     return true;
+  };
+  handleChangeFile = (event) => {
+    this.setState({
+      ProfilePictureURL: URL.createObjectURL(event.target.files[0]),
+      ProfilePicture: event.target.files[0],
+    });
   };
   render() {
     return (
@@ -114,7 +123,7 @@ class Editprofile extends Component {
           <img
             height="120"
             width="120"
-            src={this.state.ProfilePicture}
+            src={this.state.ProfilePictureURL}
             style={{ margin: "10px" }}
           />
           <input
@@ -124,11 +133,10 @@ class Editprofile extends Component {
             name="ProfilePicture"
             onChange={this.handleChangeFile}
           ></input>
-          <button type="button" onClick={this.handleUploadFile}>
-            Upload
-          </button>
         </div>
-
+        <button id="uploadbut" type="button" onClick={this.handleUploadFile}>
+          Upload
+        </button>
         <label>
           <b>KnownName</b>
         </label>
@@ -203,7 +211,9 @@ class Editprofile extends Component {
           onChange={this.handleChange}
         />
 
-        <button type="submit">Edit</button>
+        <button type="submit" id="editbut">
+          Edit
+        </button>
       </form>
     );
   }
