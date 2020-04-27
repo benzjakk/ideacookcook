@@ -9,7 +9,7 @@ class Header extends Component {
   state = {
     currentUser: null,
     currentMemID: null,
-    recipeName: null,
+    recipeName: [""],
   };
 
   componentDidMount = () => {
