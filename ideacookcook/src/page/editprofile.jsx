@@ -74,6 +74,28 @@ class Editprofile extends Component {
       ProfilePicture: URL.createObjectURL(event.target.files[0]),
     });
   };
+  handleUploadFile = async () => {
+    if (this.state.ProfilePicture !== defualtProPic) {
+      console.log("start upload");
+      const fd = new FormData();
+      fd.append(
+        localStorage.getItem("currentMemID"),
+        this.state.ProfilePicture
+      );
+
+      await Axios.patch(
+        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/UserPhoto",
+        fd
+      )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log("done upload");
+    }
+  };
   handleChange = (event) => {
     const target = event.target;
     const value = target.value;
@@ -102,6 +124,9 @@ class Editprofile extends Component {
             name="ProfilePicture"
             onChange={this.handleChangeFile}
           ></input>
+          <button type="button" onClick={this.handleUploadFile}>
+            Upload
+          </button>
         </div>
 
         <label>

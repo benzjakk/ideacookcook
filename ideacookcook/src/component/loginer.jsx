@@ -19,6 +19,7 @@ class Loginer extends Component {
   };
 
   handleSubmit = async (event) => {
+    document.getElementById("loginbut").innerHTML = "Loading....";
     event.preventDefault();
     await axios
       .get(
@@ -29,7 +30,6 @@ class Loginer extends Component {
       )
       .then((res) => {
         if (res.data.description === "Successfully sign-in") {
-          console.log(res.data);
           this.setState({
             signinStatus: true,
             currentMemID: res.data.data.MemID,
@@ -113,7 +113,7 @@ class Loginer extends Component {
               onChange={this.handleChange}
             />
 
-            <button>Login</button>
+            <button id="loginbut">Login</button>
           </div>
 
           <div className="container">
