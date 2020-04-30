@@ -45,13 +45,14 @@ class Autocomplete extends Component {
     this.updateParent();
   };
 
-  onClick = (e) => {
-    this.setState({
+  onClick = async (e) => {
+    await this.setState({
       activeSuggestion: 0,
       filteredSuggestions: [],
       showSuggestions: false,
       userInput: e.currentTarget.innerText,
     });
+    this.updateParent();
   };
 
   onKeyDown = async (e) => {
