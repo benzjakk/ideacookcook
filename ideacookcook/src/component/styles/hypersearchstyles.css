@@ -32,6 +32,7 @@
   margin-left: 40%;
   font-size: 25px;
   font-weight: bolder;
+  color: rgb(170, 5, 5);
 }
 .hypersearch button:hover {
   background-color: rgb(170, 5, 5);

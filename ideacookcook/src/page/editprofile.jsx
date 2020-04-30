@@ -17,7 +17,9 @@ class Editprofile extends Component {
   };
 
   componentDidMount() {
-    this.fetchUserData();
+    if (localStorage.getItem("currentMemID") !== null) {
+      this.fetchUserData();
+    }
   }
   fetchUserData = async () => {
     await Axios.get(
@@ -60,7 +62,6 @@ class Editprofile extends Component {
       }
     )
       .then((res) => {
-        console.log(res.data.description);
         if (res.data.description === "Successfully update data") {
           alert("Successfully update data");
           localStorage.setItem("currentUser", this.state.KnownName);
