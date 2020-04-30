@@ -12,6 +12,7 @@ class Header extends Component {
     currentUser: null,
     currentMemID: null,
     recipeName: [""],
+    userInput: "",
   };
 
   refreshPage() {
@@ -39,6 +40,10 @@ class Header extends Component {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  updateUserInput = (childData) => {
+    this.setState({ userInput: childData });
   };
 
   openLoginer() {
@@ -71,6 +76,7 @@ class Header extends Component {
   };
 
   render() {
+    console.log(this.state.userInput);
     return (
       <React.Fragment>
         <header>
@@ -105,7 +111,10 @@ class Header extends Component {
               </a>
             </div>
             <div>
-              <Autocomplete suggestions={this.state.recipeName} />
+              <Autocomplete
+                updateParent={this.updateUserInput}
+                suggestions={this.state.recipeName}
+              />
             </div>
 
             <button type="submit" onClick={this.handleSearch}>

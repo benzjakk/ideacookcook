@@ -18,7 +18,7 @@ class Autocomplete extends Component {
       // The active selection's index
       activeSuggestion: 0,
       // The suggestions that match the user's input
-      filteredSuggestions: [],
+      filteredSuggestions: [""],
       // Whether or not the suggestion list is shown
       showSuggestions: false,
       // What the user has entered
@@ -26,7 +26,7 @@ class Autocomplete extends Component {
     };
   }
 
-  onChange = (e) => {
+  onChange = async (e) => {
     const { suggestions } = this.props;
     const userInput = e.currentTarget.value;
 
@@ -36,13 +36,13 @@ class Autocomplete extends Component {
         suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
 
-    this.setState({
+    await this.setState({
       activeSuggestion: 0,
       filteredSuggestions,
       showSuggestions: true,
       userInput: e.currentTarget.value,
-      currentInput: userInput,
     });
+    this.sentData();
   };
 
   onClick = (e) => {
@@ -54,15 +54,16 @@ class Autocomplete extends Component {
     });
   };
 
-  onKeyDown = (e) => {
+  onKeyDown = async (e) => {
     const { activeSuggestion, filteredSuggestions } = this.state;
     // User pressed the enter key
     if (e.keyCode === 13) {
-      this.setState({
+      await this.setState({
         activeSuggestion: 0,
         showSuggestions: false,
         userInput: filteredSuggestions[activeSuggestion],
       });
+      this.sentData();
     }
     // User pressed the up arrow
     else if (e.keyCode === 38) {
@@ -78,6 +79,10 @@ class Autocomplete extends Component {
       }
       this.setState({ activeSuggestion: activeSuggestion + 1 });
     }
+  };
+
+  sentData = () => {
+    this.props.updateParent(this.state.userInput);
   };
 
   render() {
@@ -116,7 +121,7 @@ class Autocomplete extends Component {
           </ul>
         );
       } else {
-        suggestionsListComponent = <div></div>;
+        suggestionsListComponent = null;
       }
     }
 
