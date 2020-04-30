@@ -129,6 +129,7 @@ class Editprofile extends Component {
           <input
             style={{ border: "0px" }}
             type="file"
+            accept="image/*"
             id="img"
             name="ProfilePicture"
             onChange={this.handleChangeFile}

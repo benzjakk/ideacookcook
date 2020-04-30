@@ -5,6 +5,7 @@ import "./styles/autocompletestyles.css";
 class Autocomplete extends Component {
   static propTypes = {
     suggestions: PropTypes.instanceOf(Array),
+    currentTarget: "",
   };
 
   static defaultProps = {
@@ -41,6 +42,7 @@ class Autocomplete extends Component {
       filteredSuggestions,
       showSuggestions: true,
       userInput: e.currentTarget.value,
+      currentInput: userInput,
     });
   };
 
@@ -55,7 +57,6 @@ class Autocomplete extends Component {
 
   onKeyDown = (e) => {
     const { activeSuggestion, filteredSuggestions } = this.state;
-
     // User pressed the enter key
     if (e.keyCode === 13) {
       this.setState({
@@ -69,7 +70,6 @@ class Autocomplete extends Component {
       if (activeSuggestion === 0) {
         return;
       }
-
       this.setState({ activeSuggestion: activeSuggestion - 1 });
     }
     // User pressed the down arrow
@@ -77,7 +77,6 @@ class Autocomplete extends Component {
       if (activeSuggestion - 1 === filteredSuggestions.length) {
         return;
       }
-
       this.setState({ activeSuggestion: activeSuggestion + 1 });
     }
   };

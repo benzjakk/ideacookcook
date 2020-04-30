@@ -16,6 +16,24 @@ class Header extends Component {
     this.updateCurrentUser();
     this.updateData();
   };
+  updateCurrentUser = async () => {
+    await this.setState({
+      currentUser: localStorage.getItem("currentUser"),
+      currentMemID: localStorage.getItem("currentMemID"),
+    });
+  };
+
+  updateData = async () => {
+    await Axios.get(
+      "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/RecipesName"
+    )
+      .then((res) => {
+        this.setState({ recipeName: res.data.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   openLoginer() {
     window.Loginer.setState({ showModal: true, showResult: false });
@@ -30,19 +48,16 @@ class Header extends Component {
     this.updateCurrentUser();
   };
 
-  updateCurrentUser = async () => {
-    await this.setState({
-      currentUser: localStorage.getItem("currentUser"),
-      currentMemID: localStorage.getItem("currentMemID"),
-    });
-  };
-
-  updateData = async () => {
+  handleSearch = async () => {
+    console.log(window.Autocomplete.state.currentInput);
     await Axios.get(
-      "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/RecipesName"
+      "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName",
+      {
+        keyWord: window.Autocomplete.state.currentInput,
+      }
     )
       .then((res) => {
-        this.setState({ recipeName: res.data.data });
+        console.log(res);
       })
       .catch((error) => {
         console.log(error);
@@ -77,14 +92,20 @@ class Header extends Component {
               </a>
             </div>
             <div>
-              <Autocomplete suggestions={this.state.recipeName} />
+              <Autocomplete
+                suggestions={this.state.recipeName}
+                ref={(Autocomplete) => {
+                  window.Autocomplete = Autocomplete;
+                }}
+              />
             </div>
-            <a href="food.html">
-              <button type="button">
+            <a>
+              <button type="submit" onClick={this.handleSearch}>
                 {" "}
                 <b>ค้นหา</b>{" "}
               </button>
             </a>
+
             <a href="inputrecipe.html">
               <button type="button">
                 {" "}
