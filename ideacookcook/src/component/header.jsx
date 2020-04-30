@@ -61,14 +61,15 @@ class Header extends Component {
   };
 
   handleSearch = async () => {
+    console.log(this.state.userInput);
     await Axios.get(
       "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName",
       {
-        keyWord: "ไข่",
+        params: { keyWord: this.state.userInput },
       }
     )
       .then((res) => {
-        console.log(res);
+        console.log(res.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -76,7 +77,6 @@ class Header extends Component {
   };
 
   render() {
-    console.log(this.state.userInput);
     return (
       <React.Fragment>
         <header>

@@ -18,7 +18,7 @@ class Autocomplete extends Component {
       // The active selection's index
       activeSuggestion: 0,
       // The suggestions that match the user's input
-      filteredSuggestions: [""],
+      filteredSuggestions: [],
       // Whether or not the suggestion list is shown
       showSuggestions: false,
       // What the user has entered
@@ -42,7 +42,7 @@ class Autocomplete extends Component {
       showSuggestions: true,
       userInput: e.currentTarget.value,
     });
-    this.sentData();
+    this.updateParent();
   };
 
   onClick = (e) => {
@@ -61,9 +61,13 @@ class Autocomplete extends Component {
       await this.setState({
         activeSuggestion: 0,
         showSuggestions: false,
-        userInput: filteredSuggestions[activeSuggestion],
       });
-      this.sentData();
+      if (this.state.filteredSuggestions.length > 0) {
+        await this.setState({
+          userInput: filteredSuggestions[activeSuggestion],
+        });
+      }
+      this.updateParent();
     }
     // User pressed the up arrow
     else if (e.keyCode === 38) {
@@ -81,7 +85,7 @@ class Autocomplete extends Component {
     }
   };
 
-  sentData = () => {
+  updateParent = () => {
     this.props.updateParent(this.state.userInput);
   };
 

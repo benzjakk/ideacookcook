@@ -97,7 +97,6 @@ class Editprofile extends Component {
     } else {
       alert("No choosen file.");
     }
-
     document.getElementById("uploadbut").innerHTML = "Upload";
   };
   handleChange = (event) => {
