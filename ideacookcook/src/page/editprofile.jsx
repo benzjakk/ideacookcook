@@ -95,7 +95,7 @@ class Editprofile extends Component {
           console.log(error);
         });
     } else {
-      alert("No choosen file.");
+      alert("No file chosen.");
     }
     document.getElementById("uploadbut").innerHTML = "Upload";
   };
@@ -107,10 +107,16 @@ class Editprofile extends Component {
     return true;
   };
   handleChangeFile = (event) => {
-    this.setState({
-      ProfilePictureURL: URL.createObjectURL(event.target.files[0]),
-      ProfilePicture: event.target.files[0],
-    });
+    if (event.target.files[0]) {
+      this.setState({
+        ProfilePictureURL: URL.createObjectURL(event.target.files[0]),
+        ProfilePicture: event.target.files[0],
+      });
+    } else {
+      this.setState({
+        ProfilePicture: null,
+      });
+    }
   };
   render() {
     if (localStorage.getItem("currentMemID") === null) {
