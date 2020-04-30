@@ -5,7 +5,6 @@ import "./styles/autocompletestyles.css";
 class Autocomplete extends Component {
   static propTypes = {
     suggestions: PropTypes.instanceOf(Array),
-    currentTarget: "",
   };
 
   static defaultProps = {

@@ -4,6 +4,8 @@ import Loginer from "./loginer.jsx";
 import Register from "./register.jsx";
 import Autocomplete from "./autocomplete";
 import Axios from "axios";
+import editpic from "./pic/editprofile.png";
+import logoutpic from "./pic/logout.png";
 
 class Header extends Component {
   state = {
@@ -11,6 +13,10 @@ class Header extends Component {
     currentMemID: null,
     recipeName: [""],
   };
+
+  refreshPage() {
+    window.location.reload(false);
+  }
 
   componentDidMount = () => {
     this.updateCurrentUser();
@@ -46,14 +52,14 @@ class Header extends Component {
     await localStorage.removeItem("currentUser");
     await localStorage.removeItem("currentMemID");
     this.updateCurrentUser();
+    this.refreshPage();
   };
 
   handleSearch = async () => {
-    console.log(window.Autocomplete.state.currentInput);
     await Axios.get(
       "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName",
       {
-        keyWord: window.Autocomplete.state.currentInput,
+        keyWord: "ไข่",
       }
     )
       .then((res) => {
@@ -70,10 +76,17 @@ class Header extends Component {
         <header>
           {this.state.currentUser ? (
             <div className="login_regis">
+              <div>{this.state.currentUser}</div>
               <a href="/editprofile">
-                <div>{this.state.currentUser}</div>
+                <img height="30" width="30" src={editpic} alt="สุขภาพ"></img>
               </a>
-              <div onClick={this.handleLogout}>Logout</div>
+              <img
+                height="30"
+                width="30"
+                src={logoutpic}
+                alt="สุขภาพ"
+                onClick={this.handleLogout}
+              ></img>
             </div>
           ) : (
             <div className="login_regis">
@@ -92,19 +105,13 @@ class Header extends Component {
               </a>
             </div>
             <div>
-              <Autocomplete
-                suggestions={this.state.recipeName}
-                ref={(Autocomplete) => {
-                  window.Autocomplete = Autocomplete;
-                }}
-              />
+              <Autocomplete suggestions={this.state.recipeName} />
             </div>
-            <a>
-              <button type="submit" onClick={this.handleSearch}>
-                {" "}
-                <b>ค้นหา</b>{" "}
-              </button>
-            </a>
+
+            <button type="submit" onClick={this.handleSearch}>
+              {" "}
+              <b>ค้นหา</b>{" "}
+            </button>
 
             <a href="inputrecipe.html">
               <button type="button">

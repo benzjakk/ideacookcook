@@ -88,6 +88,20 @@ header a {
   text-decoration: none;
   color: white;
 }
+
+header img {
+  margin-top: 8px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+header img:hover {
+  cursor: pointer;
+  transition: 0.25s;
+  margin-top: 0px;
+  padding-bottom: 5px;
+}
+
 /* @media screen and (max-width: 1230px) {
   header input {
     width: 400px;
@@ -110,6 +124,11 @@ header a {
   header .login_regis div {
     /* width: 70px;
     font-size: 12px; */
+    visibility: hidden;
+    width: 0;
+  }
+
+  header img {
     visibility: hidden;
     width: 0;
   }

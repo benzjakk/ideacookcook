@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import Axios from "axios";
 import defualtProPic from "../component/pic/anonymous.png";
 
@@ -113,110 +114,118 @@ class Editprofile extends Component {
     });
   };
   render() {
-    return (
-      <form className="modal-content container1 " onSubmit={this.handleSubmit}>
-        <h2>แก้ไขโปรไฟล์</h2>
-        <label>
-          <b>Profile Picture</b>
-        </label>
-        <div style={{ display: "flex" }}>
-          <img
-            height="120"
-            width="120"
-            src={this.state.ProfilePictureURL}
-            style={{ margin: "10px" }}
-          />
+    if (localStorage.getItem("currentMemID") === null) {
+      return <Redirect to="/" />;
+    } else {
+      return (
+        <form
+          className="modal-content container1 "
+          onSubmit={this.handleSubmit}
+        >
+          <h2>แก้ไขโปรไฟล์</h2>
+          <label>
+            <b>Profile Picture</b>
+          </label>
+          <div style={{ display: "flex" }}>
+            <img
+              alt="defaultProPic"
+              height="120"
+              width="120"
+              src={this.state.ProfilePictureURL}
+              style={{ margin: "10px" }}
+            />
+            <input
+              style={{ border: "0px" }}
+              type="file"
+              accept="image/*"
+              id="img"
+              name="ProfilePicture"
+              onChange={this.handleChangeFile}
+            ></input>
+          </div>
+          <button id="uploadbut" type="button" onClick={this.handleUploadFile}>
+            Upload
+          </button>
+          <label>
+            <b>KnownName</b>
+          </label>
           <input
-            style={{ border: "0px" }}
-            type="file"
-            accept="image/*"
-            id="img"
-            name="ProfilePicture"
-            onChange={this.handleChangeFile}
-          ></input>
-        </div>
-        <button id="uploadbut" type="button" onClick={this.handleUploadFile}>
-          Upload
-        </button>
-        <label>
-          <b>KnownName</b>
-        </label>
-        <input
-          type="text"
-          value={this.state.KnownName}
-          name="KnownName"
-          onChange={this.handleChange}
-          required
-        />
+            type="text"
+            value={this.state.KnownName}
+            name="KnownName"
+            onChange={this.handleChange}
+            required
+          />
 
-        <label>
-          <b>FirstName</b>
-        </label>
-        <input
-          type="text"
-          value={this.state.FirstName}
-          name="FirstName"
-          onChange={this.handleChange}
-          required
-        />
+          <label>
+            <b>FirstName</b>
+          </label>
+          <input
+            type="text"
+            value={this.state.FirstName}
+            name="FirstName"
+            onChange={this.handleChange}
+            required
+          />
 
-        <label>
-          <b>LastName</b>
-        </label>
-        <input
-          type="text"
-          value={this.state.LastName}
-          name="LastName"
-          onChange={this.handleChange}
-          required
-        />
+          <label>
+            <b>LastName</b>
+          </label>
+          <input
+            type="text"
+            value={this.state.LastName}
+            name="LastName"
+            onChange={this.handleChange}
+            required
+          />
 
-        <label>
-          <b>Phone Number</b>
-        </label>
-        <input
-          type="text"
-          value={this.state.PhoneNo}
-          name="PhoneNo"
-          onChange={this.handleChange}
-          required
-        />
+          <label>
+            <b>Phone Number</b>
+          </label>
+          <input
+            type="text"
+            value={this.state.PhoneNo}
+            name="PhoneNo"
+            onChange={this.handleChange}
+            required
+          />
 
-        <label>
-          <b>Facebook</b>
-        </label>
-        <input
-          type="text"
-          value={this.state.Facebook}
-          name="Facebook"
-          onChange={this.handleChange}
-        />
+          <label>
+            <b>Facebook</b>
+          </label>
+          <input
+            type="text"
+            value={this.state.Facebook}
+            name="Facebook"
+            onChange={this.handleChange}
+          />
 
-        <label>
-          <b>Instagram</b>
-        </label>
-        <input
-          type="text"
-          value={this.state.Instagram}
-          name="Instagram"
-          onChange={this.handleChange}
-        />
+          <label>
+            <b>Instagram</b>
+          </label>
+          <input
+            type="text"
+            value={this.state.Instagram}
+            name="Instagram"
+            onChange={this.handleChange}
+          />
 
-        <label>
-          <b>Line</b>
-        </label>
-        <input
-          type="text"
-          value={this.state.Line}
-          name="Line"
-          onChange={this.handleChange}
-        />
+          <label>
+            <b>Line</b>
+          </label>
+          <input
+            type="text"
+            value={this.state.Line}
+            name="Line"
+            onChange={this.handleChange}
+          />
 
-        <button type="submit" id="editbut">
-          Edit
-        </button>
-      </form>
-    );
+          <button type="submit" id="editbut">
+            Edit
+          </button>
+        </form>
+      );
+    }
   }
 }
 

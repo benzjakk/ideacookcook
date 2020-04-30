@@ -40,14 +40,14 @@ class Loginer extends Component {
           localStorage.setItem("currentMemID", this.state.currentMemID);
           localStorage.setItem("profilePicture", this.state.profilePicture);
           console.log("Signin Success");
-          window.location.pathname = "/";
+          this.props.triggerUserCurrentUpdate();
+          window.location.reload(false);
         }
       })
       .catch((error) => {
         console.log(error);
       });
 
-    this.props.triggerUserCurrentUpdate();
     console.log(this.state.signinStatus);
     this.setState({ showResult: true });
     document.getElementById("loginbut").innerHTML = "Login";
