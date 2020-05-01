@@ -70,6 +70,10 @@ class method extends Component {
       <Fragment>
         {this.state.meths.map((meth, index) => (
           <span key={"span" + index}>
+            <h2>ขั้นตอนที่ {index+1}</h2>
+            <button id="xbut" onClick={this.handleDelete(index)}>
+              ลบขั้นตอนที่ {index+1}
+            </button>
             <textarea
               type="text"
               rows="7"
@@ -93,9 +97,7 @@ class method extends Component {
               </div>
             </label>
 
-            <button id="xbut" onClick={this.handleDelete(index)}>
-              X
-            </button>
+            
           </span>
         ))}
         <button onClick={this.addMethod}>Add more method</button>

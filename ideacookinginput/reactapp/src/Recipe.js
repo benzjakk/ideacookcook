@@ -8,7 +8,6 @@ function Recipe(){
         <section class="inputrecipe">
             <h1>ลงสูตรอาหาร</h1>
         <ul>
-        <button id="but1" onclick="document.getElementsByClassName('input1').value = ''" >รีเซ็ท</button>
         <li>
         <p>ชื่อเมนูอาหาร : </p>
         <input type="text" class="input1" />
