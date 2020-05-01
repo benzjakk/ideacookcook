@@ -1,0 +1,135 @@
+header {
+  overflow: visible;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header .mainheader {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  top: 0;
+  height: 80px;
+  width: 100%;
+}
+header #logo {
+  background-color: rgb(170, 5, 5);
+  border-radius: 50%;
+  color: rgb(170, 5, 5);
+  font-size: 5px;
+  margin: 0 1vw;
+  width: 44px;
+  align-self: center;
+}
+header input {
+  margin-top: 18px;
+  background-color: rgb(233, 233, 233);
+  border: none;
+  border-radius: 30px;
+  align-self: flex-start;
+  padding: 9px 2vw;
+  width: calc(88.5vw - 450px);
+  height: 26px;
+  font-size: 17px;
+}
+
+header .login_regis {
+  position: absolute;
+  display: flex;
+  right: 1vw;
+  z-index: 10;
+}
+
+header .login_regis div {
+  color: black;
+  font-size: 15px;
+  padding: 0;
+  margin-left: 0.5vw;
+  width: 100px;
+  background-color: rgb(235, 235, 235);
+  border-radius: 30px;
+  height: 44px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header .login_regis div:hover {
+  background-color: rgb(170, 5, 5);
+  color: white;
+  cursor: pointer;
+}
+header button {
+  margin-top: 18px;
+  font-size: 17px;
+  height: 44px;
+  width: 100px;
+  border-radius: 30px;
+  color: rgb(170, 5, 5);
+  background-color: white;
+  border: none;
+  margin-left: 1vw;
+}
+header button:hover {
+  background-color: rgb(170, 5, 5);
+  color: white;
+  cursor: pointer;
+}
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+header img {
+  margin-top: 8px;
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+header img:hover {
+  cursor: pointer;
+  transition: 0.25s;
+  margin-top: 0px;
+  padding-bottom: 5px;
+}
+
+/* @media screen and (max-width: 1230px) {
+  header input {
+    width: 400px;
+  }
+  header .login_regis {
+    margin-left: 75%;
+  }
+} */
+
+@media screen and (max-width: 675px) {
+  header input {
+    /* width: 130px; */
+    width: calc(93.5vw - 200px);
+  }
+  header button {
+    width: 57px;
+    font-size: 12px;
+  }
+
+  header .login_regis div {
+    /* width: 70px;
+    font-size: 12px; */
+    visibility: hidden;
+    width: 0;
+  }
+
+  header img {
+    visibility: hidden;
+    width: 0;
+  }
+}
