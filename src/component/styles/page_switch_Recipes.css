@@ -1,0 +1,312 @@
+.review-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: flex-start;
+    top:0;
+    width: calc(100% - 10px);
+    padding-top: 15px;
+    /* background-color: brown; */
+
+}
+.review-info {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 30px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    word-wrap: break-word;
+    border: 1px solid rgb(204, 204, 204);
+    /* box-shadow: 0vmin 8px 12px rgb(105, 105, 105); */
+}
+
+.review-info +.review-info{
+    margin-top: 15px;
+}
+
+.review-info .pic,.woohoo .pic{    
+    background-color: rgb(233, 233, 233);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transform: translate(8px,8px);
+    object-position: center;
+    object-fit: cover;    
+    text-decoration: none;
+    
+}
+
+.review-info .info {    
+    /* border: 1px solid rgb(204, 204, 204); */
+    margin-left: 15px ;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;  
+    /* padding-left: 2px; */
+    border-radius: 30px;
+}
+
+.fName {
+    max-width: 100%;
+    width: fit-content;
+    /* background-color: wheat; */
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    padding: 8px 7px;
+}
+
+.review-info .info div{
+    padding:7px 6px;    
+    font-size: 15px;
+}
+
+
+.review-info .myStar {
+    color: rgb(170,5,5);
+    padding: 0;
+}
+
+.review-info .myRating div {
+    padding: 0;
+    margin: 0;
+}
+
+.review-info .myRating{
+    height: 0;
+}
+
+.review-info .num {
+    margin-left: 8px;
+    transform: translateY(-1px);
+    padding: 0 8px 1px 8px;
+    width: unset;
+    height: unset;
+    background: rgb(170,5,5);
+    color: white;
+    /* border: 1px solid rgb(170,5,5); */
+}
+
+.woohoo .reviewBy{
+    font-size: 15px;
+    font-weight: 400;
+    color: grey;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.review-info .comment{
+    margin-left: 1px;
+    /* font-weight: 700; */
+}
+
+
+
+
+
+
+
+.recipe-box {
+    display:flex;
+    flex-direction: row;   
+    /* background-color: blueviolet; */
+}
+
+.recipe-box .pic{
+    position: relative;
+    margin: 0px 11px 0px 11px;
+    min-width: calc(230px * 3/2);
+    height: calc(230px* 3/2);
+    background-color: rgb(235, 235, 235);
+    /* width: calc(230px * 3/2 - 10px);
+    height: calc(230px* 3/2 - 10px); */
+    /* border: 5px solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 8px 4px 16px rgb(223, 223, 223);
+    /* box-shadow: 8px 8px 16px rgb(105, 105, 105); */
+    /* box-sizing: border-box; */
+    cursor: pointer;
+    /* transition: 4s; */
+}
+
+.recipe-box .mybg{
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+}
+
+.recipe-box .pic:hover .mybg {
+    opacity: 0.6;
+    visibility: visible;
+}
+
+/* .recipe-box .pic:before {
+    content: '';
+    position: absolute;
+    top:1vmin;
+    left: 1vmin;
+    right: 1vmin;
+    bottom: 1vmin;
+    border-top: 0.1vmin solid white;
+    border-bottom: 0.1vmin solid white;
+    box-sizing: border-box;
+    transition: 3s;
+    transform: scaleX(0);
+    opacity: 0;
+    z-index: 1;
+}
+
+.recipe-box .pic:hover::before {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+.recipe-box .pic:after {
+    content: '';
+    position: absolute;
+    top:1vmin;
+    left: 1vmin;
+    right: 1vmin;
+    bottom: 1vmin;
+    border-left: 0.1vmin solid white;
+    border-right: 0.1vmin solid white;
+    box-sizing: border-box;
+    transition: 3s;
+    transform: scaleY(0);
+    opacity: 0;
+    z-index: 1;
+}
+
+.recipe-box .pic:hover::after {
+    transform: scaleY(1);
+    opacity: 1;
+} */
+
+
+.recipe-box .imgBox {
+    width: 100%;
+    height: 100%;
+}
+
+.recipe-box .img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: 1s;    
+    object-fit: contain;
+    object-position: center;
+}
+
+.recipe-box .pic:hover .img {
+    transform: scale(1.2);
+    transition: 3s;
+}
+
+.recipe-box .content {
+    position: absolute;
+    width: 92%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.recipe-box .content h2 {
+    color: white;
+    margin: 15px;
+    text-align: center;
+    transform: translateY(-37px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    font-size: large;
+}
+
+.recipe-box .pic:hover h2 {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.recipe-box .info {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-around;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+    transform: translateY(37px);
+    
+}
+
+.recipe-box .pic:hover .info {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.icons{
+    width: 19px;
+    height: 75px;    
+    margin-right: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.myIcons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 11px;
+    font-size: 12px;
+    color: white;
+}
+
+.afterIconsA, .afterIconsB {
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 7px;
+}
+.afterIconsA div{  
+    height: 22px;
+    color: white;
+    font-size: 13px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.afterIconsB div{  
+    height: 22px;
+    color: white;
+    font-size: 13px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

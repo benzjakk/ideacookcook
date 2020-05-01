@@ -14,11 +14,11 @@
 }
 
 header {  
-  background-image: url("/pic/headerr.jpg");
+  background-image: url(/pic/headerr.jpg);
   background-size: cover;
   transform: translate(10px,0px);
   
-  background-color: grey;
+  /* background-color: grey; */
   position: sticky;
   top:0;
   z-index: 20;

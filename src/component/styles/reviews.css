@@ -1,0 +1,96 @@
+.reviews{
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews .review{
+    display: flex;
+    flex-direction: row;
+    width: 350px;
+    padding: 10px 0;
+}
+
+.reviews .reviewerPic {
+    background-color: rgb(233, 233, 233);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* background-size: cover; */
+    overflow: hidden;
+}
+
+.reviews .reviewerPic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* background-color: red; */
+}
+
+.reviews .del{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    height: 15px;
+    width: 30px;
+    padding:0 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.reviews .del:hover{
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.reviews .goDel{
+    position: absolute;
+    top: 23px;
+    right: 5px;
+    padding: 3px 7px;
+    font-size: 12px;
+    background-color: white;
+    border: 1px solid rgb(204, 204, 204);
+    cursor: pointer;
+}
+
+.reviews .goDel:hover{
+    position: absolute;
+    top: 23px;
+    right: 5px;
+    font-size: 12px;
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.reviews .del div{
+    transform: translateY(-7px);
+    font-size: 20px;
+}
+
+.reviews .comment {
+    position: relative;
+    width: 281px;
+    margin-left:10px;
+    padding: 5px 10px 7px 10px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 15px;
+    word-wrap: break-word;
+    background-color: white;
+}
+
+.reviews .comment .s{
+    font-size: 13px;
+}
+
+.reviews .myStar {
+    /* background-color: wheat; */
+    margin: 0;
+    font-size: 13px;
+}
