@@ -1,0 +1,108 @@
+.recipe-box .pic{
+    margin: 0 1.5vmin 4.5vmin 1.5vmin;
+    width: 28vmin;
+    height: 28vmin;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0vmin 1vmin 1vmin rgb(105, 105, 105);
+}
+
+.pic:hover >.picFront {
+    /* transform: perspective(0px) rotateY(-180deg); */
+    transform: translateX(16vmin);
+    cursor: pointer;
+}
+
+.pic:hover >.picBack {
+    /* transform: perspective(600px) rotateY(0deg); */
+    /* transform: translateX(0vmin); */
+    cursor: pointer;
+}
+.picFront,.picBack{
+    overflow: hidden;
+    /* backface-visibility: hidden; */
+    transition: transform .3s linear;
+    position: absolute;
+    cursor: pointer;
+}
+.picFront{
+    width: 28vmin;
+    height: 28vmin;
+    z-index: 15;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0vmin 0vmin 2vmin rgb(66, 66, 66);
+    /* transform: perspective(600px) rotateY(0deg); */
+}
+
+.picBack{
+    width: 27vmin;
+    height: 27vmin;
+    border: 0.5min solid white;
+    z-index: 14;
+    background-color: rgb(170,5,5);
+    /* transform: perspective(600px) rotateY(180deg); */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center ;
+    /* transform: translateX(-15vmin); */
+}
+
+.recipe-box .name {
+    /* font-weight: 600; */
+    /* background-color: wheat; */
+    max-height: 15vmin;
+    font-size: 2vmin;
+    color: white;
+    overflow-wrap: break-word;
+    text-align: left;
+    /* padding-top:0.5vmin ; */
+    /* margin-bottom: 0.2vmin; */
+    width: 13vmin;
+    padding:1vmin 2vmin;
+
+}
+
+.recipe-box .info {
+    /* background-color: violet; */
+    width: 15vmin;
+    color: rgb(170,5,5);
+    padding-top: 1vmin;
+    height: 10vmin;
+    /* margin-top: 1.1vmin; */
+    /* border-top: 0.1vmin solid white; */
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+
+
+
+{/* <div className="picFront" style={{backgroundImage:recipe.img}}>
+                </div>
+                <div className="picBack">
+                    <div className="name">{recipe.name}</div>
+                    <div className="info">                            
+                        <div className="icons">                                
+                            <div className="myIcons"><FaStream /></div>
+                            <div className="myIcons"><IoIosTime /></div>
+                            <div className="myIcons"><FaStar /></div>                                
+                        </div>
+                        <div className="afterIconsA">
+                            <div>{recipe.numOfSteps} steps</div>
+                            <div>{recipe.time} min</div>
+                            <div>{recipe.rating}</div>
+                        </div>
+                    </div>                        
+                </div> */}
