@@ -119,17 +119,6 @@ const RRR=(props)=> {
             if(comment!="")return(<div className="comment"><FaFeatherAlt />{" : "} {comment}</div>);
             else return(null);
         }
-        if(props.L.length==0)
-            return(
-            <div style={{
-                alignSelf:"center",
-                color:"black",
-                fontSize:"15px",
-                padding:" 10px",
-                textAlign:"center",
-                width:"200px",
-                margin:"10px"}}>no review found</div>
-            );
         const listRv = props.L.map((review) =>
         <div className="woohoo" style={{display:"flex",flexDirection:"column"}}>
             <div className="review-info">
