@@ -38,7 +38,7 @@ h2 {
   border-radius: 50px;
   transition: 0.25s;
   margin-top: 0px;
-  padding-bottom: 16px;
+  padding-bottom: 10px;
 }
 @media screen and (max-width: 1720px) {
   .category figure img {

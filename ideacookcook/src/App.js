@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
 import Food from "./page/food";
 import ChefProfile from "./page/chef-profile";
 import Result from "./page/result";
