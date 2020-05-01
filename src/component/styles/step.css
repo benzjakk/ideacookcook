@@ -234,7 +234,7 @@
       align-self: center;
       /* margin-top: 5px; */
       height: fit-content;
-      margin:0 20px 0 0px;
+      margin:0 20px 0 10px;
       padding: 20px 20px 20px 20px;
       font-size: 20px;
       text-align: left;
@@ -246,8 +246,9 @@
       color: grey;
     
   }
-
+  @import url('https://fonts.googleapis.com/css?family=Kalam:700&display=swap');
   .step .St{
+    font-family: 'Kalam', cursive;
     /* position: absolute; */
     color: rgb(197, 197, 197);
     /* color: black; */
@@ -278,6 +279,7 @@
   }
 
   .isSteps .St{
+    font-family: 'Kalam', cursive;
     /* position: absolute; */
     /* background-color: rgb(170, 5,5); */
     color: rgb(170, 5,5);
@@ -293,8 +295,8 @@
     /* text-align: right; */
     /* color: rgb(170, 5, 5); */
     font-size: 80px;
-    font-weight: 500;
-    transform: scale(1) translateY(-3px);
+    font-weight: 600;
+    transform: scale(1.2) translateY(8px);
     transition: 0.25s;
     /* opacity: 0.5; */
     /* margin-right:-5px; */
