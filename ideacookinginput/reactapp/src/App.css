@@ -1,16 +1,15 @@
 body {
-  background-color: #FBE7E2;
+  background-color: #fbe7e2;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-nav{
+nav {
   top: 0;
-display: flex;
-justify-content: space-around;
-align-items: center;
-position: sticky;
-min-height: 6vh;
-background: rgb(206, 153, 153);
-color: rgb(201, 43, 43);
-
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  min-height: 6vh;
+  background: rgb(206, 153, 153);
+  color: rgb(201, 43, 43);
 }
