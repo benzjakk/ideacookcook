@@ -1,0 +1,42 @@
+hr {
+  margin: 10px;
+}
+textarea {
+  max-width: 800px;
+  width: 80%;
+}
+#xbut {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  margin-left: 79%;
+}
+#xbut:hover {
+  background-color: rgb(216, 29, 29);
+}
+.inputFile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+}
+.dropZone {
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  /* Just to center the form on the page */
+  margin: auto;
+  /* To see the outline of the form */
+  padding: 25px 25px 25px 25px;
+  width: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropZone img {
+  width: 40%;
+  height: 40%;
+}

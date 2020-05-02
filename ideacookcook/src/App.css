@@ -37,6 +37,16 @@ header {
   flex-direction: row;
   align-items: center;
 }
+nav {
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  min-height: 6vh;
+  background: rgb(206, 153, 153);
+  color: rgb(201, 43, 43);
+}
 
 .App-link {
   color: #61dafb;

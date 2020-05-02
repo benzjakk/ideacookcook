@@ -7,6 +7,7 @@ import "./component/styles/appstyles.css";
 import Header from "./component/header.jsx";
 import Home from "./page/home.jsx";
 import Editprofile from "./page/editprofile.jsx";
+import Recipe from "./page/Recipe";
 
 import List from "./List";
 
@@ -32,6 +33,7 @@ function App() {
           />
           <Route path="/" exact component={Home} />
           <Route path="/editprofile" component={Editprofile} />
+          <Route path="/inputrecipe" component={Recipe} />
         </Switch>
       </React.Fragment>
     </Router>
