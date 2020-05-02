@@ -16,33 +16,28 @@ class InputWithT extends Component {
       Tag: [],
       suggestions: [],
       tags: [],
+      userInput: [],
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
-    this.handleDrag = this.handleDrag.bind(this);
     this.handleTagClick = this.handleTagClick.bind(this);
   }
 
-  handleDelete(i) {
-    const { tags } = this.state;
-    this.setState({
+  async handleDelete(i) {
+    const { tags, userInput } = this.state;
+    await this.setState({
       tags: tags.filter((tag, index) => index !== i),
     });
+    await this.setState({
+      userInput: userInput.filter((userinput, index) => index !== i),
+    });
+    this.updateParent();
   }
 
   async handleAddition(tag) {
     await this.setState((state) => ({ tags: [...state.tags, tag] }));
-  }
-
-  handleDrag(tag, currPos, newPos) {
-    const tags = [...this.state.tags];
-    const newTags = tags.slice();
-
-    newTags.splice(currPos, 1);
-    newTags.splice(newPos, 0, tag);
-
-    // re-render
-    this.setState({ tags: newTags });
+    await this.setState({ userInput: [...this.state.userInput, tag.text] });
+    this.updateParent();
   }
 
   handleTagClick(index) {
@@ -60,6 +55,10 @@ class InputWithT extends Component {
     });
   }
 
+  updateParent = () => {
+    this.props.updateParent(this.state.userInput);
+  };
+
   render() {
     this.updateTag();
     const { tags, suggestions } = this.state;
@@ -72,9 +71,9 @@ class InputWithT extends Component {
           delimiters={delimiters}
           handleDelete={this.handleDelete}
           handleAddition={this.handleAddition}
-          handleDrag={this.handleDrag}
           handleTagClick={this.handleTagClick}
           autocomplete={true}
+          allowDragDrop={false}
         />
       </div>
     );

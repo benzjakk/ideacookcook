@@ -1,28 +1,35 @@
 import React, { Component, useState, Fragment } from "react";
 import "./styles/method.css";
-import upload from "../logo192.png";
+import upload from "./pic/upload.png";
 
 class method extends Component {
   state = {
     meths: [""],
+    jsonMeths: [{ Description: "" }],
     methsPic: [],
-    fileURL: [],
+    fileURL: [upload],
   };
 
-  handleText = (i) => (e) => {
-    let meths = [...this.state.meths];
+  handleText = (i) => async (e) => {
+    let meths = this.state.meths;
+    let jsonMeths = this.state.jsonMeths;
+    let jsonMeth = {};
     meths[i] = e.target.value;
-    this.setState({
+    jsonMeth.Description = e.target.value;
+    jsonMeths[i] = jsonMeth;
+    await this.setState({
       meths,
+      jsonMeths,
     });
+    this.updateParent();
   };
 
-  handleFile = (i) => (e) => {
+  handleFile = (i) => async (e) => {
     let methsPic = [...this.state.methsPic];
     let fileURL = [...this.state.fileURL];
     methsPic[i] = e.target.files[0];
 
-    this.setState({
+    await this.setState({
       methsPic,
     });
     if (methsPic[i]) {
@@ -31,12 +38,13 @@ class method extends Component {
       fileURL[i] = upload;
     }
 
-    this.setState({
+    await this.setState({
       fileURL,
     });
+    this.updateParent();
   };
 
-  handleDelete = (i) => (e) => {
+  handleDelete = (i) => async (e) => {
     e.preventDefault();
     let meths = [
       ...this.state.meths.slice(0, i),
@@ -50,19 +58,36 @@ class method extends Component {
       ...this.state.fileURL.slice(0, i),
       ...this.state.fileURL.slice(i + 1),
     ];
-    this.setState({
+    let jsonMeths = [
+      ...this.state.jsonMeths.slice(0, i),
+      ...this.state.jsonMeths.slice(i + 1),
+    ];
+    await this.setState({
       meths,
       methsPic,
       fileURL,
+      jsonMeths,
+    });
+
+    this.updateParent();
+  };
+
+  addMethod = async (e) => {
+    e.preventDefault();
+    let meths = this.state.meths.concat([""]);
+    let jsonMeth = {};
+    jsonMeth.Description = "";
+    let jsonMeths = this.state.jsonMeths.concat([jsonMeth]);
+    let fileURL = this.state.fileURL.concat([upload]);
+    await this.setState({
+      meths,
+      fileURL,
+      jsonMeths,
     });
   };
 
-  addMethod = (e) => {
-    e.preventDefault();
-    let meths = this.state.meths.concat([""]);
-    this.setState({
-      meths,
-    });
+  updateParent = () => {
+    this.props.updateParent(this.state.jsonMeths, this.state.methsPic);
   };
 
   render() {
@@ -70,7 +95,7 @@ class method extends Component {
       <Fragment>
         {this.state.meths.map((meth, index) => (
           <span key={"span" + index}>
-            <h2>ขั้นตอนที่ {index + 1}</h2>
+            <h3>ขั้นตอนที่ {index + 1}</h3>
             <button id="xbut" onClick={this.handleDelete(index)}>
               ลบขั้นตอนที่ {index + 1}
             </button>
@@ -92,13 +117,24 @@ class method extends Component {
             ></input>
             <label key={"label" + index} htmlFor={index}>
               <div key={"choose" + index} className="dropZone">
-                Choose File
-                <img src={this.state.fileURL[index]} id="pic" name="file" />
+                เพิ่มภาพประกอบ
+                <img
+                  style={{ margin: "10px" }}
+                  height="150"
+                  width="150"
+                  src={this.state.fileURL[index]}
+                  id="pic"
+                  name="file"
+                />
               </div>
             </label>
           </span>
         ))}
-        <button onClick={this.addMethod}>Add more method</button>
+        {this.state.meths[this.state.meths.length - 1] !== "" ? (
+          <button onClick={this.addMethod}>
+            <b>เพิ่มขั้นตอน</b>
+          </button>
+        ) : null}
       </Fragment>
     );
   }

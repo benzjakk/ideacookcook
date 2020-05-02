@@ -1,0 +1,14 @@
+.rawFoodInput input {
+  width: 10vw;
+}
+.rawFoodInput #xbutRawFood {
+  margin-left: 10px;
+
+  border-radius: 5px;
+
+  background-color: rgb(170, 5, 5);
+  color: white;
+}
+.rawFoodInput label {
+  margin-left: 10px;
+}
