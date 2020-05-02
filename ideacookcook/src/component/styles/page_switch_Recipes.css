@@ -119,7 +119,7 @@
 .recipe-box .pic{
     position: relative;
     margin: 0px 11px 0px 11px;
-    min-width: calc(230px * 3/2);
+    width: calc(230px * 3/2);
     height: calc(230px* 3/2);
     background-color: rgb(235, 235, 235);
     /* width: calc(230px * 3/2 - 10px);
