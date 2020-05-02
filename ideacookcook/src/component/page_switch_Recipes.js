@@ -6,6 +6,7 @@ import {IoIosTime} from 'react-icons/io';
 import TimeStamp from '../function/TimeStamp';
 import {Link} from 'react-router-dom';
 
+
 const RRR=(props)=> {
     
     if(props.page=='All'){
@@ -38,9 +39,13 @@ const RRR=(props)=> {
                             <div className="myIcons"><FaStar /></div>                               
                         </div>
                         <div className="afterIconsB">
-                            <div>{recipe.NoStep}</div>
+                            <div>{recipe.stepNo}</div>
                             <div>{recipe.Time}</div>
-                            <div>{recipe.OverallRating}</div>
+                            <div>{(recipe.OverallRating*100)%100>0?
+                                        (recipe.OverallRating*100)%10>0?
+                                            recipe.OverallRating.toFixed(2):
+                                            recipe.OverallRating.toFixed(1):
+                                        recipe.OverallRating}</div>
                         </div>
                         <div className="afterIconsA">
                             <div>steps</div>
@@ -93,9 +98,9 @@ const RRR=(props)=> {
                             <div className="myIcons"><FaStar /></div>                               
                         </div>
                         <div className="afterIconsB">
-                            <div>{recipe.NoStep}</div>
+                            <div>{recipe.stepNo}</div>
                             <div>{recipe.Time}</div>
-                            <div>{recipe.OverallRating}</div>
+                            <div>{recipe.OverallRating.toFixed(2)}</div>
                         </div>
                         <div className="afterIconsA">
                             <div>steps</div>
@@ -142,7 +147,6 @@ const RRR=(props)=> {
                 <Link to={'/menu/'+review.RecipesID} class="fName">{review.RecipesName}</Link>
                 <div className="myRating">
                     {CheckRating(review.Rating)}
-                    {/* <p className="num">{review.Rating}</p> */}
                 </div>
                 {checkComment(review.Comment)}
             </div>
@@ -155,11 +159,6 @@ const RRR=(props)=> {
         </div>
         )
         return(
-            // <div style={{
-            //     display:"flex",
-            //     flexDirection:"column",
-            //     height:"calc(100vh - 295px)"
-            // }}>
             <div class="review-box">
                 {listRv}
                 <div style={{
@@ -170,7 +169,6 @@ const RRR=(props)=> {
                     no more reviews found
                 </div>
             </div>
-            // </div>
         );
     }
 }
