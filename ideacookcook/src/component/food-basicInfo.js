@@ -6,6 +6,7 @@ import {FaPaperPlane, FaCircle} from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 import axios from "axios";
 
+
 class FoodBasicInfo extends Component {
     constructor(props) {
         super(props);        
@@ -16,6 +17,8 @@ class FoodBasicInfo extends Component {
             Commented:false,
             Comment:"",
             isChef:false,
+            Editing:false,
+            edited:false,
             ////real time ui changing(offline)////
             Reviews:[],
             numOfReviews:0,
@@ -32,18 +35,11 @@ class FoodBasicInfo extends Component {
                 "Comment":this.state.Comment,
                 "Rating":this.state.Rate
             })
-            // .then(res => {
-            //     console.log(res)
-            //     console.log("commented:"+this.state.Rate+this.state.Comment);
-            //     this.setState({Commented:true})
-            // });
-            console.log("commented:"+this.state.Rate+this.state.Comment);
             this.setState({
                 Commented:true,
                 foodRate:this.state.foodRate * this.state.numOfReviews / (this.state.numOfReviews+1) + this.state.Rate / (this.state.numOfReviews+1),
                 numOfReviews:this.state.numOfReviews+1
             });
-            console.log(this.state.Reviews)
             this.state.Reviews.push({
                 Comment: this.state.Comment,
                 KnownName: this.props.myName,
@@ -74,19 +70,46 @@ class FoodBasicInfo extends Component {
         }
     }
 
-    goDel(index){
+    goDel=(index)=>{
+        axios.delete('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Comment',
+            {data:{
+                "RecipesID":this.props.foodID,
+                "MemID":this.props.myID}
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
         this.setState({
             Commented:false,
             foodRate:(this.state.foodRate * this.state.numOfReviews - this.state.Reviews[index].Rating) / (this.state.numOfReviews-1),
-            numOfReviews:this.props.numOfReviews-1,
+            numOfReviews:this.state.numOfReviews-1,
             Rate:0
         });        
         this.setState({Reviews: this.state.Reviews.filter((x,i) => i != index )})
     }
 
+    goEdit=(index,newRate,newComment)=>{
+        this.setState({Editing:true,edited:false})
+        axios.patch('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Comment',
+                {
+                    "RecipesID":this.props.foodID,
+                    "MemID":this.props.myID,
+                    "Comment":newComment,
+                    "Rating":newRate
+                })
+            .then(res => {
+                    this.setState({edited:true,Editing:false})
+            });
+        this.setState({foodRate:(this.state.foodRate * this.state.numOfReviews - this.state.Reviews[index].Rating + newRate )/ (this.state.numOfReviews)})
+        this.state.Reviews[index].Rating=newRate;
+        this.state.Reviews[index].Comment=newComment;
+        this.state.Reviews[index].TimeStamp="now";
+        this.setState({Reviews:this.state.Reviews})
+    }
+
     render(){
         {
-            if(!this.state.checkCommentedischecked &&this.props.allReviews.length!=0&&this.state.Reviews.length==0) 
+            if(!this.state.checkCommentedischecked &&this.props.allReviews!=null&&this.state.Reviews.length==0) 
             {
                 this.checkCommented();
                 this.setState({
@@ -97,10 +120,6 @@ class FoodBasicInfo extends Component {
                 });
             }
         }
-        // console.log("ischecked  : " + this.state.checkCommentedischecked)
-        // console.log("ischef  : " + this.state.isChef)
-        // console.log("cmmnted : " + this.state.Commented)
-        // console.log("cmmnt  : " + this.state.Comment)
 
     return(
         <div className="bigFoodInf">
@@ -112,7 +131,6 @@ class FoodBasicInfo extends Component {
                 }
                 <div className="infoja">
                     <Link className="tag" to={'/result/2'+'All-'+this.props.time+'----'}><div className="maDot"/>{this.props.time} min</Link>
-                    {/* <Link className="tag" to={'/result/2'+'Low-'+this.props.numOfSteps+'----'}><div className="maDot"/>{this.props.numOfSteps} steps</Link> */}
                     <Link className="tag" to={'/result/2'+this.props.cal+'-0----'}><div className="maDot"/>{this.props.cal} calorie</Link>
                     <Link className="tag" to={'/result/2'+'All-0----'+this.props.foodType}><div className="maDot"/>{this.props.foodType}</Link>
                     <Link className="tag" to={'/result/2'+'All-0---'+this.props.foodNation+'-'}><div className="maDot"/>{this.props.foodNation}</Link>
@@ -121,7 +139,7 @@ class FoodBasicInfo extends Component {
             <div className="Info">
                 <div className="food-name"><strong>{this.props.foodName}</strong></div>
                 <div style={{display:"flex",flexDirection:"row",height:"25px",marginLeft:"1px",position:"relative"}}>
-                    {CheckRating(this.props.foodRate)}
+                    {CheckRating(this.state.foodRate)}
                     <p style={{
                         position:"absolute",
                         backgroundColor:"rgb(170,5,5)",
@@ -172,7 +190,7 @@ class FoodBasicInfo extends Component {
                     fontWeight:"bolder"
                 }}>{this.state.numOfReviews} review{this.state.numOfReviews>1?"s":""}</div>
                 <div className="allReviews" style={this.state.Commented||this.state.isChef||this.props.myName==""?{height:"335px"}:{}}>
-                    <Reviews RVs={this.state.Reviews} myID={this.props.myID} delete={this.goDel}/>
+                    <Reviews RVs={this.state.Reviews} myID={this.props.myID} delete={this.goDel} edit={this.goEdit}/>
                 </div>
                 <div style={{display:"flex",flexDirection:"row" ,width:"fit-content",marginTop:"10px"}}>
                     <div className="myPic">
@@ -212,8 +230,10 @@ class FoodBasicInfo extends Component {
                     <div style={{display:"flex",flexDirection:"column",marginLeft:"10px",position:"relative"}}>
                         <div className="myComment" style={{paddingTop:"5px",paddingBottom:0,backgroundColor:"rgb(247, 247, 247)",fontSize:"14px"}}>
                             {this.state.isChef?
-                                "you can not review your own recipe(s)":
-                                this.state.Commented?"you already reviewed this rescipe":
+                                "you can not review your own recipes":
+                                this.state.Commented?
+                                    this.state.Editing?this.state.edited?"edited":"we are editing your review...":
+                                    "you already reviewed this rescipe":
                                     "Please sign in before making a review"
                             }
                         </div>
