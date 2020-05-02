@@ -1,3 +1,19 @@
+import React, { useState, Component } from "react";
+import {
+  FaDonate,
+  FaCircle,
+  FaChevronLeft,
+  FaLine,
+  FaFacebookSquare,
+  FaInstagram,
+  FaPhone,
+} from "react-icons/fa";
+import { MdPhone } from "react-icons/md";
+import "../page/styles/chef-profile.css";
+import CheckRating from "../component/CheckRating";
+import SW_Pages from "../component/page_switch_Recipes";
+import axios from "axios";
+import Loading from "../component/Loading";
 
 const isPage=(props,page)=>{
         if(props=="Recipes" && page!="Reviews")return("isClicked");
