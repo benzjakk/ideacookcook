@@ -81,7 +81,7 @@ class Hypersearch extends Component {
   };
 
   render() {
-    console.log(this.state);
+    //console.log(this.state.RawFoodTag);
     return (
       <section className="hypersearch">
         <h2>ค้นหาขั้นสูง</h2>
@@ -90,6 +90,7 @@ class Hypersearch extends Component {
             <li>
               <p>วัตถุดิบ : </p>
               <InputWithT
+                //Tag={["หม้ออัดแรงดัน", "หม้อ"]}
                 Tag={this.state.RawFoodTag}
                 updateParent={this.updateRawFood}
               />

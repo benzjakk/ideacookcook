@@ -163,7 +163,7 @@ class Recipe extends Component {
     this.setState({ RawFood: rawfood });
   };
   render() {
-    console.log(this.state);
+    //console.log(this.state);
     return (
       <React.Fragment>
         <section className="inputrecipe">

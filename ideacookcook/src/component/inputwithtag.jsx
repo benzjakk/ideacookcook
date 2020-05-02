@@ -47,7 +47,7 @@ class InputWithT extends Component {
   updateTag() {
     this.state.Tag = this.props.Tag;
 
-    this.state.suggestions = this.state.Tag.map((tag) => {
+    this.state.suggestions = this.state.Tag.map((tag, i) => {
       return {
         id: tag,
         text: tag,
@@ -72,7 +72,6 @@ class InputWithT extends Component {
           handleDelete={this.handleDelete}
           handleAddition={this.handleAddition}
           handleTagClick={this.handleTagClick}
-          autocomplete={true}
           allowDragDrop={false}
         />
       </div>
