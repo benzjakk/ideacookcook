@@ -7,7 +7,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  z-index: 10;
+  z-index: 99;
 }
 
 header .mainheader {

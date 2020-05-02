@@ -47,12 +47,8 @@ class Hypersearch extends Component {
           </li>
           <li>
             <p>ระยะเวลา : </p>
-            <select>
-              <option value={1}>น้อยกว่า 1 </option>
-              <option value={2}>1 - 3</option>
-              <option value={3}>มากกว่า 3 </option>
-            </select>
-            <p>ชั่วโมง </p>
+            <input name="Time" className="Time"></input>
+            <p>นาที </p>
           </li>
           <li>
             <p>ประเภท : </p>

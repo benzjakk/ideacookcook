@@ -39,6 +39,9 @@
   color: white;
   cursor: pointer;
 }
+.hypersearch .Time {
+  width: 50px;
+}
 @media screen and (max-width: 903px) {
   .hypersearch p {
     font-size: 15px;
