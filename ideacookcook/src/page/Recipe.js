@@ -26,8 +26,8 @@ class Recipe extends Component {
   };
 
   handleSubmit = (event) => {
+    event.preventDefault();
     if (localStorage.getItem("currentMemID")) {
-      event.preventDefault();
       this.uploadText();
     } else {
       alert("กรุณา Login ");
@@ -237,6 +237,7 @@ class Recipe extends Component {
               <li>
                 <p>ระยะเวลา : </p>
                 <input
+                  required={true}
                   type="number"
                   className="input1"
                   name="Time"

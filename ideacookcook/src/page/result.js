@@ -5,7 +5,7 @@ import Loading from "../component/Loading";
 import axios from "axios";
 
 const w = "/result/1นรก";
-const p = "/result/2Low-30-ไข่,หมูย่าง-กระทะ--"; //หมูย่างยังไม่มีนะจ๊ะ
+const p = "/result/2All-0----เจียว"; //หมูย่างยังไม่มีนะจ๊ะ
 // {
 //     "Calories" : "Low",
 //     "Time" : 30,
