@@ -21,7 +21,7 @@ const RSs=(props)=> {
         <div className="fpBox">
             {food.RecipesPic!='' ? 
                 <img src={food.RecipesPic} className="fp" />
-                :<div className="fp" style={{backgroundImage:"url(/pic/food1.jpg)"}}/>}
+                :<div className="fp"/>}
             <div className={"cal"+food.Calories}>{food.Calories=="High"? "High":food.Calories.substring(0,3)} Cal</div>
         </div>
         <div className="food-info">
@@ -31,7 +31,7 @@ const RSs=(props)=> {
                 <div style={{color:"rgb(170,5,5)"}}><strong>{food.OverallRating}</strong></div>
                 <div style={{color:"rgb(190, 190, 190)"}}><strong>({food.ReviewNo})</strong></div>
                 <div style={{color:"rgb(190, 190, 190)",fontSize:"4px",transform:"translateY(1px)"}}><FaCircle/></div>
-                <div style={{color:"rgb(190, 190, 190)"}}><strong>{food.FoodNation.substring(0,5)}</strong></div>
+                <div style={{color:"rgb(190, 190, 190)"}}><strong>{food.FoodNation}</strong></div>
                 <div style={{color:"rgb(190, 190, 190)",fontSize:"4px",transform:"translateY(1px)"}}><FaCircle/></div>
                 <div style={{color:"rgb(190, 190, 190)"}}><strong>{TimeStamp(food.TimeStamp)}</strong></div>
             </div>
