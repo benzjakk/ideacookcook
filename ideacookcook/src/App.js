@@ -33,7 +33,7 @@ function App() {
           />
           <Route path="/" exact component={Home} />
           <Route path="/editprofile" component={Editprofile} />
-          <Route path="/inputrecipe" component={Recipe} />
+          <Route path="/upload" component={Recipe} />
         </Switch>
       </React.Fragment>
     </Router>

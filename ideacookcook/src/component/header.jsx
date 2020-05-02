@@ -114,7 +114,7 @@ class Header extends Component {
               <b>ค้นหา</b>{" "}
             </button>
 
-            <a href="inputrecipe.html">
+            <a href="/upload">
               <button type="button">
                 {" "}
                 <b>เพิ่มสูตร</b>{" "}
