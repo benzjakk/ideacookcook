@@ -6,6 +6,7 @@ import Autocomplete from "./autocomplete";
 import Axios from "axios";
 import editpic from "./pic/editprofile.png";
 import logoutpic from "./pic/logout.png";
+import TimeStamp from "../function/TimeStamp";
 
 class Header extends Component {
   state = {
@@ -62,18 +63,7 @@ class Header extends Component {
 
   handleSearch = async () => {
     console.log(this.state.userInput);
-    await Axios.get(
-      "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName",
-      {
-        params: { keyWord: this.state.userInput },
-      }
-    )
-      .then((res) => {
-        console.log(res.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    window.location.href = "/result/1" + this.state.userInput;
   };
 
   render() {
@@ -82,7 +72,9 @@ class Header extends Component {
         <header>
           {this.state.currentUser ? (
             <div className="login_regis">
-              <div>{this.state.currentUser}</div>
+              <a href={"/Profile/" + localStorage.getItem("currentMemID")}>
+                <div>{this.state.currentUser}</div>
+              </a>
               <a href="/editprofile">
                 <img height="30" width="30" src={editpic} alt="สุขภาพ"></img>
               </a>

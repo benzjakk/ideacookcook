@@ -5,7 +5,7 @@ import Loading from "../component/Loading";
 import axios from "axios";
 
 const w = "/result/1นรก";
-const p = "/result/2Low-30-คอหมู,หมูย่าง-กระทะ--"; //หมูย่างยังไม่มีนะจ๊ะ
+const p = "/result/2Low-30-ไข่,หมูย่าง-กระทะ--"; //หมูย่างยังไม่มีนะจ๊ะ
 // {
 //     "Calories" : "Low",
 //     "Time" : 30,
@@ -41,19 +41,27 @@ class Result extends Component {
             params: { keyWord: this.state.words },
           }
         )
-        .catch((error) => {
-          console.log(error);
-          this.setState({ Loaded: true });
-        })
         .then((res) => {
           console.log(res.data);
           this.setState({ R: res.data.data, Loaded: true });
+        })
+        .catch((error) => {
+          console.log(error);
+          this.setState({ Loaded: true });
         });
     } else if (this.state.seachingType == 2) {
       axios
         .get(
           "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListParameter",
           {
+            /*params: {
+              Calories: "All",
+              Time: 0,
+              RawFood: [""],
+              Tool: [""],
+              FoodNation: "",
+              FoodType: "เจียว",
+            },*/
             params: {
               Calories: this.state.params[0],
               Time: this.state.params[1],
