@@ -96,7 +96,7 @@ class InputRawFood extends Component {
                 value={this.state.raw}
               />
               <datalist id="RawFoodTag">
-                {this.props.Tag.map((tag, index) => {
+                {this.props.rawFoodTag.map((tag, index) => {
                   return <option value={tag} key={index}></option>;
                 })}
               </datalist>
@@ -113,11 +113,16 @@ class InputRawFood extends Component {
             <div>
               <label>หน่วย</label>
               <input
-                type="text"
+                list="UnitTag"
                 name="units"
                 onChange={this.handleChange(index)}
                 value={this.state.units[index]}
               />
+              <datalist id="UnitTag">
+                {this.props.unitTag.map((tag, index) => {
+                  return <option value={tag} key={index}></option>;
+                })}
+              </datalist>
             </div>
             <button id="xbutRawFood" onClick={this.handleDelete(index)}>
               ลบวัตถุดิบที่{index + 1}

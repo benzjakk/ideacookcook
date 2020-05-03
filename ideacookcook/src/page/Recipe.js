@@ -23,6 +23,7 @@ class Recipe extends Component {
     ToolTag: [],
     FoodTypeTag: [],
     FoodNationTag: [],
+    UnitTag: [],
   };
 
   handleSubmit = (event) => {
@@ -111,7 +112,7 @@ class Recipe extends Component {
   fetchTag = async () => {
     await axios
       .get(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/Tag"
+        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Tag"
       )
       .then((res) => {
         const restmp = res.data.data;
@@ -120,6 +121,7 @@ class Recipe extends Component {
           RawFoodTag: restmp.RawFoodTag,
           ToolTag: restmp.ToolTag,
           FoodTypeTag: restmp.FoodTypeTag,
+          UnitTag: restmp.UnitTag,
         });
       })
       .catch((error) => console.log(error));
@@ -163,12 +165,13 @@ class Recipe extends Component {
     this.setState({ RawFood: rawfood });
   };
   render() {
-    //console.log(this.state);
+    console.log(this.state);
     return (
       <React.Fragment>
         <section className="inputrecipe">
           <h2>* กรุณา Login ก่อน upload *</h2>
-          <h2>* กรุณากรอก Tag ตามที่ระบุเพื่อประสิทธิภาพในการค้นหา *</h2>
+          <h2>* กรุณากรอก Tag ตามที่ระบุเพื่อเพิ่มประสิทธิภาพในการค้นหา *</h2>
+          <h2>* หากต้องการเพิ่ม Tag ให้ติดต่อ Admin *</h2>
         </section>
         <section className="inputrecipe">
           <h1>ลงสูตรอาหาร</h1>
@@ -217,7 +220,8 @@ class Recipe extends Component {
                 <h2>วัตถุดิบ </h2>
               </li>
               <InputRawFood
-                Tag={this.state.RawFoodTag}
+                rawFoodTag={this.state.RawFoodTag}
+                unitTag={this.state.UnitTag}
                 updateParent={this.updateRawFood}
               />
               <li>
