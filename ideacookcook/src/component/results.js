@@ -28,7 +28,7 @@ const RSs=(props)=> {
             <div className="food-info-name">{food.RecipesName}</div>
             <div className="f-info" style={{margin:"6px 0 8px 0"}}>
                 <div style={{color:"orange",fontSize:"14px"}}><FaStar/></div> 
-                <div style={{color:"rgb(170,5,5)"}}><strong>{food.OverallRating}</strong></div>
+                <div style={{color:"rgb(170,5,5)"}}><strong>{food.OverallRating>0?food.OverallRating:0}</strong></div>
                 <div style={{color:"rgb(190, 190, 190)"}}><strong>({food.ReviewNo})</strong></div>
                 <div style={{color:"rgb(190, 190, 190)",fontSize:"4px",transform:"translateY(1px)"}}><FaCircle/></div>
                 <div style={{color:"rgb(190, 190, 190)"}}><strong>{food.FoodNation}</strong></div>
