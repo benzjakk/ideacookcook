@@ -107,7 +107,7 @@ class ChefProfile extends Component {
                             </div>
                             <div className="myRating">
                                 {CheckRating(this.state.Profile.AvgRating)}
-                                <p>{this.state.Profile.AvgRating.toFixed(2)}</p>
+                                <p>{this.state.Profile.AvgRating.toFixed(2)>0?this.state.Profile.AvgRating.toFixed(2):0}</p>
                             </div>
                             <div className="R-R">
                                 <strong>{this.state.Recipes.length} recipes</strong>
