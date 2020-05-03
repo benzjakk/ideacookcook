@@ -173,7 +173,7 @@ class FoodBasicInfo extends Component {
                         fontSize:"12px",
                         fontWeight:"600",
                         color:"white",
-                        borderRadius:"10px"}}>{this.state.foodRate.toFixed(2)}</p>
+                        borderRadius:"10px"}}>{this.state.foodRate.toFixed(2)>0?this.state.foodRate.toFixed(2):0}</p>
                 </div>
                 <div style={{
                     color:"black",
