@@ -130,6 +130,7 @@ class FoodBasicInfo extends Component {
                     numOfReviews:this.props.numOfReviews,
                     foodRate:this.props.foodRate
                 });
+                if(this.state.foodRate==-1)this.setState({foodRate:0});
             }
         }
 
