@@ -96,7 +96,7 @@ class method extends Component {
         {this.state.meths.map((meth, index) => (
           <span key={"span" + index}>
             <h3>ขั้นตอนที่ {index + 1}</h3>
-            <button id="xbut" onClick={this.handleDelete(index)}>
+            <button type="button" id="xbut" onClick={this.handleDelete(index)}>
               ลบขั้นตอนที่ {index + 1}
             </button>
             <textarea
@@ -131,7 +131,7 @@ class method extends Component {
           </span>
         ))}
         {this.state.meths[this.state.meths.length - 1] !== "" ? (
-          <button onClick={this.addMethod}>
+          <button type="button" onClick={this.addMethod}>
             <b>เพิ่มขั้นตอน</b>
           </button>
         ) : null}

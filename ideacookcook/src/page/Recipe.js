@@ -9,7 +9,7 @@ class Recipe extends Component {
   state = {
     RecipesName: "",
     Description: "",
-    Time: 0,
+    Time: "0",
     Calories: "Low",
     FoodType: "",
     FoodNation: "",
@@ -29,7 +29,25 @@ class Recipe extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (localStorage.getItem("currentMemID")) {
-      this.uploadText();
+      if (
+        this.state.RecipesName != "" &&
+        this.state.Description != "" &&
+        this.state.Time != "" &&
+        this.state.Calories != "" &&
+        this.state.FoodType != "" &&
+        this.state.FoodNation != "" &&
+        this.state.RecipesPic != null &&
+        this.state.RawFood[this.state.RawFood.length - 1].RawFood != "" &&
+        this.state.Tool[this.state.Tool.length - 1] != "" &&
+        this.state.Steps[this.state.Steps.length - 1].Description != "" &&
+        this.state.RawFood[this.state.RawFood.length - 1].Unit != ""
+      ) {
+        document.getElementById("uploadrecipesbtn").innerHTML =
+          "Uploading Steps ...";
+        this.uploadText();
+      } else {
+        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+      }
     } else {
       alert("กรุณา Login ");
     }
@@ -54,10 +72,13 @@ class Recipe extends Component {
       )
       .then((res) => {
         console.log(res.data.description);
+        document.getElementById("uploadrecipesbtn").innerHTML =
+          "Uploading Pic ...";
         this.uploadPic(res.data.RecipesID);
       })
       .catch((error) => {
         console.log(error);
+        document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
         alert("Something wrong");
       });
   }
@@ -73,15 +94,19 @@ class Recipe extends Component {
       )
       .then((res) => {
         console.log(res);
+        document.getElementById("uploadrecipesbtn").innerHTML =
+          "Uploading StepsPic ...";
         this.uploadStepPic(recipeID);
       })
       .catch((error) => {
         console.log(error);
+        document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
         alert("Something wrong");
       });
   }
 
   uploadStepPic(recipeID) {
+    let check = true;
     this.state.methsPic.map(async (methspic, index) => {
       if (methspic) {
         const fd = new FormData();
@@ -95,14 +120,19 @@ class Recipe extends Component {
           )
           .then((res) => {
             console.log(res, methspic);
-            console.log("Upload Success");
           })
           .catch((error) => {
             console.log(error);
+            check = false;
             alert("Something wrong");
           });
       }
     });
+    if (check) {
+      alert("Upload Success");
+    }
+
+    document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
   }
 
   componentDidMount = () => {
@@ -175,7 +205,7 @@ class Recipe extends Component {
         </section>
         <section className="inputrecipe">
           <h1>ลงสูตรอาหาร</h1>
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <ul>
               <li>
                 <p>ชื่อเมนูอาหาร : </p>
@@ -284,7 +314,13 @@ class Recipe extends Component {
                   <option value={"High"}>สูง</option>
                 </select>
               </li>
-              <button>ยืนยัน</button>
+              <button
+                id="uploadrecipesbtn"
+                type="button"
+                onClick={this.handleSubmit}
+              >
+                ยืนยัน
+              </button>
             </ul>
           </form>
         </section>

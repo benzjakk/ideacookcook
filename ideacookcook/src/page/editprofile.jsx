@@ -65,6 +65,8 @@ class Editprofile extends Component {
         if (res.data.description === "Successfully update data") {
           alert("Successfully update data");
           localStorage.setItem("currentUser", this.state.KnownName);
+          window.location.href =
+            "/Profile/" + localStorage.getItem("currentMemID");
         } else {
           alert("Failed to update data!!!");
         }
@@ -88,6 +90,7 @@ class Editprofile extends Component {
         .then((res) => {
           if (res.data.description === "Successfully add photo and url") {
             alert("Uploading Success");
+            window.location.reload(false);
           } else {
             alert("Failed to Upload!!!");
           }

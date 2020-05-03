@@ -124,13 +124,17 @@ class InputRawFood extends Component {
                 })}
               </datalist>
             </div>
-            <button id="xbutRawFood" onClick={this.handleDelete(index)}>
+            <button
+              id="xbutRawFood"
+              type="button"
+              onClick={this.handleDelete(index)}
+            >
               ลบวัตถุดิบที่{index + 1}
             </button>
           </span>
         ))}
         {this.state.raws[this.state.raws.length - 1] !== "" ? (
-          <button onClick={this.addMethod}>
+          <button onClick={this.addMethod} type="button">
             <b>เพิ่มวัตุดิบ</b>
           </button>
         ) : null}
