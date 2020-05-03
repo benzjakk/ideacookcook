@@ -1,24 +1,24 @@
 .inputrecipe {
   margin: 10px;
   margin-left: 20%;
-  margin-right: 20%;
+
   background-color: white;
   width: 60%;
-  padding: 1%;
+  padding: 5px;
   border-radius: 10px;
 }
-textarea {
+.inputrecipe textarea {
   height: 200%;
   width: 90%;
 }
 
-#but1 {
+.inputrecipe #but1 {
   height: 30px;
   width: 60px;
   border-radius: 5px;
   margin-left: 79%;
 }
-.input1 {
+.inputrecipe .input1 {
   margin: 10px;
   border-radius: 5px;
   width: 35%;

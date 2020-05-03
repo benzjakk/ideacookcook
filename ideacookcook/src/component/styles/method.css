@@ -1,11 +1,11 @@
-hr {
+.inputrecipe hr {
   margin: 10px;
 }
-textarea {
+.inputrecipe textarea {
   max-width: 800px;
   width: 80%;
 }
-#xbut {
+.inputrecipe #xbut {
   height: 30px;
   width: 100px;
   border-radius: 5px;
@@ -14,14 +14,14 @@ textarea {
   color: white;
 }
 
-.inputFile {
+.inputrecipe .inputFile {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
   overflow: hidden;
   position: absolute;
 }
-.dropZone {
+.inputrecipe .dropZone {
   border: 1px solid #ccc;
   border-radius: 1em;
   /* Just to center the form on the page */

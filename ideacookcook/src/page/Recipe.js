@@ -146,6 +146,7 @@ class Recipe extends Component {
       )
       .then((res) => {
         const restmp = res.data.data;
+        //console.log(restmp);
         this.setState({
           FoodNationTag: restmp.FoodNationTag,
           RawFoodTag: restmp.RawFoodTag,
