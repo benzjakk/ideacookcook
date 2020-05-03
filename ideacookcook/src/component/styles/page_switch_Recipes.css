@@ -19,6 +19,7 @@
     flex-direction: row;
     word-wrap: break-word;
     border: 1px solid rgb(204, 204, 204);
+    min-height: 75px;
     /* box-shadow: 0vmin 8px 12px rgb(105, 105, 105); */
 }
 
