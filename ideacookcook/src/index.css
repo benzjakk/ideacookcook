@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Jost&display=swap");
 
 body {
+  padding: 0;
   margin: 0;
   font-family: "Jost", sans-serif;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
