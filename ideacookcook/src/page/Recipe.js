@@ -14,7 +14,7 @@ class Recipe extends Component {
     FoodType: "",
     FoodNation: "",
     RawFood: [{ RawFood: "", Quantity: 0, Unit: "" }],
-    Tool: [""],
+    Tool: [],
     Steps: [{ Description: "" }],
     RecipesPicURL: upload,
     RecipesPic: null,
@@ -38,7 +38,7 @@ class Recipe extends Component {
         this.state.FoodNation != "" &&
         this.state.RecipesPic != null &&
         this.state.RawFood[this.state.RawFood.length - 1].RawFood != "" &&
-        this.state.Tool[this.state.Tool.length - 1] != "" &&
+        this.state.Tool[this.state.Tool.length - 1] != null &&
         this.state.Steps[this.state.Steps.length - 1].Description != "" &&
         this.state.RawFood[this.state.RawFood.length - 1].Unit != ""
       ) {
