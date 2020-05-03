@@ -22,8 +22,20 @@ class FoodBasicInfo extends Component {
             ////real time ui changing(offline)////
             Reviews:[],
             numOfReviews:0,
-            foodRate:0
+            foodRate:0,
+            sureDel:false
         };
+    }
+
+    goDelRecipe=()=>{
+        console.log(this.props.foodID)
+        axios.delete('https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Recipes',
+        {
+            data:{"RecipesID":this.props.foodID}
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
     }
     
     goComment=()=>{
@@ -137,6 +149,17 @@ class FoodBasicInfo extends Component {
                 </div>
             </div>
             <div className="Info">
+                <div className="delR" 
+                    style={this.state.isChef?{visibility:"visible"}:{visibility:"hidden"}} 
+                    onClick={()=>this.setState({sureDel:!this.state.sureDel})}>
+                        <div>x</div>
+                </div>
+                <div className="sureDel"
+                style={this.state.sureDel?{visibility:"visible"}:{visibility:"hidden"}}>
+                    Are you sure to delete this recipe? 
+                    <div className="div" onClick={()=>this.setState({sureDel:false})}>no</div> 
+                    <Link to={'/Profile/'+this.props.chefID} className="div" onClick={()=>this.goDelRecipe()}>yes</Link>
+                    </div> 
                 <div className="food-name"><strong>{this.props.foodName}</strong></div>
                 <div style={{display:"flex",flexDirection:"row",height:"25px",marginLeft:"1px",position:"relative"}}>
                     {CheckRating(this.state.foodRate)}
@@ -181,7 +204,7 @@ class FoodBasicInfo extends Component {
                         padding:"0 10px",
                         justifyContent:"center"}}>
                         <Link className="chefName" to={'/Profile/'+this.props.chefID} style={{textDecoration:"none",color:"unset"}}>{this.props.chefName}</Link>
-                        <div className="numOfRecipes">{this.props.numOfRecipes} recipes</div>
+                        <div className="numOfRecipes">{this.props.numOfRecipes} recipe{this.props.numOfRecipes>1?"s":""}</div>
                     </div>                    
                     <Link className="more" to={'/Profile/'+this.props.chefID} style={{textDecoration:"none",color:"unset"}}>more</Link>
                 </div>
