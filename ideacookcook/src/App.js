@@ -35,6 +35,15 @@ function App() {
           <Route path="/editprofile" component={Editprofile} />
           <Route path="/upload" component={Recipe} />
         </Switch>
+        <div
+          style={{
+            fontSize: "15px",
+            margin: "50px 0 20px 0",
+            textAlign: "center",
+          }}
+        >
+          .. Made by IdeaCookCook Group ..
+        </div>
       </React.Fragment>
     </Router>
   );
