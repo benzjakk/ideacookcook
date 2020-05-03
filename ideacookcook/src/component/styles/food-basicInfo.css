@@ -109,12 +109,75 @@
 
 
 .food-basicInfo .Info {
+  position: relative;
     background: white;
     color: black;
     width: 340px;
     padding: 30px 30px 0 30px;
     display: flex;
     flex-direction: column;  
+}
+
+.food-basicInfo .delR{
+  position: absolute;
+  border-radius: 30px;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  /* transform: rotate(90deg); */
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+.food-basicInfo .delR div{
+  color: rgb(189, 189, 189);
+  font-size: 20px;
+  transform: translateY(-7px);
+}
+
+.food-basicInfo .delR:hover{
+  background-color: #FBE7E2;
+}
+
+.food-basicInfo .delR:hover div{
+  color: rgb(170, 5, 5);
+}
+
+.food-basicInfo .sureDel{
+  position: absolute;
+  background-color: #FBE7E2;
+  z-index: 5;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 250px;
+  justify-content:center ;
+  padding: 2px 0 7px 0;
+  color: rgb(170, 5, 5);
+  /* border: 1px solid rgb(204, 204, 204); */
+  right: 20px;
+  top: 40px;
+  border-radius: 15px;
+}
+
+.food-basicInfo .sureDel .div{
+  font-size: 15px;
+  background-color: white;
+  color: rgb(170, 5, 5);
+  width: fit-content;
+  padding: 0px 10px;
+  margin: 0 3px;
+  /* border: 1px solid rgb(170, 5, 5); */
+  cursor: pointer;
+  /* border-radius: 15px; */
+  text-decoration: none;
+}
+
+.food-basicInfo .sureDel .div:hover{
+  background-color: rgb(170, 5, 5);
+  color: white;
 }
 
 .food-name {
