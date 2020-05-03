@@ -81,9 +81,9 @@ class food extends Component {
               chefID={this.state.Data.MemID}
               numOfReviews={this.state.Reviews.length}
               allReviews={this.state.Reviews}
-              myName={this.props.myName}
-              myPic={this.props.myPic}
-              myID={this.props.myID}
+              myName={localStorage.getItem("currentUser")}
+              myPic={localStorage.getItem("profilePicture")}
+              myID={localStorage.getItem("currentMemID")}
             />
             <div className="pageHeader">
               <div

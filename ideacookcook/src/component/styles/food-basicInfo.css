@@ -1,40 +1,40 @@
-.bigFoodInf{
-    width:100vw;
-    height: calc(650px + 26px);
-    overflow-x: scroll;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.bigFoodInf {
+  width: 100vw;
+  height: calc(650px + 26px);
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.bigFoodInf::-webkit-scrollbar{
+.bigFoodInf::-webkit-scrollbar {
   width: 0px;
   height: 0px;
 }
 
 .food-basicInfo {
-    /* background-color: black;     */
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center;  */
-    width: 1050px;
-    height: 650px;
-    overflow: hidden;    
-    /* box-shadow:  8px 4px 16px rgba(0, 0, 0, 0.24); */
-    box-shadow: 8px 4px 16px rgb(223, 223, 223);
-    border-radius: 30px;
-    /* align-self: center; */
+  /* background-color: black;     */
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center;  */
+  width: 1050px;
+  height: 650px;
+  overflow: hidden;
+  /* box-shadow:  8px 4px 16px rgba(0, 0, 0, 0.24); */
+  box-shadow: 8px 4px 16px rgb(223, 223, 223);
+  border-radius: 30px;
+  /* align-self: center; */
 }
 
 .food-basicInfo .food-img {
   position: relative;
   background-color: rgb(235, 235, 235);
-    width: 650px;
-    height: 650px;
+  width: 650px;
+  height: 650px;
 }
 
-.food-basicInfo .food-img::before{
+.food-basicInfo .food-img::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -43,26 +43,26 @@
   transition: 0.25s;
 }
 
-.food-basicInfo .food-img:hover::before{
+.food-basicInfo .food-img:hover::before {
   background-color: rgb(0, 0, 0);
   transition: 0.25s;
 }
 
-.food-basicInfo .food-img img{
-  width:100%;
+.food-basicInfo .food-img img {
+  width: 100%;
   height: 100%;
   object-position: center;
   object-fit: contain;
 }
 
-.food-basicInfo .food-img .infoja{
+.food-basicInfo .food-img .infoja {
   position: absolute;
   height: fit-content;
   /* border-top-left-radius: 25px;
   border-top-right-radius: 25px; */
   display: flex;
   flex-direction: row;
-  justify-content: center ;
+  justify-content: center;
   top: 260px;
   left: 175px;
   width: 250px;
@@ -71,7 +71,7 @@
   /* background-color: rgb(255, 255, 255); */
   z-index: 2;
 }
-.food-basicInfo .food-img .infoja .tag{
+.food-basicInfo .food-img .infoja .tag {
   font-size: 15px;
   font-weight: 700;
   color: white;
@@ -89,7 +89,7 @@
   border: 1px solid rgb(177, 177, 177);
 }
 
-.food-basicInfo .food-img:hover .infoja .tag{
+.food-basicInfo .food-img:hover .infoja .tag {
   opacity: 1;
   font-size: 15px;
   font-weight: 700;
@@ -102,23 +102,22 @@
   transform: translateY(0);
 }
 
-.food-basicInfo .food-img .infoja .tag:hover{
+.food-basicInfo .food-img .infoja .tag:hover {
   border: 1px solid white;
   transition: 0.25s;
 }
 
-
 .food-basicInfo .Info {
   position: relative;
-    background: white;
-    color: black;
-    width: 340px;
-    padding: 30px 30px 0 30px;
-    display: flex;
-    flex-direction: column;  
+  background: white;
+  color: black;
+  width: 340px;
+  padding: 30px 30px 0 30px;
+  display: flex;
+  flex-direction: column;
 }
 
-.food-basicInfo .delR{
+.food-basicInfo .delR {
   position: absolute;
   border-radius: 30px;
   height: 20px;
@@ -130,30 +129,30 @@
   cursor: pointer;
 }
 
-.food-basicInfo .delR div{
+.food-basicInfo .delR div {
   color: rgb(189, 189, 189);
   font-size: 20px;
   transform: translateY(-7px);
 }
 
-.food-basicInfo .delR:hover{
-  background-color: #FBE7E2;
+.food-basicInfo .delR:hover {
+  background-color: #fbe7e2;
 }
 
-.food-basicInfo .delR:hover div{
+.food-basicInfo .delR:hover div {
   color: rgb(170, 5, 5);
 }
 
-.food-basicInfo .sureDel{
+.food-basicInfo .sureDel {
   position: absolute;
-  background-color: #FBE7E2;
+  background-color: #fbe7e2;
   z-index: 5;
   font-size: 15px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 250px;
-  justify-content:center ;
+  justify-content: center;
   padding: 2px 0 7px 0;
   color: rgb(170, 5, 5);
   /* border: 1px solid rgb(204, 204, 204); */
@@ -162,7 +161,7 @@
   border-radius: 15px;
 }
 
-.food-basicInfo .sureDel .div{
+.food-basicInfo .sureDel .div {
   font-size: 15px;
   background-color: white;
   color: rgb(170, 5, 5);
@@ -175,17 +174,17 @@
   text-decoration: none;
 }
 
-.food-basicInfo .sureDel .div:hover{
+.food-basicInfo .sureDel .div:hover {
   background-color: rgb(170, 5, 5);
   color: white;
 }
 
 .food-name {
-    font-size: 30px;
-    color: black;
-    overflow-x: scroll;
+  font-size: 30px;
+  color: black;
+  overflow-x: scroll;
 }
-.food-name strong{
+.food-name strong {
   white-space: nowrap;
 }
 
@@ -194,7 +193,7 @@
   font-size: 20px;
 }
 
-.food-basicInfo .foodDescription{
+.food-basicInfo .foodDescription {
   font-size: 13px;
   height: 3em;
   overflow-y: scroll;
@@ -202,13 +201,14 @@
   /* cursor: wait; */
 }
 
-.food-name::-webkit-scrollbar,.food-basicInfo .foodDescription::-webkit-scrollbar{
+.food-name::-webkit-scrollbar,
+.food-basicInfo .foodDescription::-webkit-scrollbar {
   width: 0px;
   height: 0px;
 }
 
 .food-basicInfo .food-img .infoja .tag .maDot {
-  padding:0 ;
+  padding: 0;
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -219,7 +219,7 @@
   transition: 0.25s;
 }
 
-.food-basicInfo .food-img .infoja .tag:hover .maDot{
+.food-basicInfo .food-img .infoja .tag:hover .maDot {
   background-color: white;
   transition: 0.25s;
 }
@@ -247,15 +247,15 @@
 } */
 
 .food-basicInfo .chefPic {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-size: cover;
-    cursor: pointer;
-    overflow: hidden;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-size: cover;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.food-basicInfo .chefPic img{
+.food-basicInfo .chefPic img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -263,83 +263,89 @@
 }
 
 .food-basicInfo .chefName {
-    font-size: 15px;
-    font-weight: bolder;
-    cursor: pointer;
+  font-size: 15px;
+  font-weight: bolder;
+  cursor: pointer;
 }
 
 .food-basicInfo .numOfRecipes {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .food-basicInfo .more {
   position: absolute;
-  background-color:rgb(233, 233, 233);
+  background-color: rgb(233, 233, 233);
   height: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-weight: 700;
   right: 0;
-  padding:0 20px;
-  font-size:12px;
-  border-radius:20px;
+  padding: 0 20px;
+  font-size: 12px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
-.food-basicInfo .more:hover{
+.food-basicInfo .more:hover {
   background-color: rgb(214, 214, 214);
 }
 
-.food-basicInfo .allReviews{
-    width: 371px;
-    transform: translateX(-30px);
-    padding-left: 30px;
-    height: 300px;
-    overflow: auto;
-    margin-top: 10px;
-    transition: 0.5s;
-    /* border-top: 1px solid rgb(204, 204, 204);
+.food-basicInfo .allReviews {
+  width: 371px;
+  transform: translateX(-30px);
+  padding-left: 30px;
+  height: 300px;
+  overflow: auto;
+  margin-top: 10px;
+  transition: 0.5s;
+  /* border-top: 1px solid rgb(204, 204, 204);
     border-bottom: 1px solid rgb(204, 204, 204); */
 }
 
-.food-basicInfo .allReviews:hover{
+.food-basicInfo .allReviews:hover {
   background-color: rgb(245, 245, 245);
 }
 
 .allReviews::-webkit-scrollbar {
-    right: 0;
-    width: 6px;
-  }
-
-  .allReviews::-webkit-scrollbar-track {
-    /* box-shadow: inset 0 0 5px grey;  */
-  }
-   
-  .allReviews::-webkit-scrollbar-thumb {
-    background: rgb(170, 5, 5);
-    border-radius: 10px;
-  }
-  
-  .allReviews::-webkit-scrollbar-thumb:hover {
-    background: grey; 
-  }
-
-.food-basicInfo .myPic {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-size: cover;
-    background-color: rgb(233, 233, 233);
+  right: 0;
+  width: 6px;
 }
 
+.allReviews::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey;  */
+}
 
+.allReviews::-webkit-scrollbar-thumb {
+  background: rgb(170, 5, 5);
+  border-radius: 10px;
+}
+
+.allReviews::-webkit-scrollbar-thumb:hover {
+  background: grey;
+}
+
+.food-basicInfo .myPic {
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: rgb(233, 233, 233);
+}
+
+.food-basicInfo .myPic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 .TheRate .myStar {
   margin: 0;
   transition: 0.5s;
 }
 
-.TheRate:hover .myStar{
+.TheRate:hover .myStar {
   color: rgb(170, 5, 5);
 }
 
@@ -348,12 +354,12 @@
 }
 
 .food-basicInfo .ratehere {
-  display:flex;
-  flex-direction:row;
-  font-size:13px;
-  font-weight:600;
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  font-weight: 600;
   z-index: 1;
-  transform: translate(3px,0.5px);
+  transform: translate(3px, 0.5px);
   border-radius: 15px;
   padding: 7px 0 7px 12px;
   width: 260px;
@@ -371,110 +377,111 @@
   z-index: 1;
 }
 
-.food-basicInfo .rrrrr{
+.food-basicInfo .rrrrr {
   width: 20px;
   height: 20px;
   z-index: 2;
 }
 
- .food-basicInfo .myComment {
-   position: absolute;
-    width: 250px;
-    z-index: 0;
-    padding: 30px 35px 10px 15px;
-    border-radius: 15px;
-    word-wrap: break-word;
-    outline: none;
-    height: 25px;
-    resize: none;
-    font-size: 15px;
-    border:1px solid rgb(204,204,204);
+.food-basicInfo .myComment {
+  position: absolute;
+  width: 250px;
+  z-index: 0;
+  padding: 30px 35px 10px 15px;
+  border-radius: 15px;
+  word-wrap: break-word;
+  outline: none;
+  height: 25px;
+  resize: none;
+  font-size: 15px;
+  border: 1px solid rgb(204, 204, 204);
 }
 
-.myComment ::-webkit-scrollbar-thumb{
-    visibility: hidden;
+.myComment ::-webkit-scrollbar-thumb {
+  visibility: hidden;
 }
 
 .myComment::-webkit-scrollbar {
-    position: absolute;
-    width: 5px;
-  }
+  position: absolute;
+  width: 5px;
+}
 
-  .myComment::-webkit-scrollbar-track {
-    /* box-shadow: inset 0 0 5px grey;  */
-  }
-   
-  .myComment::-webkit-scrollbar-thumb {
-    background: grey;
-    border-radius: 10px;
-    visibility: hidden;
-  }
-  
-  .myComment::-webkit-scrollbar-thumb:hover {
-    background: rgb(170, 5, 5); 
-  }
+.myComment::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey;  */
+}
 
-  .food-basicInfo .button,.food-basicInfo .butto{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: translate(250px,-1px);
-    font-size: 15px;
-    color: rgb(170, 5, 5);
-    padding-left: 5px;
-    width: 24px;
-    height: 53px;
-    cursor: pointer;
-    /* background-color: blue; */
-    border-left: 1px solid rgb(204, 204, 204);
-  }
+.myComment::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+  visibility: hidden;
+}
 
-  .food-basicInfo .butto:hover::after{
-    content: "Please rate this recipe first";
-    /* font-size: 12px; */
-    font-weight: 400;
-    position: absolute;
-    padding: 3px 8px 5px 8px;
-    width: 190px;
-    text-align: center;
-    transform: translate(-84px,-55px);
-    color: rgb(170, 5, 5);
-    background-color: #FBE7E2;
-    border-radius: 15px;
-    z-index: 1;
-    animation: 1s warn;
-    overflow: hidden;
-  }
+.myComment::-webkit-scrollbar-thumb:hover {
+  background: rgb(170, 5, 5);
+}
 
-  .food-basicInfo .butto:hover::before{
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    transform: translate(-3px,-45px) rotate(45deg);
-    background-color: #FBE7E2;
-    animation: 1s warn;
-  }
+.food-basicInfo .button,
+.food-basicInfo .butto {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(250px, -1px);
+  font-size: 15px;
+  color: rgb(170, 5, 5);
+  padding-left: 5px;
+  width: 24px;
+  height: 53px;
+  cursor: pointer;
+  /* background-color: blue; */
+  border-left: 1px solid rgb(204, 204, 204);
+}
 
-  @keyframes warn{
-    0%{
-      opacity: 0;
-    }
-    20%{
-      opacity: 1;
-    }
-    100%{
-      opacity: 1;
-    }
-  }
+.food-basicInfo .butto:hover::after {
+  content: "Please rate this recipe first";
+  /* font-size: 12px; */
+  font-weight: 400;
+  position: absolute;
+  padding: 3px 8px 5px 8px;
+  width: 190px;
+  text-align: center;
+  transform: translate(-84px, -55px);
+  color: rgb(170, 5, 5);
+  background-color: #fbe7e2;
+  border-radius: 15px;
+  z-index: 1;
+  animation: 1s warn;
+  overflow: hidden;
+}
 
-  @media screen and (max-width:1050px){
-    .bigFoodInf{
-      align-items: flex-start;
-    }
-    .food-basicInfo{
-      margin:0 50px ;
-    }
+.food-basicInfo .butto:hover::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  transform: translate(-3px, -45px) rotate(45deg);
+  background-color: #fbe7e2;
+  animation: 1s warn;
+}
+
+@keyframes warn {
+  0% {
+    opacity: 0;
   }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .bigFoodInf {
+    align-items: flex-start;
+  }
+  .food-basicInfo {
+    margin: 0 50px;
+  }
+}
