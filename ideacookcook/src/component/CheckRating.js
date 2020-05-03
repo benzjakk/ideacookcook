@@ -3,6 +3,7 @@ import '../component/styles/CheckRating.css';
 import {MdStarBorder,MdStarHalf,MdStar,} from 'react-icons/md';
 
 const CheckRating=(rating)=>{
+    if(rating==-1)rating=0;
     if(rating<0.5) return(<div><MdStarBorder className="myStar" /><MdStarBorder className="myStar" /><MdStarBorder className="myStar" /><MdStarBorder className="myStar" /><MdStarBorder className="myStar" /></div>);
     else if(rating<0.75) return(<div><MdStarHalf className="myStar" /><MdStarBorder className="myStar" /><MdStarBorder className="myStar" /><MdStarBorder className="myStar" /><MdStarBorder className="myStar" /></div>)
     else if(rating<1.25) return(<div><MdStar className="myStar" /><MdStarBorder className="myStar" /><MdStarBorder className="myStar" /><MdStarBorder className="myStar" /><MdStarBorder className="myStar" /></div>);
