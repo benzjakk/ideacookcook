@@ -60,6 +60,10 @@ class food extends Component {
   };
 
   render() {
+    console.log(
+      localStorage.getItem("profilePicture"),
+      localStorage.getItem("currentMemID")
+    );
     return (
       <div className="food">
         {!this.state.Loaded ? (

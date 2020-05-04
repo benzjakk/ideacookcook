@@ -37,7 +37,8 @@ class Editprofile extends Component {
           Line: restmp.Line,
           PhoneNo: restmp.PhoneNo,
         });
-        if (restmp.ProfilePicture !== "") {
+        //localStorage.setItem("profilePicture", restmp.ProfilePicture);
+        if (restmp.ProfilePicture != "") {
           this.setState({ ProfilePictureURL: restmp.ProfilePicture });
         }
       })
@@ -45,6 +46,22 @@ class Editprofile extends Component {
         console.log(error);
       });
   };
+
+  async updateLocalPropic() {
+    await Axios.get(
+      "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/ProfilePic/" +
+        localStorage.getItem("currentMemID")
+    )
+      .then((res) => {
+        //console.log(res);
+        localStorage.setItem("profilePicture", res.data.ProfilePic);
+        alert("Uploading Success");
+        window.location.reload(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   handleSubmit = async (event) => {
     document.getElementById("editbut").innerHTML = "Loading...";
@@ -63,8 +80,8 @@ class Editprofile extends Component {
     )
       .then((res) => {
         if (res.data.description === "Successfully update data") {
-          alert("Successfully update data");
           localStorage.setItem("currentUser", this.state.KnownName);
+          alert("Successfully update data");
           window.location.href =
             "/Profile/" + localStorage.getItem("currentMemID");
         } else {
@@ -89,9 +106,9 @@ class Editprofile extends Component {
       )
         .then((res) => {
           if (res.data.description === "Successfully add photo and url") {
-            alert("Uploading Success");
-            localStorage.setItem("profilePicture");
-            window.location.reload(false);
+            this.updateLocalPropic();
+            //alert("Uploading Success");
+            //window.location.reload(false);
           } else {
             alert("Failed to Upload!!!");
           }

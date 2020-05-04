@@ -29,6 +29,7 @@ const RSs = (props) => {
           {food.Calories == "High" ? "High" : food.Calories.substring(0, 3)} Cal
         </div>
       </div>
+
       <div className="food-info">
         <div className="food-info-name">{food.RecipesName}</div>
         <div className="f-info" style={{ margin: "6px 0 8px 0" }}>
@@ -36,7 +37,15 @@ const RSs = (props) => {
             <FaStar />
           </div>
           <div style={{ color: "rgb(170,5,5)" }}>
-            <strong>{food.OverallRating > 0 ? food.OverallRating : 0}</strong>
+            <strong>
+              {food.OverallRating > 0
+                ? (food.OverallRating * 100) % 100 > 0
+                  ? food.OverallRating.toFixed(2)
+                  : (food.OverallRating * 10) % 10 > 0
+                  ? food.OverallRating.toFixed(1)
+                  : food.OverallRating
+                : 0}
+            </strong>
           </div>
           <div style={{ color: "rgb(190, 190, 190)" }}>
             <strong>({food.ReviewNo})</strong>

@@ -17,11 +17,11 @@ class Home extends Component {
       .get(
         "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/TenLatest"
       )
-      .catch((error) => {
-        console.log(error);
-      })
       .then((res) => {
         this.setState({ R: res.data.data });
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   render() {
