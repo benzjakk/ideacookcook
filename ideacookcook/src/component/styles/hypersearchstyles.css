@@ -20,6 +20,7 @@
   border-radius: 5px;
   width: 80%;
   font-size: 20px;
+  outline: none;
 }
 .hypersearch p {
   font-size: 20px;
@@ -33,6 +34,7 @@
   font-size: 25px;
   font-weight: bolder;
   color: rgb(170, 5, 5);
+  outline: none;
 }
 .hypersearch button:hover {
   background-color: rgb(170, 5, 5);

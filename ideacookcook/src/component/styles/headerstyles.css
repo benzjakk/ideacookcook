@@ -40,6 +40,7 @@ header input {
   width: calc(88.5vw - 450px);
   height: 26px;
   font-size: 17px;
+  outline: none;
 }
 
 header .login_regis {
@@ -79,12 +80,14 @@ header button {
   background-color: white;
   border: none;
   margin-left: 1vw;
+  outline: none;
 }
 header button:hover {
   background-color: rgb(170, 5, 5);
   color: white;
   cursor: pointer;
 }
+
 header a {
   text-decoration: none;
   color: white;

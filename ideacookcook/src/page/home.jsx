@@ -4,6 +4,7 @@ import Hypersearch from "../component/hypersearch";
 import Results from "../component/results.js";
 import axios from "axios";
 import "../component/styles/homestyles.css";
+import loadingPic from "../component/pic/loading-png-gif.gif";
 class Home extends Component {
   state = {
     R: null,
@@ -27,25 +28,25 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.R ? (
-          <section>
-            <div
-              className="result"
+        <section>
+          <div
+            className="result"
+            style={{
+              backgroundColor: "white",
+              marginTop: "-25px",
+              paddingTop: "10px",
+            }}
+          >
+            <h2
               style={{
-                backgroundColor: "white",
-                marginTop: "-25px",
-                paddingTop: "10px",
+                marginLeft: "30px",
+                fontSize: "30px",
+                transform: "translateY(15px)",
               }}
             >
-              <h2
-                style={{
-                  marginLeft: "30px",
-                  fontSize: "30px",
-                  transform: "translateY(15px)",
-                }}
-              >
-                Recent Menu
-              </h2>
+              Recent Menu
+            </h2>
+            {this.state.R ? (
               <div className="allResult">
                 <Results
                   RSs={this.state.R}
@@ -53,9 +54,16 @@ class Home extends Component {
                   words={["homeRecent"]}
                 />
               </div>
-            </div>
-          </section>
-        ) : null}
+            ) : (
+              <img
+                height="50"
+                width="50"
+                src={loadingPic}
+                style={{ margin: "20px", marginLeft: "30px" }}
+              ></img>
+            )}
+          </div>
+        </section>
 
         <Category />
         <Hypersearch />

@@ -74,10 +74,21 @@ class Header extends Component {
           {this.state.currentUser ? (
             <div className="login_regis">
               <a href={"/Profile/" + localStorage.getItem("currentMemID")}>
-                <div>{this.state.currentUser}</div>
+                <img
+                  height="30"
+                  width="30"
+                  src={localStorage.getItem("profilePicture")}
+                  alt="ภาพโปรไฟล์"
+                  style={{ borderRadius: "50%" }}
+                ></img>
               </a>
               <a href="/editprofile">
-                <img height="30" width="30" src={editpic} alt="สุขภาพ"></img>
+                <img
+                  height="30"
+                  width="30"
+                  src={editpic}
+                  alt="แก้ไขโปรไฟล์"
+                ></img>
               </a>
               <img
                 height="30"
