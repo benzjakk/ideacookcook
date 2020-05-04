@@ -90,6 +90,7 @@ class Editprofile extends Component {
         .then((res) => {
           if (res.data.description === "Successfully add photo and url") {
             alert("Uploading Success");
+            localStorage.setItem("profilePicture");
             window.location.reload(false);
           } else {
             alert("Failed to Upload!!!");

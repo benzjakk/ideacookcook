@@ -57,6 +57,7 @@ class Header extends Component {
   handleLogout = async () => {
     await localStorage.removeItem("currentUser");
     await localStorage.removeItem("currentMemID");
+    await localStorage.removeItem("profilePicture");
     this.updateCurrentUser();
     this.refreshPage();
   };

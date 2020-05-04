@@ -38,6 +38,9 @@ class food extends Component {
           Steps: res.data.data.Steps,
           Loaded: true,
         });
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 

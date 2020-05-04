@@ -47,6 +47,7 @@ class Register extends Component {
         console.log(res.data.description);
         if (res.data.description === "Successfully created") {
           this.setState({ registerSatatus: true });
+          alert("Registration Success");
           window.location.pathname = "/";
         }
       })

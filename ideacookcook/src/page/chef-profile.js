@@ -47,6 +47,9 @@ class ChefProfile extends Component {
           Reviews: res.data.data.Review,
           Loaded: true,
         });
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   isRecipesOrReviews = () => {
