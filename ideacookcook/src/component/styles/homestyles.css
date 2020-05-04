@@ -1,0 +1,14 @@
+.result .allResult::-webkit-scrollbar-thumb {
+  background-color: rgb(170, 5, 5);
+  border-radius: 15px;
+}
+
+.result .allResult::-webkit-scrollbar {
+  height: 10px;
+}
+
+.result .allResult {
+  overflow-x: scroll;
+  width: 100vw;
+  padding-bottom: 15px;
+}
