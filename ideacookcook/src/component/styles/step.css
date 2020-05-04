@@ -1,396 +1,392 @@
-.bigStep {
-  width: 100vw;
-  height: 600px;
-  /* padding: 0 50px 0 50px; */
-  /* padding:50px 50px 0 50px; */
-  overflow: scroll;
-  display: flex;
-  flex-direction: row;
-  /* flex-wrap: wrap; */
-  justify-content: center;
-  align-items: center;
-  /* align-items: center; */
-  /* background-color: rgb(0, 0, 0); */
-  /* background-color: rgb(224, 224, 224); */
-  /* box-shadow: 0 0 8px grey; */
+.bigStep{
+    width:100vw;
+    height: 600px;
+    /* padding: 0 50px 0 50px; */
+    /* padding:50px 50px 0 50px; */
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    /* align-items: center; */
+    /* background-color: rgb(0, 0, 0); */
+    /* background-color: rgb(224, 224, 224); */
+    /* box-shadow: 0 0 8px grey; */
 }
 
-.bigpicpic::-webkit-scrollbar,
-.bigStep::-webkit-scrollbar,
-.stepDescription::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-}
-
-.stepPic::-webkit-scrollbar {
-  height: 7px;
-}
-
-.stepPic::-webkit-scrollbar-thumb {
-  background-color: rgb(170, 5, 5);
-  border-radius: 10px;
-}
-
-.bigStep .step::-webkit-scrollbar {
-  width: 7px;
-}
-.bigStep .step::-webkit-scrollbar-thumb {
-  background-color: rgb(170, 5, 5);
-  border-radius: 10px;
-}
-
-.bigStep .step {
-  max-height: 440px;
-  display: flex;
-  word-wrap: break-word;
-  width: fit-content;
-  padding: 0 50px;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: scroll;
-}
-
-.bigStep .steps {
-  position: relative;
-  width: fit-content;
-  height: fit-content;
-  /* margin: 0 20px 0 50px; */
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-between; */
-  align-items: center;
-  color: white;
-  /* background-color: blue; */
-  /* padding: 10px 0; */
-  border: 1px solid white;
-  margin: 8px 0;
-  border-radius: 70px;
-  /* box-shadow: 0 0 8px grey; */
-  /* background-color: #FBE7E2; */
-  background-color: white;
-  /* background-color: rgb(236, 236, 236); */
-  /* background-color: rgb(236, 236, 236); */
-  color: rgb(170, 5, 5);
-  cursor: pointer;
-  transition: 0.25s;
-  /* transition: 0.8s; */
-  /* box-shadow: 8px 4px 16px rgba(0, 0, 0, 0.24); */
-}
-
-.bigStep .isSteps {
-  position: relative;
-  width: fit-content;
-  height: fit-content;
-  /* margin: 0 20px 0 50px; */
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-between; */
-  align-items: center;
-  color: white;
-  /* background-color: blue; */
-  /* padding: 10px 0; */
-  border: 1px solid rgb(255, 255, 255);
-  margin: 8px 0;
-  border-radius: 70px;
-  /* box-shadow: 0 0 8px grey; */
-  /* background-color: #FBE7E2; */
-  background-color: white;
-  /* background-color: rgb(236, 236, 236); */
-  /* background-color: rgb(236, 236, 236); */
-  color: rgb(170, 5, 5);
-  transition: 0.25s;
-  transform: translate(-30px, 0px);
-  /* box-shadow: 8px 4px 16px rgb(223, 223, 223); */
-  /* box-shadow: 8px 4px 16px rgba(0, 0, 0, 0.24); */
-}
-
-.bigStep .steps:hover {
-  border: 1px solid rgb(199, 199, 199);
-  /* background-color: rgb(235, 235, 235); */
-  /* box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.24); */
-  /* transition: 0.2s; */
-  /* border: 10px solid rgb(236, 236, 236); */
-}
-
-.bigStep .stepPic {
-  align-self: center;
-  justify-self: center;
-  display: flex;
-  flex-direction: row;
-  height: 440px;
-  width: 440px;
-  justify-content: center;
-  /* margin-top:40px; */
-  /* transform: skewX(45deg); */
-  /* border-left: 20px solid white; */
-  /* border: 10px solid white; */
-  background-color: rgb(226, 226, 226);
-  /* border-radius: 15px; */
-  z-index: 3;
-  /* transition: 0.5s; */
-  /* transform: translate(30px,-100px); */
-  /* box-shadow: 0 0 8px grey; */
-  /* margin-left: 20px; */
-}
-
-.bigStep .stepPic .img {
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  object-position: center;
-  object-fit: contain;
-  /* border-radius: 15px; */
-  z-index: 2;
-  /* margin:10px; */
-  /* margin-right:8px; */
-}
-@keyframes hi {
-  0% {
-    opacity: 0;
+.bigpicpic::-webkit-scrollbar,.bigStep::-webkit-scrollbar ,.stepDescription::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
   }
-  100% {
-    opacity: 1;
+
+  .stepPic::-webkit-scrollbar {
+    height: 7px;
   }
-}
-.bigpicpic {
-  display: flex;
-  flex-direction: row;
-  height: 50px;
-  max-width: 370px;
-  overflow-x: scroll;
-  padding-top: 6.5714px;
-  margin: 3px 35px 0 35px;
-  align-self: center;
-  justify-self: center;
-  /* background-color: black; */
-  /* margin-bottom: 7.75px ; */
-  /* border-top: 1px solid rgb(226, 226, 226); */
-  /* border-bottom: 1px solid rgb(204, 204, 204); */
-}
-.picpic {
-  width: fit-content;
-  height: fit-content;
-  display: flex;
-  flex-direction: row;
-  /* border: 1px solid white; */
-}
-.bigpicpic .imG,
-.bigpicpic .img {
-  width: 50px;
-  height: 50px;
-  object-position: center;
-  object-fit: cover;
-  background-color: rgb(226, 226, 226);
-  /* padding: 2px; */
-  border-radius: 50%;
-  transition: 0.3s;
-}
-.bigpicpic .img {
-  transform: scale(0.8);
-  /* box-shadow: inset 0 0 2px rgb(0, 0, 0); */
-}
-.picpic .img:hover {
-  opacity: 0.8;
-  filter: grayscale(0);
-}
-.picpic .img {
-  transform: scale(0.8);
-  /* border: 2px solid white; */
-  cursor: pointer;
-  filter: grayscale(1);
-}
-.picpic .imG {
-  /* border: 2px solid rgb(255, 255, 255); */
-}
-.img + img,
-imG + img,
-img + imG {
-  margin-left: 14px;
+
+  .stepPic::-webkit-scrollbar-thumb {
+    background-color: rgb(170, 5,5);
+    border-radius: 10px;
+  }
+
+  .bigStep .step::-webkit-scrollbar{
+    width: 7px;
+  }
+  .bigStep .step::-webkit-scrollbar-thumb{
+    background-color: rgb(170, 5,5);
+    border-radius: 10px;
+  }
+
+  .bigStep .step {
+    max-height: 500px;
+    display: flex;
+    word-wrap: break-word;
+    width: fit-content;
+    padding:0 50px ;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
 }
 
-.bigStep .backkkk {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: fit-content;
-  width: fit-content;
-  padding-bottom: 15px;
-  /* transition: 0.5s; */
-  overflow: hidden;
-  margin-right: 70px;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 8px 4px 16px rgba(0, 0, 0, 0.24);
-  /* border: 1px solid rgb(211, 211, 211); */
+  .bigStep .steps {
+      position: relative;
+      width: fit-content;
+      height: fit-content;
+      /* margin: 0 20px 0 50px; */
+      display: flex;
+      flex-direction: row;
+      /* justify-content: space-between; */
+      align-items: center;
+      color: white;
+      /* background-color: blue; */
+      /* padding: 10px 0; */
+      border: 1px solid white;
+      margin: 8px 0;
+      border-radius: 70px;
+      /* box-shadow: 0 0 8px grey; */
+      /* background-color: #FBE7E2; */
+      background-color: white;
+      /* background-color: rgb(236, 236, 236); */
+      /* background-color: rgb(236, 236, 236); */
+      color: rgb(170, 5,5);
+      cursor: pointer;
+      transition: 0.25s;
+      /* transition: 0.8s; */
+      /* box-shadow: 8px 4px 16px rgba(0, 0, 0, 0.24); */
+  }
+
+  .bigStep .isSteps {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    /* margin: 0 20px 0 50px; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    color: white;
+    /* background-color: blue; */
+    /* padding: 10px 0; */
+    border: 1px solid rgb(255, 255, 255);
+    margin: 8px 0;
+    border-radius: 70px;
+    /* box-shadow: 0 0 8px grey; */
+    /* background-color: #FBE7E2; */
+    background-color: white;
+    /* background-color: rgb(236, 236, 236); */
+    /* background-color: rgb(236, 236, 236); */
+    color: rgb(170, 5,5);
+    transition: 0.25s;
+    transform: translate(-30px,0px);
+    /* box-shadow: 8px 4px 16px rgb(223, 223, 223); */
+    /* box-shadow: 8px 4px 16px rgba(0, 0, 0, 0.24); */
 }
-.ddd {
+
+  .bigStep .steps:hover{
+    border: 1px solid rgb(199, 199, 199);
+    /* background-color: rgb(235, 235, 235); */
+    /* box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.24); */
+    /* transition: 0.2s; */
+    /* border: 10px solid rgb(236, 236, 236); */
+  }
+
+  .bigStep .stepPic {
+    align-self: center;
+    justify-self: center;
+      display: flex;
+      flex-direction: row;
+      height:440px;
+      width:440px;
+      justify-content: center;
+      /* margin-top:40px; */
+      /* transform: skewX(45deg); */
+      /* border-left: 20px solid white; */
+      /* border: 10px solid white; */
+      background-color: rgb(226, 226, 226);
+      /* border-radius: 15px; */
+      z-index: 3;
+      /* transition: 0.5s; */
+      /* transform: translate(30px,-100px); */
+      /* box-shadow: 0 0 8px grey; */
+      /* margin-left: 20px; */
+  }
+
+  .bigStep .stepPic .img {
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: contain;
+    /* border-radius: 15px; */
+    z-index: 2;
+    /* margin:10px; */
+    /* margin-right:8px; */
+  }
+  @keyframes hi{
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  .bigpicpic{
+    display: flex;
+    flex-direction: row;
+    height: 50px;;
+    max-width: 370px;
+    overflow-x:scroll;
+    padding-top: 6.5714px ;
+    margin: 3px 35px 0 35px;
+    align-self: center;
+    justify-self: center;
+    /* background-color: black; */
+    /* margin-bottom: 7.75px ; */
+    /* border-top: 1px solid rgb(226, 226, 226); */
+    /* border-bottom: 1px solid rgb(204, 204, 204); */
+  }
+  .picpic{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid white; */
+  }
+  .bigpicpic .imG, .bigpicpic .img{
+    width: 50px;
+    height: 50px;
+    object-position: center;
+    object-fit: cover;
+    background-color: rgb(226, 226, 226);
+    /* padding: 2px; */
+    border-radius: 50%;
+    transition: 0.3s;    
+  }
+  .bigpicpic .img{
+    transform: scale(0.8);
+    /* box-shadow: inset 0 0 2px rgb(0, 0, 0); */
+  }
+  .picpic .img:hover{
+    opacity: 0.8;
+    filter: grayscale(0);
+  }
+  .picpic .img{
+    transform: scale(0.8);
+    /* border: 2px solid white; */
+    cursor: pointer;
+    filter: grayscale(1);
+  }
+  .picpic .imG{
+    /* border: 2px solid rgb(255, 255, 255); */
+  }
+  .img + img , imG + img, img + imG{
+    margin-left:14px ;
+  }
+
+  .bigStep .backkkk{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    padding-bottom:15px;
+    /* transition: 0.5s; */
+    overflow: hidden;
+    margin-right: 70px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 8px 4px 16px rgba(0, 0, 0, 0.24);
+    /* border: 1px solid rgb(211, 211, 211); */
+}
+.ddd{
   position: absolute;
   margin: 0 20px;
   /* color: rgb(170,5,5); */
   font-size: 160px;
 }
-.stepDescription {
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  /* justify-content: center; */
-  width: 500px;
-  /* max-width: 700px; */
-  align-self: center;
-  /* margin-top: 5px; */
-  height: fit-content;
-  margin: 0 20px 0 10px;
-  padding: 20px 20px 20px 20px;
-  font-size: 20px;
-  text-align: left;
-  /* font-weight: 100; */
-  /* background-color: #FBE7E2; */
-  border-radius: 15px;
-  word-wrap: break-word;
-  overflow-y: scroll;
-  color: grey;
-}
-@import url("https://fonts.googleapis.com/css?family=Kalam:700&display=swap");
-.step .St {
-  font-family: "Kalam", cursive;
-  /* position: absolute; */
-  color: rgb(197, 197, 197);
-  /* color: black; */
-  /* align-self: center; */
-  /* transform: translateX(-50%); */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  /* background-color: grey; */
-  /* padding: 20px; */
-  margin-left: 15px;
-  /* text-align: right; */
-  /* color: rgb(170, 5, 5); */
-  font-size: 80px;
-  font-weight: 500;
-  /* opacity: 0.5; */
-  /* margin-right:-5px; */
-  transform: scale(calc(1 / 2.5));
-  transition: 0.25s;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  /* margin-top: -10px; */
-  /* margin-bottom: 5px; */
-  /* background-color: #FBE7E2; */
-  /* transition: 0.8s; */
-}
+  .stepDescription {
+      display: flex;
+      flex-direction: column;
+      justify-self: center;
+      /* justify-content: center; */
+      width: 500px;
+      /* max-width: 700px; */
+      align-self: center;
+      /* margin-top: 5px; */
+      height: fit-content;
+      margin:0 20px 0 10px;
+      padding: 20px 20px 20px 20px;
+      font-size: 20px;
+      text-align: left;
+      /* font-weight: 100; */
+      /* background-color: #FBE7E2; */
+      border-radius: 15px;
+      word-wrap: break-word;
+      overflow-y: scroll;
+      color: grey;
+    
+  }
+  @import url('https://fonts.googleapis.com/css?family=Kalam:700&display=swap');
+  .step .St{
+    font-family: 'Kalam', cursive;
+    /* position: absolute; */
+    color: rgb(197, 197, 197);
+    /* color: black; */
+    /* align-self: center; */
+    /* transform: translateX(-50%); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;    
+    /* background-color: grey; */
+    /* padding: 20px; */
+    margin-left: 15px;
+    /* text-align: right; */
+    /* color: rgb(170, 5, 5); */
+    font-size: 80px;
+    font-weight: 500;
+    /* opacity: 0.5; */
+    /* margin-right:-5px; */
+    transform: scale(calc(1/2.5));
+    transition: 0.25s;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    /* margin-top: -10px; */
+    /* margin-bottom: 5px; */
+    /* background-color: #FBE7E2; */
+    /* transition: 0.8s; */
+  }
 
-.isSteps .St {
-  font-family: "Kalam", cursive;
-  /* position: absolute; */
-  /* background-color: rgb(170, 5,5); */
-  color: rgb(170, 5, 5);
-  /* color: black; */
-  /* align-self: center; */
-  /* transform: translateX(-50%); */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  /* padding: 20px; */
-  margin-left: 15px;
-  /* text-align: right; */
-  /* color: rgb(170, 5, 5); */
-  font-size: 80px;
-  font-weight: 600;
-  transform: scale(1.2) translateY(8px);
-  transition: 0.25s;
-  /* opacity: 0.5; */
-  /* margin-right:-5px; */
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  /* margin-top: -10px; */
-  /* margin-bottom: 5px; */
-  /* background-color: #FBE7E2; */
-  /* transition: 0.8s; */
-}
+  .isSteps .St{
+    font-family: 'Kalam', cursive;
+    /* position: absolute; */
+    /* background-color: rgb(170, 5,5); */
+    color: rgb(170, 5,5);
+    /* color: black; */
+    /* align-self: center; */
+    /* transform: translateX(-50%); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;    
+    /* padding: 20px; */
+    margin-left: 15px;
+    /* text-align: right; */
+    /* color: rgb(170, 5, 5); */
+    font-size: 80px;
+    font-weight: 600;
+    transform: scale(1.2) translateY(8px);
+    transition: 0.25s;
+    /* opacity: 0.5; */
+    /* margin-right:-5px; */
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    /* margin-top: -10px; */
+    /* margin-bottom: 5px; */
+    /* background-color: #FBE7E2; */
+    /* transition: 0.8s; */
+  }
 
-.bigStep .steps:hover .St {
-  /* background-color: rgb(170, 5,5); */
-  /* color: white; */
-  /* transition: 0.2s; */
-}
+  .bigStep .steps:hover .St{
+    /* background-color: rgb(170, 5,5); */
+    /* color: white; */
+    /* transition: 0.2s; */
+  }
 
-.bigStep .notNum {
-  font-size: 15px;
-  font-weight: 400;
-  width: 370px;
-  /* background-color: violet; */
-  color: grey;
-  /* margin-bottom: 10px;     */
-  margin: 0px 35px 20px 35px;
-  /* transform: translateY(5px); */
-}
-.bigStep .num {
-  color: rgb(170, 5, 5);
-  font-size: 50px;
-  font-weight: 600;
-  width: 370px;
-  /* margin-top: 10px; */
-  /* margin: 0; */
-  /* background-color: violet; */
-  /* transform: translateY(-5px); */
-}
-.backkkk .noPic {
-  color: black;
-  font-size: 20px;
-  font-weight: 400;
-  width: 100%;
-  height: fit-content;
-  text-align: center;
-  /* margin-top: 10px; */
-  /* margin: 0; */
-  /* background-color: violet; */
-  transform: translateY(210px);
-}
+  .bigStep .notNum{
+    font-size: 15px;
+    font-weight: 400;
+    width: 370px;
+    /* background-color: violet; */
+    color: grey;
+    /* margin-bottom: 10px;     */
+    margin: 0px 35px 20px 35px;
+    /* transform: translateY(5px); */
+  }
+  .bigStep .num{
+    color: rgb(170, 5,5);
+    font-size: 50px;
+    font-weight: 600;
+    width: 370px;
+    /* margin-top: 10px; */
+    /* margin: 0; */
+    /* background-color: violet; */
+    /* transform: translateY(-5px); */
+  }
+  .backkkk .noPic{
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    /* margin-top: 10px; */
+    /* margin: 0; */
+    /* background-color: violet; */
+    transform: translateY(210px);
+  }
 
-.step strong {
-  color: black;
-  transition: 0.25s;
-  font-weight: 700;
-  font-size: 25px;
-}
+  .step strong{
+    color: black;
+    transition: 0.25s;
+    font-weight: 700;
+    font-size: 25px;
+  }
 
-.isSteps strong {
-  color: rgb(170, 5, 5);
-  transition: 0.25s;
-}
+  .isSteps strong{
+    color: rgb(170, 5,5);
+    transition: 0.25s;
+  }
 
-.bigStep .steps:hover strong {
-  /* color: grey; */
-}
+  .bigStep .steps:hover strong{
+    /* color: grey; */
+  }
 
-@media screen and (min-width: 1101px) and (max-width: 1300px) {
-  .bigStep {
+  @media screen and (min-width:1101px) and (max-width:1300px){
+    .bigStep{
+      overflow: scroll;
+      justify-content: flex-start;
+      align-items: center;
+      padding:0 ;
+    }
+    .stepDescription{
+      width: 35vw;
+    }
+ }
+
+ @media screen and (max-width:1100px){
+  .bigStep{
     overflow: scroll;
     justify-content: flex-start;
     align-items: center;
-    padding: 0;
+    padding:0 ;
   }
-  .stepDescription {
-    width: 35vw;
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .bigStep {
-    overflow: scroll;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0;
-  }
-  .stepDescription {
+  .stepDescription{
     width: 30vw;
   }
-  .bigStep .step {
+  .bigStep .step{
     transform: translateX(-30px);
     margin-top: 20px;
     padding-right: 20px;
