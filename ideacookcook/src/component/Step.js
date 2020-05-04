@@ -8,23 +8,25 @@ class Step extends Component {
         super(props);
         this.state={
             picNum:1,
-            picpicNum:1
         };
     }
-    picpic=(L)=>{
-        
+    picpic=()=>{
+        let L=this.props.L
         if(L=="")return(null);
         if(typeof(L)=="string")return(<img className="imG" src={L}/>);
         const picss = L.map((pic,index) =>
-            <img className={this.state.picpicNum==index+1?"imG":"img"} src={pic} onClick={()=>this.setState({picpicNum:index+1})}/>
+            <img className={this.state.picNum==index+1?"imG":"img"} src={pic.StepPic==""?null:pic.StepPic} onClick={()=>this.setState({picNum:index+1})}/>
         )
         return(<div className="picpic">{picss}</div>);
     }
-    Pics=(L,picNum)=>{    
+    Pics=(picNum)=>{    
+        let L=this.props.L
         if(L=="")return(
             <div className="backkkk">
+                {/* <div className="num">Step {picNum}</div>
+                <div className="notNum">Click on the step description to see the picture(s)</div> */}
                 <div className="stepPic">
-                    <div className="noPic">...No picture in this step...</div>
+                    
                 </div> 
                 <div className="bigpicpic">
                     <img className="img"/>
@@ -38,6 +40,8 @@ class Step extends Component {
         );
         if(typeof(L)=="string")return(
             <div className="backkkk">
+                {/* <div className="num">Step {picNum}</div>
+                <div className="notNum">Click on the step description to see the picture(s)</div> */}
                 <div className="stepPic">
                     <img className="img" src={L}/>
                 </div> 
@@ -46,23 +50,28 @@ class Step extends Component {
                 </div>
             </div>
         );
-        // if(props.L.length!=0)
+        // if(props.L.length!=0){
         return(
         <div className="backkkk">
             <div className="stepPic">
-                <img className="img" src={L[this.state.picpicNum-1]}/>
+                {L[this.state.picNum-1].StepPic==""?<div className="noPic">...No picture in this step...</div>:
+                <img className="img" src={L[this.state.picNum-1].StepPic}/>}
             </div>
-            <div className="bigpicpic">{this.picpic(L)}</div>
+            <div className="bigpicpic">{this.picpic()}</div>
         </div>);
         
     }
     STs=()=> {
+        console.log(this.state.picNum)
+        
         const listSTs = this.props.L.map((step,index) =>
             <div 
                 className={index+1==this.state.picNum?"isSteps":"steps"} 
                 style={index%2==0?{}:{color:"rgb(170,5,5)"}}
-                onClick={()=>this.setState({picNum:index+1,picpicNum:1})}>
+                onClick={()=>this.setState({picNum:index+1})}
+            >
                <div className="St">
+                        {/* STEP */}
                         {index+1<10? " 0":" "}{index+1}
                     </div>      
                 <div className="stepDescription" >  
@@ -74,6 +83,7 @@ class Step extends Component {
         
         return(
             <div className="step">
+               {/* <div className="middle"></div> */}
                 {listSTs}
             </div>
         );
