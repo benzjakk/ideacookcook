@@ -33,7 +33,7 @@ class Header extends Component {
 
   updateData = async () => {
     await Axios.get(
-      "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/RecipesName"
+      "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/RecipesName"
     )
       .then((res) => {
         this.setState({ recipeName: res.data.data });

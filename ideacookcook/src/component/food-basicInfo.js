@@ -30,7 +30,7 @@ class FoodBasicInfo extends Component {
     console.log(this.props.foodID);
     axios
       .delete(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Recipes",
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Recipes",
         {
           data: { RecipesID: this.props.foodID },
         }
@@ -43,7 +43,7 @@ class FoodBasicInfo extends Component {
   goComment = () => {
     if (this.state.Rate != 0) {
       axios.post(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/CreateComment",
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/CreateComment",
         {
           RecipesID: this.props.foodID,
           MemID: this.props.myID,
@@ -87,7 +87,7 @@ class FoodBasicInfo extends Component {
   goDel = (index) => {
     axios
       .delete(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Comment",
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Comment",
         {
           data: {
             RecipesID: this.props.foodID,
@@ -114,7 +114,7 @@ class FoodBasicInfo extends Component {
     this.setState({ Editing: true, edited: false });
     axios
       .patch(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Comment",
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Comment",
         {
           RecipesID: this.props.foodID,
           MemID: this.props.myID,

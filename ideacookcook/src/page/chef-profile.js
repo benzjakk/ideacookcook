@@ -37,7 +37,7 @@ class ChefProfile extends Component {
   componentDidMount = () => {
     axios
       .get(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/Profile/" +
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/User/Profile/" +
           this.state.Data
       )
       .then((res) => {

@@ -24,7 +24,7 @@ class Hypersearch extends Component {
   fetchTag = async () => {
     await axios
       .get(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/Tag"
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/Tag"
       )
       .then((res) => {
         const restmp = res.data.data;

@@ -23,7 +23,7 @@ class Editprofile extends Component {
   }
   fetchUserData = async () => {
     await Axios.get(
-      "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/data/" +
+      "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/User/data/" +
         localStorage.getItem("currentMemID")
     )
       .then((res) => {
@@ -49,7 +49,7 @@ class Editprofile extends Component {
 
   async updateLocalPropic() {
     await Axios.get(
-      "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/ProfilePic/" +
+      "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/User/ProfilePic/" +
         localStorage.getItem("currentMemID")
     )
       .then((res) => {
@@ -67,7 +67,7 @@ class Editprofile extends Component {
     document.getElementById("editbut").innerHTML = "Loading...";
     event.preventDefault();
     await Axios.patch(
-      "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/UserData",
+      "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/User/UserData",
       {
         MemID: localStorage.getItem("currentMemID"),
         FirstName: this.state.FirstName,
@@ -101,7 +101,7 @@ class Editprofile extends Component {
       fd.append("MemID", localStorage.getItem("currentMemID"));
       fd.append("Picture", this.state.ProfilePicture);
       await Axios.patch(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/UserPhoto",
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/User/UserPhoto",
         fd
       )
         .then((res) => {

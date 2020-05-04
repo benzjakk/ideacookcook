@@ -25,7 +25,7 @@ class food extends Component {
   componentDidMount = () => {
     axios
       .get(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Menu/" +
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Menu/" +
           this.state.match
       )
       .then((res) => {
@@ -60,10 +60,10 @@ class food extends Component {
   };
 
   render() {
-    console.log(
+    /*console.log(
       localStorage.getItem("profilePicture"),
       localStorage.getItem("currentMemID")
-    );
+    );*/
     return (
       <div className="food">
         {!this.state.Loaded ? (

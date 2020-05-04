@@ -23,7 +23,7 @@ class Loginer extends Component {
     event.preventDefault();
     await axios
       .get(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/User/signin",
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/User/signin",
         {
           params: { email: this.state.email, password: this.state.psw },
         }

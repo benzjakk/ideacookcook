@@ -15,7 +15,7 @@ class Home extends Component {
   fecthReacentReacipes = () => {
     axios
       .get(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/TenLatest"
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/TenLatest"
       )
       .then((res) => {
         this.setState({ R: res.data.data });

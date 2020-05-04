@@ -30,7 +30,7 @@ class Register extends Component {
     event.preventDefault();
     await axios
       .post(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/CreateUser",
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/CreateUser",
         {
           email: this.state.email,
           password: this.state.psw,

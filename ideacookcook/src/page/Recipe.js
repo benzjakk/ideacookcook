@@ -56,7 +56,7 @@ class Recipe extends Component {
   uploadText() {
     axios
       .post(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/CreateRecipes",
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/CreateRecipes",
         {
           MemID: localStorage.getItem("currentMemID"),
           RecipesName: this.state.RecipesName,
@@ -89,7 +89,7 @@ class Recipe extends Component {
     fd.append("Pic", this.state.RecipesPic);
     axios
       .post(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/RecipesPic",
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/RecipesPic",
         fd
       )
       .then((res) => {
@@ -115,7 +115,7 @@ class Recipe extends Component {
         fd.append("Pic", methspic);
         await axios
           .post(
-            "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/StepPic",
+            "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/StepPic",
             fd
           )
           .then((res) => {
@@ -142,7 +142,7 @@ class Recipe extends Component {
   fetchTag = async () => {
     await axios
       .get(
-        "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Tag"
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Tag"
       )
       .then((res) => {
         const restmp = res.data.data;

@@ -36,7 +36,7 @@ class Result extends Component {
     if (this.state.seachingType == 1) {
       axios
         .get(
-          "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName",
+          "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListRecipesName",
           {
             params: { keyWord: this.state.words },
           }
@@ -53,7 +53,7 @@ class Result extends Component {
     } else if (this.state.seachingType == 2) {
       axios
         .get(
-          "https://us-central1-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListParameter",
+          "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Search/ListParameter",
           {
             params: {
               Calories: this.state.params[0],
