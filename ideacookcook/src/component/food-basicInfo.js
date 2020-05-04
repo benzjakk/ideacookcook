@@ -490,7 +490,7 @@ class FoodBasicInfo extends Component {
                         ? this.state.edited
                           ? "edited"
                           : "we are editing your review..."
-                        : "you already reviewed this rescipe"
+                        : "you have already reviewed this rescipe"
                       : "Please sign in before making a review"}
                   </div>
                 </div>

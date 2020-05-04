@@ -220,7 +220,7 @@ img + imG {
   margin-right: 70px;
   background-color: white;
   border-radius: 15px;
-  box-shadow: 8px 4px 16px rgba(0, 0, 0, 0.24);
+  box-shadow: 8px 4px 16px rgba(223, 223, 223);
   /* border: 1px solid rgb(211, 211, 211); */
 }
 .ddd {
@@ -392,8 +392,7 @@ img + imG {
   }
   .bigStep .step {
     transform: translateX(-30px);
-    margin-top: 20px;
+
     padding-right: 20px;
-    max-height: 600px;
   }
 }
