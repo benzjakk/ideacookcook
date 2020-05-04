@@ -23,7 +23,7 @@ class InputRawFood extends Component {
       tmp = this.state.quans;
       if (value > -1) {
         tmp[i] = value;
-        jsontmp[i].Quantity = parseInt(value);
+        jsontmp[i].Quantity = parseFloat(value);
         this.setState({ quans: tmp });
       }
     } else {
