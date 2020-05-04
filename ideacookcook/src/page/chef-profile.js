@@ -41,7 +41,6 @@ class ChefProfile extends Component {
           this.state.Data
       )
       .then((res) => {
-        localStorage.setItem("profilePicture", res.data.data.ProfilePicture);
         this.setState({
           Profile: res.data.data,
           Recipes: res.data.data.Recipes,
