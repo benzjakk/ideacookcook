@@ -89,8 +89,28 @@ body {
     font-weight: bolder;
     width: 196px;
     color: rgb(170,5,5);
+    /* background-color: red; */
+    max-height: 22px;
+    overflow-y: scroll;
 }
 
+.result .food-box .food-info-name::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+.result .food-box:hover .food-info-name::-webkit-scrollbar{
+    width: 3px;
+    height: 0;
+}
+
+.result .food-box:hover .food-info-name::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+}
+
+.result .food-info-name::-webkit-scrollbar-thumb{
+    background: rgb(192, 192, 192);
+}
 .result .food-info-name:hover{
     color:red;
     transition: 0.5s;
