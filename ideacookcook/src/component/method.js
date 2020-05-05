@@ -4,30 +4,30 @@ import upload from "./pic/upload.png";
 
 class method extends Component {
   state = {
-    meths: [""],
     jsonMeths: [{ Description: "" }],
     methsPic: [],
     fileURL: [upload],
+    editFileURL: [],
   };
 
   handleText = (i) => async (e) => {
-    let meths = this.state.meths;
     let jsonMeths = this.state.jsonMeths;
     let jsonMeth = {};
-    meths[i] = e.target.value;
+
     jsonMeth.Description = e.target.value;
     jsonMeths[i] = jsonMeth;
     await this.setState({
-      meths,
       jsonMeths,
     });
     this.updateParent();
   };
 
   handleFile = (i) => async (e) => {
+    let editFileURL = [...this.state.editFileURL];
     let methsPic = [...this.state.methsPic];
     let fileURL = [...this.state.fileURL];
     methsPic[i] = e.target.files[0];
+    editFileURL[i] = "";
 
     await this.setState({
       methsPic,
@@ -39,6 +39,7 @@ class method extends Component {
     }
 
     await this.setState({
+      editFileURL,
       fileURL,
     });
     this.updateParent();
@@ -46,9 +47,9 @@ class method extends Component {
 
   handleDelete = (i) => async (e) => {
     e.preventDefault();
-    let meths = [
-      ...this.state.meths.slice(0, i),
-      ...this.state.meths.slice(i + 1),
+    let editFileURL = [
+      ...this.state.editFileURL.slice(0, i),
+      ...this.state.editFileURL.slice(i + 1),
     ];
     let methsPic = [
       ...this.state.methsPic.slice(0, i),
@@ -63,7 +64,7 @@ class method extends Component {
       ...this.state.jsonMeths.slice(i + 1),
     ];
     await this.setState({
-      meths,
+      editFileURL,
       methsPic,
       fileURL,
       jsonMeths,
@@ -74,36 +75,72 @@ class method extends Component {
 
   addMethod = async (e) => {
     e.preventDefault();
-    let meths = this.state.meths.concat([""]);
+    let editFileURL = this.state.editFileURL.concat([""]);
     let jsonMeth = {};
-    jsonMeth.Description = "";
+    jsonMeth.Description = [""];
     let jsonMeths = this.state.jsonMeths.concat([jsonMeth]);
     let fileURL = this.state.fileURL.concat([upload]);
     await this.setState({
-      meths,
+      editFileURL,
       fileURL,
       jsonMeths,
     });
   };
 
   updateParent = () => {
-    this.props.updateParent(this.state.jsonMeths, this.state.methsPic);
+    if (this.props.mode == "edit") {
+      this.props.updateParent(
+        this.state.jsonMeths,
+        this.state.methsPic,
+        this.state.editFileURL
+      );
+    } else {
+      this.props.updateParent(
+        this.state.jsonMeths,
+        this.state.methsPic,
+        this.state.fileURL
+      );
+    }
   };
 
+  addButton() {
+    if (this.state.jsonMeths.length != 0) {
+      if (
+        this.state.jsonMeths[this.state.jsonMeths.length - 1].Description != ""
+      ) {
+        return (
+          <button type="button" onClick={this.addMethod}>
+            <b>เพิ่มขั้นตอน</b>
+          </button>
+        );
+      } else return null;
+    } else
+      return (
+        <button type="button" onClick={this.addMethod}>
+          <b>เพิ่มขั้นตอน</b>
+        </button>
+      );
+  }
+
   render() {
+    //console.log(this.state.fileURL);
     return (
       <Fragment>
-        {this.state.meths.map((meth, index) => (
+        {this.state.jsonMeths.map((jsonmeth, index) => (
           <span key={"span" + index}>
             <h3>ขั้นตอนที่ {index + 1}</h3>
-            <button type="button" id="xbut" onClick={this.handleDelete(index)}>
+            <button
+              type="button"
+              className="xbut"
+              onClick={this.handleDelete(index)}
+            >
               ลบขั้นตอนที่ {index + 1}
             </button>
             <textarea
               type="text"
               rows="7"
               onChange={this.handleText(index)}
-              value={meth}
+              value={jsonmeth.Description}
             />
 
             <input
@@ -119,10 +156,18 @@ class method extends Component {
               <div key={"choose" + index} className="dropZone">
                 เพิ่มภาพประกอบ
                 <img
-                  style={{ margin: "10px" }}
+                  style={{
+                    margin: "10px",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                  }}
                   height="150"
                   width="150"
-                  src={this.state.fileURL[index]}
+                  src={
+                    this.state.fileURL[index] != ""
+                      ? this.state.fileURL[index]
+                      : upload
+                  }
                   id="pic"
                   name="file"
                 />
@@ -130,11 +175,7 @@ class method extends Component {
             </label>
           </span>
         ))}
-        {this.state.meths[this.state.meths.length - 1] !== "" ? (
-          <button type="button" onClick={this.addMethod}>
-            <b>เพิ่มขั้นตอน</b>
-          </button>
-        ) : null}
+        {this.addButton()}
       </Fragment>
     );
   }

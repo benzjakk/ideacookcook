@@ -1,0 +1,229 @@
+.Top section {
+  background-color: white;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.Top h3 {
+  color: rgb(170, 5, 5);
+  font-size: 30px;
+  margin: 0;
+  margin-top: 5px;
+  padding: 10px 0;
+  padding-left: 35px;
+}
+
+.Top .food-box {
+  /* height: 260px; */
+  width: 227px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 9px 20px 40px 0;
+  /* box-shadow: 0 0 2px rgb(184, 185, 190); */
+  transition: 0.5s;
+  padding: 25px 0;
+  /* border-radius: 15px; */
+}
+
+.Top .fpBox {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  /* box-shadow: 0 0 2px rgb(184, 185, 190); */
+  /* background-color: black; */
+  /* margin:4px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Top .fpBox::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  /* background-color: rgba(170, 5, 5, 0.233); */
+  height: 110px;
+  width: 227px;
+  z-index: 1;
+}
+
+.Top .calLow,
+.Top .calMedium,
+.Top .calHigh {
+  position: absolute;
+  opacity: 0.9;
+  z-index: 2;
+  color: white;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 15px 6px 15px;
+  top: 0px;
+  right: 0px;
+  /* border-top-left-radius:15px; */
+  border-bottom-left-radius: 15px;
+  /* border-top-right-radius:15px;
+    border-bottom-right-radius: 15px; */
+}
+
+.Top .calLow {
+  background-color: rgb(0, 165, 0);
+}
+
+.Top .calMedium {
+  background-color: rgb(255, 180, 42);
+}
+
+.Top .calHigh {
+  background-color: red;
+  /* background-color: rgb(255, 31, 87);  */
+}
+
+.Top .food-box:hover {
+  box-shadow: 8px 8px 16px rgb(223, 223, 223);
+  transform: translate(-7px, -7px);
+}
+
+.Top .fp:hover {
+  /* box-shadow: 8px 8px 16px  rgba(184, 185, 190, 0.712); */
+  /* box-shadow: 8px 8px 16px  rgba(167, 138, 138, 0.397); */
+  /* transform: translate(-7px,-7px); */
+  /* filter: brightness(0.5); */
+  transition: 0.5s;
+  /* transition: 0.8s; */
+}
+
+.Top .fp {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.Top .food-info {
+  width: 196px;
+  /* height:113px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.Top .food-info-name {
+  font-size: 20px;
+  font-weight: bolder;
+  width: 196px;
+  color: rgb(0, 0, 0);
+  margin-top: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* max-height: 22px;
+    overflow-y: scroll; */
+}
+
+.Top .food-box .food-info-name::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.Top .food-box:hover .food-info-name::-webkit-scrollbar {
+  width: 3px;
+  height: 0;
+}
+
+.Top .food-box:hover .food-info-name::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+.Top .food-info-name::-webkit-scrollbar-thumb {
+  background: rgb(192, 192, 192);
+}
+/* .Top .food-info-name:hover{
+    color:red;
+    transition: 0.5s;
+} */
+
+.Top .f-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* margin-top: -5px; */
+}
+
+.Top .inf {
+  width: 57px;
+  text-align: center;
+  margin: 10px 0 0 0;
+  padding: 4px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  height: 30px;
+  /* border: 1px solid rgb(0, 0, 0); */
+  /* font-weight: bolder; */
+}
+
+.inf + .inf {
+  border-left: 1px solid rgb(192, 192, 192);
+}
+
+.Top .rtt {
+  text-align: center;
+  color: orange;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.Top .eiei {
+  color: white;
+  background-color: rgb(170, 5, 5);
+  margin-left: 5px;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  height: fit-content;
+}
+.Top .inf div {
+  text-align: center;
+  margin: 0;
+}
+.Top .result-box {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.Top .scrollja {
+  /*width: 88vw;*/
+  /* padding: 0 6vw;*/
+  overflow-x: scroll;
+}
+
+.Top .scrollja::-webkit-scrollbar-thumb {
+  background-color: rgb(170, 5, 5);
+  border-radius: 10px;
+}
+
+.Top .scrollja::-webkit-scrollbar {
+  height: 10px;
+}

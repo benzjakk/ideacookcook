@@ -61,6 +61,7 @@ class InputWithT extends Component {
 
   render() {
     this.updateTag();
+    //console.log(this.state.tags);
     const { tags, suggestions } = this.state;
     return (
       <div>

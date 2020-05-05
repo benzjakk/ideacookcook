@@ -100,9 +100,11 @@ class Reviews extends Component {
             ></div>
           </div>
           <div
-            className={this.state.Rate > 0 ? "button" : "butto"}
+            className={this.state.rate > 0 ? "button" : "butto"}
             onClick={() => {
-              this.goEdit(this.state.editIndex);
+              this.state.rate > 0
+                ? this.goEdit(this.state.editIndex)
+                : console.log();
             }}
           >
             <FaPaperPlane />

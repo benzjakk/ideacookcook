@@ -68,19 +68,44 @@ class Header extends Component {
   };
 
   render() {
+    console.log(localStorage.getItem("currentRecipe"));
     return (
       <React.Fragment>
         <header>
           {this.state.currentUser ? (
             <div className="login_regis">
               <a href={"/Profile/" + localStorage.getItem("currentMemID")}>
-                <img
-                  height="30"
-                  width="30"
-                  src={localStorage.getItem("profilePicture")}
-                  alt="ภาพโปรไฟล์"
-                  style={{ borderRadius: "50%" }}
-                ></img>
+                {localStorage.getItem("profilePicture") != null &&
+                localStorage.getItem("profilePicture") != "" ? (
+                  <img
+                    height="30"
+                    width="30"
+                    src={localStorage.getItem("profilePicture")}
+                    alt="ภาพโปรไฟล์"
+                    style={{
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                  ></img>
+                ) : (
+                  <div
+                    className="propic"
+                    style={{
+                      width: "35px",
+                      height: "35px",
+                      textAlign: "center",
+                      color: "black",
+                      fontSize: "14px",
+                      fontWeight: "700",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {localStorage.getItem("currentUser") == null
+                      ? "u"
+                      : localStorage.getItem("currentUser")[0]}
+                  </div>
+                )}
               </a>
               <a href="/editprofile">
                 <img

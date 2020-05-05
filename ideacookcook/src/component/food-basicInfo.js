@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../component/styles/food-basicInfo.css";
 import CheckRating from "../component/CheckRating";
 import Reviews from "../component/reviews";
-import { FaPaperPlane, FaCircle } from "react-icons/fa";
+import { FaPaperPlane, FaCircle, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -106,6 +106,7 @@ class FoodBasicInfo extends Component {
         (this.state.numOfReviews - 1),
       numOfReviews: this.state.numOfReviews - 1,
       Rate: 0,
+      Comment: "",
     });
     this.setState({ Reviews: this.state.Reviews.filter((x, i) => i != index) });
   };
@@ -232,6 +233,19 @@ class FoodBasicInfo extends Component {
                 yes
               </Link>
             </div>
+            <Link
+              className="delR"
+              to={"/editrecipe/" + this.props.foodID}
+              style={
+                this.state.isChef
+                  ? { visibility: "visible", right: "40px" }
+                  : { visibility: "hidden" }
+              }
+            >
+              <div style={{ transform: "translate(1px,-6px)" }}>
+                <FaEdit fontSize="13px" />
+              </div>
+            </Link>
             <div className="food-name">
               <strong>{this.props.foodName}</strong>
             </div>
@@ -258,8 +272,12 @@ class FoodBasicInfo extends Component {
                   borderRadius: "10px",
                 }}
               >
-                {this.state.foodRate.toFixed(2) > 0
-                  ? this.state.foodRate.toFixed(2)
+                {this.state.foodRate > 0
+                  ? (this.state.foodRate * 100) % 10 > 0
+                    ? this.state.foodRate.toFixed(2)
+                    : (this.state.foodRate * 100) % 100 > 0
+                    ? this.state.foodRate.toFixed(1)
+                    : this.state.foodRate
                   : 0}
               </p>
             </div>

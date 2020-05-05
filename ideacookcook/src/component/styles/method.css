@@ -5,7 +5,7 @@
   max-width: 800px;
   width: 80%;
 }
-.inputrecipe #xbut {
+.inputrecipe .xbut {
   height: 30px;
   width: 100px;
   border-radius: 5px;

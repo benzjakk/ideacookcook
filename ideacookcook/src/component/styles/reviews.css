@@ -1,97 +1,126 @@
-.reviews{
-    display: flex;
-    flex-direction: column;
+.reviews {
+  display: flex;
+  flex-direction: column;
 }
 
-.reviews .review{
-    display: flex;
-    flex-direction: row;
-    width: 350px;
-    padding: 10px 0;
+.reviews .review {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  padding: 10px 0;
 }
 
 .reviews .reviewerPic {
-    background-color: rgb(233, 233, 233);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    /* background-size: cover; */
-    overflow: hidden;
+  background-color: rgb(233, 233, 233);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* background-size: cover; */
+  overflow: hidden;
 }
 
 .reviews .reviewerPic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    /* background-color: red; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* background-color: red; */
 }
 
-.reviews .del{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+.reviews .del {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 20px;
-    height: 15px;
-    width: 30px;
-    padding:0 ;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border: 1px solid white;
-    cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 20px;
+  height: 15px;
+  width: 30px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid white;
+  cursor: pointer;
 }
 
-.reviews .del:hover{
-    border: 1px solid rgb(204, 204, 204);
+.reviews .del:hover {
+  border: 1px solid rgb(204, 204, 204);
 }
 
-.reviews .goDel{
-    position: absolute;
-    top: 23px;
-    right: 5px;
-    padding: 3px 7px;
-    width:35px;
-    text-align: center;
-    font-size: 12px;
-    background-color: white;
-    border: 1px solid rgb(204, 204, 204);
-    cursor: pointer;
+.reviews .goDel {
+  position: absolute;
+  top: 23px;
+  right: 5px;
+  padding: 3px 7px;
+  width: 35px;
+  text-align: center;
+  font-size: 12px;
+  background-color: white;
+  border: 1px solid rgb(204, 204, 204);
+  cursor: pointer;
 }
 
-.reviews .goDel:hover{
-    color: white;
-    background-color: black;
-    border: 1px solid black;
+.reviews .goDel:hover {
+  color: white;
+  background-color: black;
+  border: 1px solid black;
 }
 
-.reviews .del div{
-    transform: translateY(-7px);
-    font-size: 20px;
+.reviews .del div {
+  transform: translateY(-7px);
+  font-size: 20px;
 }
 
 .reviews .comment {
-    position: relative;
-    width: 281px;
-    margin-left:10px;
-    padding: 5px 10px 7px 10px;
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 15px;
-    word-wrap: break-word;
-    background-color: white;
+  position: relative;
+  width: 281px;
+  margin-left: 10px;
+  padding: 5px 10px 7px 10px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 15px;
+  word-wrap: break-word;
+  background-color: white;
 }
 
-.reviews .comment .s{
-    font-size: 13px;
+.reviews .comment .s {
+  font-size: 13px;
 }
 
 .reviews .myStar {
-    /* background-color: wheat; */
-    margin: 0;
-    font-size: 13px;
+  /* background-color: wheat; */
+  margin: 0;
+  font-size: 13px;
+}
+.reviews .ratehere .TheRate .myStar {
+  padding-top: 4px;
+}
+
+.reviews .butto:hover::after {
+  content: "Please rate this recipe first";
+  /* font-size: 12px; */
+  font-weight: 400;
+  position: absolute;
+  padding: 3px 8px 5px 8px;
+  width: 190px;
+  text-align: center;
+  transform: translate(-84px, 45px);
+  color: rgb(170, 5, 5);
+  background-color: #fbe7e2;
+  border-radius: 15px;
+  z-index: 1;
+  animation: 1s warn;
+  overflow: hidden;
+}
+.reviews .butto:hover::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  transform: translate(-3px, 35px) rotate(45deg);
+  background-color: #fbe7e2;
+  animation: 1s warn;
 }

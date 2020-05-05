@@ -39,9 +39,9 @@ const RSs = (props) => {
           <div style={{ color: "rgb(170,5,5)" }}>
             <strong>
               {food.OverallRating > 0
-                ? (food.OverallRating * 100) % 100 > 0
+                ? (food.OverallRating * 100) % 10 > 0
                   ? food.OverallRating.toFixed(2)
-                  : (food.OverallRating * 10) % 10 > 0
+                  : (food.OverallRating * 100) % 100 > 0
                   ? food.OverallRating.toFixed(1)
                   : food.OverallRating
                 : 0}

@@ -53,8 +53,8 @@ const RRR = (props) => {
               <div>{recipe.Time}</div>
               <div>
                 {recipe.OverallRating > 0
-                  ? (recipe.OverallRating * 100) % 100 > 0
-                    ? (recipe.OverallRating * 100) % 10 > 0
+                  ? (recipe.OverallRating * 100) % 10 > 0
+                    ? (recipe.OverallRating * 100) % 100 > 0
                       ? recipe.OverallRating.toFixed(2)
                       : recipe.OverallRating.toFixed(1)
                     : recipe.OverallRating

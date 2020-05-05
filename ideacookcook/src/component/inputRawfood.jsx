@@ -8,6 +8,25 @@ class InputRawFood extends Component {
     units: [""],
     jsonRawFood: [{ RawFood: "", Quantity: 0, Unit: "" }],
   };
+
+  componentDidMount() {
+    if (this.props.mode == "edit") {
+      this.fetchData();
+    }
+  }
+
+  async fetchData() {
+    this.setState({ jsonRawFood: this.props.RawFood });
+    let raws = [];
+    let quans = [];
+    let units = [];
+    this.props.RawFood.map((rawfood, index) => {
+      raws = raws.concat([rawfood.RawFood]);
+      quans = quans.concat([rawfood.Quantity]);
+      units = units.concat([rawfood.Unit]);
+    });
+    this.setState({ raws, quans, units });
+  }
   handleChange = (i) => async (e) => {
     const target = e.target;
     const value = target.value;
@@ -78,7 +97,7 @@ class InputRawFood extends Component {
     this.props.updateParent(this.state.jsonRawFood);
   };
   render() {
-    //console.log(this.state.jsonRawFood);
+    //console.log(this.state);
     return (
       <React.Fragment>
         {this.state.raws.map((raw, index) => (
@@ -93,7 +112,7 @@ class InputRawFood extends Component {
                 list="RawFoodTag"
                 name="raws"
                 onChange={this.handleChange(index)}
-                value={this.state.raw}
+                value={this.state.raws[index]}
               />
               <datalist id="RawFoodTag">
                 {this.props.rawFoodTag.map((tag, index) => {
@@ -125,7 +144,7 @@ class InputRawFood extends Component {
               </datalist>
             </div>
             <button
-              id="xbutRawFood"
+              className="xbutRawFood"
               type="button"
               onClick={this.handleDelete(index)}
             >

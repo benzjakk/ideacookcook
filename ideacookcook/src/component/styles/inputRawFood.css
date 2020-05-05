@@ -1,7 +1,7 @@
 .rawFoodInput input {
   width: 10vw;
 }
-.rawFoodInput #xbutRawFood {
+.rawFoodInput .xbutRawFood {
   margin-left: 10px;
 
   border-radius: 5px;

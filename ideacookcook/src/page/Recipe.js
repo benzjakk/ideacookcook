@@ -7,6 +7,7 @@ import upload from "../component/pic/upload.png";
 import InputRawFood from "../component/inputRawfood.jsx";
 class Recipe extends Component {
   state = {
+    RecipesID: "",
     RecipesName: "",
     Description: "",
     Time: "0",
@@ -24,27 +25,43 @@ class Recipe extends Component {
     FoodTypeTag: [],
     FoodNationTag: [],
     UnitTag: [],
+
+    refInputRawFood: React.createRef(),
+    refInputTool: React.createRef(),
+    refInputMeth: React.createRef(),
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     if (localStorage.getItem("currentMemID")) {
       if (
+        this.state.Steps.length > 0 &&
+        this.state.RawFood.length > 0 &&
         this.state.RecipesName != "" &&
         this.state.Description != "" &&
         this.state.Time != "" &&
         this.state.Calories != "" &&
         this.state.FoodType != "" &&
         this.state.FoodNation != "" &&
-        this.state.RecipesPic != null &&
         this.state.RawFood[this.state.RawFood.length - 1].RawFood != "" &&
         this.state.Tool[this.state.Tool.length - 1] != null &&
         this.state.Steps[this.state.Steps.length - 1].Description != "" &&
         this.state.RawFood[this.state.RawFood.length - 1].Unit != ""
       ) {
-        document.getElementById("uploadrecipesbtn").innerHTML =
-          "Uploading Steps ...";
-        this.uploadText();
+        if (this.props.mode == "edit") {
+          document.getElementById("uploadrecipesbtn").innerHTML =
+            "Editing Steps ...";
+          this.editText();
+          console.log("Editing");
+        } else {
+          if (this.state.RecipesPic != null) {
+            document.getElementById("uploadrecipesbtn").innerHTML =
+              "Uploading Steps ...";
+            this.uploadText();
+          } else {
+            alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+          }
+        }
       } else {
         alert("กรุณากรอกข้อมูลให้ครบถ้วน");
       }
@@ -53,6 +70,90 @@ class Recipe extends Component {
     }
   };
 
+  editText() {
+    axios
+      .patch(
+        "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/Recipes",
+        {
+          RecipesID: this.props.recipeID,
+          RecipesName: this.state.RecipesName,
+          Description: this.state.Description,
+          Time: parseInt(this.state.Time),
+          Calories: this.state.Calories,
+          FoodType: this.state.FoodType,
+          FoodNation: this.state.FoodNation,
+          RawFood: this.state.RawFood,
+          Tool: this.state.Tool,
+          Steps: this.state.Steps,
+        }
+      )
+      .then((res) => {
+        document.getElementById("uploadrecipesbtn").innerHTML =
+          "Editing Pic ...";
+        console.log(res.data);
+        this.editRecipePic();
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Something wrong");
+        document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
+      });
+  }
+  editRecipePic() {
+    console.log("editing R pic");
+    if (this.state.RecipesPic != null) {
+      const fd = new FormData();
+      fd.append("RecipesID", this.props.recipeID);
+      fd.append("Pic", this.state.RecipesPic);
+      axios
+        .patch(
+          "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/RecipesPic",
+          fd
+        )
+        .then((res) => {
+          console.log(res);
+          document.getElementById("uploadrecipesbtn").innerHTML =
+            "Editing Steps Pic ...";
+          this.editStepPic();
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Something wrong");
+          document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
+        });
+    } else {
+      this.editStepPic();
+    }
+  }
+  editStepPic() {
+    console.log("editing steps pic");
+    const check = true;
+    this.state.methsPic.map(async (methspic, index) => {
+      if (methspic) {
+        const fd = new FormData();
+        fd.append("RecipesID", this.props.recipeID);
+        fd.append("StepOrder", index + 1);
+        fd.append("Pic", methspic);
+        await axios
+          .patch(
+            "https://asia-east2-ideacookcook.cloudfunctions.net/IdeaCookCook/Recipes/StepsPic",
+            fd
+          )
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+            check = false;
+            alert("Something wrong");
+          });
+      }
+    });
+    if (check) {
+      alert("Editing Success");
+    }
+    document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
+  }
   uploadText() {
     axios
       .post(
@@ -135,8 +236,51 @@ class Recipe extends Component {
     document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
   }
 
-  componentDidMount = () => {
-    this.fetchTag();
+  componentDidMount = async () => {
+    await this.fetchTag();
+    if (this.props.mode == "edit") {
+      await this.fetchRecipe();
+    }
+  };
+
+  fetchRecipe = async () => {
+    await this.setState({
+      RecipesID: this.props.recipe.RecipesID,
+      RecipesName: this.props.recipe.RecipesName,
+      Description: this.props.recipe.Description,
+      Time: this.props.recipe.Time,
+      Calories: this.props.recipe.Calories,
+      FoodType: this.props.recipe.FoodType,
+      FoodNation: this.props.recipe.FoodNation,
+      RawFood: this.props.recipe.RawFood,
+      Tool: this.props.recipe.Tool,
+      Steps: this.props.recipe.Steps,
+      RecipesPicURL: this.props.recipe.RecipesPic,
+    });
+    this.state.refInputRawFood.current.fetchData();
+    let toolTag = [];
+    await this.state.Tool.map((tool) => {
+      toolTag = [...toolTag, { id: tool, text: tool }];
+    });
+    this.state.refInputTool.current.setState({ tags: toolTag });
+    let jsonMeths = [];
+    let picMeths = [];
+    await this.state.Steps.map((step, index) => {
+      jsonMeths = [...jsonMeths, { Description: step.Description }];
+      //console.log("step.StepPic", step.StepPic[0]);
+      if (step.StepPic != "") {
+        picMeths = [...picMeths, step.StepPic[0]];
+      } else {
+        picMeths = [...picMeths, step.StepPic];
+      }
+    });
+    //console.log("picMeths", picMeths);
+    this.state.refInputMeth.current.setState({
+      jsonMeths: jsonMeths,
+      fileURL: picMeths,
+      editFileURL: picMeths,
+    });
+    //this.setState({ methsPicURL: picMeths });
   };
 
   fetchTag = async () => {
@@ -181,8 +325,19 @@ class Recipe extends Component {
     }
   };
 
-  updateMeths = (meths, methsPic) => {
-    this.setState({ Steps: meths, methsPic: methsPic });
+  updateMeths = (meths, methsPic, methsPicURL) => {
+    if (this.props.mode == "edit") {
+      meths.map((meth, index) => {
+        meth.StepPic = [methsPicURL[index]];
+      });
+      //console.log(meths);
+      this.setState({ Steps: meths, methsPic: methsPic });
+    } else {
+      this.setState({
+        Steps: meths,
+        methsPic: methsPic,
+      });
+    }
   };
 
   updateTools = (tools) => {
@@ -196,7 +351,7 @@ class Recipe extends Component {
     this.setState({ RawFood: rawfood });
   };
   render() {
-    console.log(this.state);
+    //console.log(this.state);
     return (
       <React.Fragment>
         <section className="inputrecipe">
@@ -205,7 +360,12 @@ class Recipe extends Component {
           <h2>* หากต้องการเพิ่ม Tag ให้ติดต่อ Admin *</h2>
         </section>
         <section className="inputrecipe">
-          <h1>ลงสูตรอาหาร</h1>
+          {this.props.mode === "edit" ? (
+            <h1>แก้ไขสูตรอาหาร</h1>
+          ) : (
+            <h1>ลงสูตรอาหาร</h1>
+          )}
+
           <form>
             <ul>
               <li>
@@ -216,6 +376,7 @@ class Recipe extends Component {
                   className="input1"
                   name="RecipesName"
                   onChange={this.handleChange}
+                  value={this.state.RecipesName}
                 />
               </li>
               <li>
@@ -227,6 +388,7 @@ class Recipe extends Component {
                 cols="70"
                 name="Description"
                 onChange={this.handleChange}
+                value={this.state.Description}
               ></textarea>
               <li className="recipesPic">
                 <p>รูปภาพปกเมนูอาหาร</p>
@@ -235,7 +397,11 @@ class Recipe extends Component {
                   height="200"
                   width="200"
                   src={this.state.RecipesPicURL}
-                  style={{ margin: "10px" }}
+                  style={{
+                    margin: "10px",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                  }}
                 />
                 <input
                   required={true}
@@ -254,19 +420,28 @@ class Recipe extends Component {
                 rawFoodTag={this.state.RawFoodTag}
                 unitTag={this.state.UnitTag}
                 updateParent={this.updateRawFood}
+                mode={this.props.mode}
+                RawFood={this.state.RawFood}
+                ref={this.state.refInputRawFood}
               />
               <li>
                 <p>อุปกรณ์ : </p>
                 <InputWithT
                   Tag={this.state.ToolTag}
                   updateParent={this.updateTools}
+                  mode={this.props.mode}
+                  ref={this.state.refInputTool}
                 />
               </li>
               <hr />
               <li>
                 <h2>ขั้นตอนการทำ</h2>
               </li>
-              <Met updateParent={this.updateMeths} />
+              <Met
+                updateParent={this.updateMeths}
+                ref={this.state.refInputMeth}
+                mode={this.props.mode}
+              />
               <hr />
 
               <li>
@@ -288,6 +463,7 @@ class Recipe extends Component {
                   list="FoodTypeTag"
                   name="FoodType"
                   onChange={this.handleChange}
+                  value={this.state.FoodType}
                 />
                 <datalist id="FoodTypeTag">
                   {this.state.FoodTypeTag.map((tag, index) => {
@@ -302,6 +478,7 @@ class Recipe extends Component {
                   list="FoodNationTag"
                   name="FoodNation"
                   onChange={this.handleChange}
+                  value={this.state.FoodNation}
                 />
                 <datalist id="FoodNationTag">
                   {this.state.FoodNationTag.map((tag, index) => {

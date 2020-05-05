@@ -5,6 +5,8 @@ import Results from "../component/results.js";
 import axios from "axios";
 import "../component/styles/homestyles.css";
 import loadingPic from "../component/pic/loading-png-gif.gif";
+import Top from "../component/Top.js";
+
 class Home extends Component {
   state = {
     R: null,
@@ -47,7 +49,10 @@ class Home extends Component {
               Recent Menu
             </h2>
             {this.state.R ? (
-              <div className="allResult">
+              <div
+                className="allResult"
+                //style={{ width: "88vw", padding: "0vw 6vw" }}
+              >
                 <Results
                   RSs={this.state.R}
                   SortBy={"Latest"}
@@ -64,7 +69,7 @@ class Home extends Component {
             )}
           </div>
         </section>
-
+        <Top />
         <Category />
         <Hypersearch />
       </React.Fragment>

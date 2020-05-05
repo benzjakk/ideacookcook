@@ -8,6 +8,7 @@ import Header from "./component/header.jsx";
 import Home from "./page/home.jsx";
 import Editprofile from "./page/editprofile.jsx";
 import Recipe from "./page/Recipe";
+import EditRecipe from "./page/editRecipe.jsx";
 
 import List from "./List";
 
@@ -17,6 +18,7 @@ function App() {
       <React.Fragment>
         <Header />
         <Switch>
+          <Route component={EditRecipe} exact path="/editrecipe/:id" />
           <Route component={ChefProfile} exact path="/Profile/:id" />
           <Route component={Result} exact path="/result/:id" />
           <Route

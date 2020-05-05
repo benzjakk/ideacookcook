@@ -70,6 +70,17 @@ header .login_regis div:hover {
   color: white;
   cursor: pointer;
 }
+
+header .login_regis .propic {
+  margin-top: 8px;
+  margin-right: 12px;
+  margin-left: 12px;
+}
+header .login_regis .propic:hover {
+  background-color: rgb(235, 235, 235);
+  transition: 0.25s;
+  margin-top: 3px;
+}
 header button {
   margin-top: 18px;
   font-size: 17px;
@@ -102,8 +113,7 @@ header img {
 header img:hover {
   cursor: pointer;
   transition: 0.25s;
-  margin-top: 0px;
-  padding-bottom: 5px;
+  margin-top: 3px;
 }
 
 /* @media screen and (max-width: 1230px) {
