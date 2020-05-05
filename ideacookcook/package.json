@@ -56,6 +56,7 @@
     "react-icon": "^1.0.0",
     "react-icons": "^3.9.0",
     "react-router-dom": "^5.1.2",
+    "react-scroll": "^1.7.16",
     "react-tag-input": "^6.4.2",
     "react-timestamp": "^5.1.0",
     "resolve": "1.15.0",

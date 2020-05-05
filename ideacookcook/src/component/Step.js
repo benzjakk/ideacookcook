@@ -1,6 +1,9 @@
 import React, { Component, useState } from "react";
 import "../component/styles/step.css";
+import Scroll from "react-scroll";
 
+var LinkJa = Scroll.Link;
+var Element = Scroll.Element;
 class Step extends Component {
   constructor(props) {
     super(props);
@@ -13,13 +16,23 @@ class Step extends Component {
     if (L == "") return null;
     if (typeof L == "string") return <img className="imG" src={L} />;
     const picss = L.map((pic, index) => (
-      <img
-        className={this.state.picNum == index + 1 ? "imG" : "img"}
-        src={pic.StepPic == "" ? null : pic.StepPic}
-        onClick={() => this.setState({ picNum: index + 1 })}
-      />
+      <LinkJa
+        name={"P" + index}
+        activeClass="active"
+        to={"S" + index}
+        spy={true}
+        smooth={true}
+        duration={250}
+        containerId="containerElement"
+      >
+        <img
+          className={this.state.picNum == index + 1 ? "imG" : "img"}
+          src={pic.StepPic == "" ? null : pic.StepPic}
+          onClick={() => this.setState({ picNum: index + 1 })}
+        />
+      </LinkJa>
     ));
-    return <div className="picpic">{picss}</div>;
+    return <Element className="picpic">{picss}</Element>;
   };
   Pics = (picNum) => {
     let L = this.props.L;
@@ -62,7 +75,9 @@ class Step extends Component {
             <img className="img" src={L[this.state.picNum - 1].StepPic} />
           )}
         </div>
-        <div className="bigpicpic">{this.picpic()}</div>
+        <div className="bigpicpic" id="eiei">
+          {this.picpic()}
+        </div>
       </div>
     );
   };
@@ -70,7 +85,14 @@ class Step extends Component {
     console.log(this.state.picNum);
 
     const listSTs = this.props.L.map((step, index) => (
-      <div
+      <LinkJa
+        name={"S" + index}
+        activeClass="active"
+        to={"P" + index}
+        spy={true}
+        smooth={true}
+        duration={250}
+        containerId="eiei"
         className={index + 1 == this.state.picNum ? "isSteps" : "steps"}
         style={index % 2 == 0 ? {} : { color: "rgb(170,5,5)" }}
         onClick={() => this.setState({ picNum: index + 1 })}
@@ -84,14 +106,14 @@ class Step extends Component {
           <strong>Step {index + 1}</strong>
           {step.Description}
         </div>
-      </div>
+      </LinkJa>
     ));
 
     return (
-      <div className="step">
+      <Element className="step" id="containerElement">
         {/* <div className="middle"></div> */}
         {listSTs}
-      </div>
+      </Element>
     );
   };
   render() {
