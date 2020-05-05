@@ -280,6 +280,8 @@ class Recipe extends Component {
       fileURL: picMeths,
       editFileURL: picMeths,
     });
+
+    this.state.refInputMeth.current.updateParent();
     //this.setState({ methsPicURL: picMeths });
   };
 
@@ -351,7 +353,7 @@ class Recipe extends Component {
     this.setState({ RawFood: rawfood });
   };
   render() {
-    //console.log(this.state);
+    console.log(this.state);
     return (
       <React.Fragment>
         <section className="inputrecipe">
