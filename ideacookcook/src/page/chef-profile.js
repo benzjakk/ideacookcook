@@ -146,6 +146,16 @@ class ChefProfile extends Component {
                 <div className="chef-profile-name">
                   <strong>{this.state.Profile.KnownName}</strong>
                 </div>
+                <strong
+                  style={{
+                    fontSize: "15px",
+                    height: "15px",
+                    color: "black",
+                    paddingLeft: "2px",
+                  }}
+                >
+                  {this.state.Profile.FirstName} {this.state.Profile.LastName}
+                </strong>
                 <div className="myRating">
                   {CheckRating(this.state.Profile.AvgRating)}
                   <p>
@@ -158,7 +168,7 @@ class ChefProfile extends Component {
                       : 0}
                   </p>
                 </div>
-                <div className="R-R">
+                <div className="R-R" style={{ marginTop: "-10px" }}>
                   <strong>{this.state.Recipes.length} recipes</strong>
                   <div
                     style={{

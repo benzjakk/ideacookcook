@@ -17,6 +17,7 @@ class Step extends Component {
     if (typeof L == "string") return <img className="imG" src={L} />;
     const picss = L.map((pic, index) => (
       <LinkJa
+        style={{ width: "50px", height: "60px" }}
         name={"P" + index}
         activeClass="active"
         to={"S" + index}

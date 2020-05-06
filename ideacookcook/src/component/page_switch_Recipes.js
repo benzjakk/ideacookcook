@@ -79,6 +79,16 @@ const RRR = (props) => {
         }}
       >
         <div className="recipe-box">{listRcp}</div>
+        <div
+          style={{
+            color: "grey",
+            fontSize: "2vmin",
+            margin: "3vmin",
+            textAlign: "center",
+          }}
+        >
+          no more recipe found
+        </div>
       </div>
     );
   } else if (props.page != "Reviews") {
@@ -155,6 +165,16 @@ const RRR = (props) => {
         }}
       >
         <div className="recipe-box">{listRcp}</div>
+        <div
+          style={{
+            color: "grey",
+            fontSize: "2vmin",
+            margin: "3vmin",
+            textAlign: "center",
+          }}
+        >
+          no more recipe found
+        </div>
       </div>
     );
   } else {
@@ -231,7 +251,7 @@ const RRR = (props) => {
             textAlign: "center",
           }}
         >
-          no more reviews found
+          no more review found
         </div>
       </div>
     );

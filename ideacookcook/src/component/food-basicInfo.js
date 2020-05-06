@@ -5,6 +5,7 @@ import Reviews from "../component/reviews";
 import { FaPaperPlane, FaCircle, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import TimeStamp from "../function/TimeStamp.js";
 
 class FoodBasicInfo extends Component {
   constructor(props) {
@@ -196,6 +197,18 @@ class FoodBasicInfo extends Component {
                 <div className="maDot" />
                 {this.props.foodNation}
               </Link>
+              <div
+                className="tag"
+                style={{
+                  position: "absolute",
+                  fontSize: "12px",
+                  color: "white",
+                  top: "340px",
+                  border: "none",
+                }}
+              >
+                {TimeStamp(this.props.timeStamp)}
+              </div>
             </div>
           </div>
           <div className="Info">

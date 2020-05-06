@@ -373,6 +373,7 @@ class Recipe extends Component {
               <li>
                 <p>ชื่อเมนูอาหาร : </p>
                 <input
+                  maxLength="50"
                   required={true}
                   type="text"
                   className="input1"

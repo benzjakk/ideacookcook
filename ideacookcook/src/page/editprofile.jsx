@@ -75,6 +75,7 @@ class Editprofile extends Component {
         LastName: this.state.LastName,
         Instagram: this.state.Instagram,
         KnownName: this.state.KnownName,
+        PhoneNo: this.state.PhoneNo,
         Facebook: this.state.Facebook,
         Line: this.state.Line,
       }
@@ -188,6 +189,7 @@ class Editprofile extends Component {
                 <b>KnownName</b>
               </label>
               <input
+                maxLength="20"
                 type="text"
                 value={this.state.KnownName}
                 name="KnownName"
@@ -199,6 +201,7 @@ class Editprofile extends Component {
                 <b>FirstName</b>
               </label>
               <input
+                maxLength="30"
                 type="text"
                 value={this.state.FirstName}
                 name="FirstName"
@@ -210,6 +213,7 @@ class Editprofile extends Component {
                 <b>LastName</b>
               </label>
               <input
+                maxLength="30"
                 type="text"
                 value={this.state.LastName}
                 name="LastName"
@@ -225,6 +229,7 @@ class Editprofile extends Component {
                 value={this.state.PhoneNo}
                 name="PhoneNo"
                 onChange={this.handleChange}
+                pattern="[0-9]{9,10}"
                 required
               />
 
@@ -232,6 +237,7 @@ class Editprofile extends Component {
                 <b>Facebook</b>
               </label>
               <input
+                maxLength="50"
                 type="text"
                 value={this.state.Facebook}
                 name="Facebook"
@@ -242,6 +248,7 @@ class Editprofile extends Component {
                 <b>Instagram</b>
               </label>
               <input
+                maxLength="50"
                 type="text"
                 value={this.state.Instagram}
                 name="Instagram"
@@ -252,6 +259,7 @@ class Editprofile extends Component {
                 <b>Line</b>
               </label>
               <input
+                maxLength="50"
                 type="text"
                 value={this.state.Line}
                 name="Line"

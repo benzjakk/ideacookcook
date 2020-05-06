@@ -16,6 +16,7 @@ const BestUser = (props) => {
           <img src={food.ProfilePicture} className="fp" />
         ) : (
           <div
+            className="fp"
             style={{
               width: "100%",
               height: "100%",

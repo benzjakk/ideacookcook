@@ -124,9 +124,10 @@ class Register extends Component {
             />
 
             <label>
-              <b>Name</b>
+              <b>FirstName</b>
             </label>
             <input
+              maxLength="30"
               type="text"
               placeholder="Requied"
               name="name"
@@ -135,9 +136,10 @@ class Register extends Component {
             />
 
             <label>
-              <b>Surname</b>
+              <b>LastName</b>
             </label>
             <input
+              maxLength="30"
               type="text"
               placeholder="Requied"
               name="surname"
@@ -146,9 +148,10 @@ class Register extends Component {
             />
 
             <label>
-              <b>AKA</b>
+              <b>KnownName</b>
             </label>
             <input
+              maxLength="20"
               type="text"
               placeholder="Requied"
               name="aka"
@@ -164,6 +167,7 @@ class Register extends Component {
               placeholder="Required"
               name="phonenum"
               required
+              pattern="[0-9]{9,10}"
               onChange={this.handleChange}
             />
 
@@ -171,6 +175,7 @@ class Register extends Component {
               <b>Facebook</b>
             </label>
             <input
+              maxLength="50"
               type="text"
               placeholder="Not Required "
               name="facebook"
@@ -181,6 +186,7 @@ class Register extends Component {
               <b>Instagram</b>
             </label>
             <input
+              maxLength="50"
               type="text"
               placeholder="Not Required "
               name="ig"
@@ -191,6 +197,7 @@ class Register extends Component {
               <b>Line</b>
             </label>
             <input
+              maxLength="50"
               type="text"
               placeholder="Not Required "
               name="line"
