@@ -10,7 +10,7 @@ class Recipe extends Component {
     RecipesID: "",
     RecipesName: "",
     Description: "",
-    Time: "0",
+    Time: "1",
     Calories: "Low",
     FoodType: "",
     FoodNation: "",
@@ -34,36 +34,43 @@ class Recipe extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (localStorage.getItem("currentMemID")) {
-      if (
-        this.state.Steps.length > 0 &&
-        this.state.RawFood.length > 0 &&
-        this.state.RecipesName != "" &&
-        this.state.Description != "" &&
-        this.state.Time != "" &&
-        this.state.Calories != "" &&
-        this.state.FoodType != "" &&
-        this.state.FoodNation != "" &&
-        this.state.RawFood[this.state.RawFood.length - 1].RawFood != "" &&
-        this.state.Tool[this.state.Tool.length - 1] != null &&
-        this.state.Steps[this.state.Steps.length - 1].Description != "" &&
-        this.state.RawFood[this.state.RawFood.length - 1].Unit != ""
-      ) {
-        if (this.props.mode == "edit") {
-          document.getElementById("uploadrecipesbtn").innerHTML =
-            "Editing Steps ...";
-          this.editText();
-          console.log("Editing");
-        } else {
-          if (this.state.RecipesPic != null) {
+      if (parseInt(this.state.Time) > 0) {
+        if (
+          this.state.Time != "" &&
+          this.state.Steps.length > 0 &&
+          this.state.RawFood.length > 0 &&
+          this.state.RecipesName != "" &&
+          this.state.Description != "" &&
+          this.state.Time != "" &&
+          this.state.Calories != "" &&
+          this.state.FoodType != "" &&
+          this.state.FoodNation != "" &&
+          this.state.RawFood[this.state.RawFood.length - 1].Quantity > 0 &&
+          this.state.RawFood[this.state.RawFood.length - 1].Unit != "" &&
+          this.state.RawFood[this.state.RawFood.length - 1].RawFood != "" &&
+          this.state.Tool[this.state.Tool.length - 1] != null &&
+          this.state.Steps[this.state.Steps.length - 1].Description != "" &&
+          this.state.RawFood[this.state.RawFood.length - 1].Unit != ""
+        ) {
+          if (this.props.mode == "edit") {
             document.getElementById("uploadrecipesbtn").innerHTML =
-              "Uploading Steps ...";
-            this.uploadText();
+              "Editing Steps ...";
+            this.editText();
+            console.log("Editing");
           } else {
-            alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+            if (this.state.RecipesPic != null) {
+              document.getElementById("uploadrecipesbtn").innerHTML =
+                "Uploading Steps ...";
+              this.uploadText();
+            } else {
+              alert("กรุณากรอกข้อมูลให้ครบถ้วนสมบูรณ์");
+            }
           }
+        } else {
+          alert("กรุณากรอกข้อมูลให้ครบถ้วนสมบูรณ์");
         }
       } else {
-        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+        alert("กรุณากรอกระยะเวลาให้ถูกต้องเหมาะสม");
       }
     } else {
       alert("กรุณา Login ");
@@ -307,7 +314,7 @@ class Recipe extends Component {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    if (name != "Time" || value > -1) {
+    if (name != "Time" || (value > -1 && value < 999999 && value != NaN)) {
       this.setState({ [name]: value });
     }
 
@@ -450,6 +457,8 @@ class Recipe extends Component {
               <li>
                 <p>ระยะเวลา : </p>
                 <input
+                  min="1"
+                  max="999999"
                   required={true}
                   type="number"
                   className="input1"

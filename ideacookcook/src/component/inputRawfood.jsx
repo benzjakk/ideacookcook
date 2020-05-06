@@ -4,9 +4,9 @@ import "./styles/inputRawFood.css";
 class InputRawFood extends Component {
   state = {
     raws: [""],
-    quans: ["0"],
+    quans: ["1"],
     units: [""],
-    jsonRawFood: [{ RawFood: "", Quantity: 0, Unit: "" }],
+    jsonRawFood: [{ RawFood: "", Quantity: 1, Unit: "" }],
   };
 
   componentDidMount() {
@@ -40,7 +40,7 @@ class InputRawFood extends Component {
       this.setState({ raws: tmp });
     } else if (name == "quans") {
       tmp = this.state.quans;
-      if (value > -1) {
+      if (value > -1 && value < 999999 && value != NaN) {
         tmp[i] = value;
         jsontmp[i].Quantity = parseFloat(value);
         this.setState({ quans: tmp });
@@ -123,6 +123,9 @@ class InputRawFood extends Component {
             <div>
               <label>ปริมาณ</label>
               <input
+                maxLength="7"
+                min="1"
+                max="99999"
                 type="number"
                 name="quans"
                 onChange={this.handleChange(index)}
@@ -152,7 +155,10 @@ class InputRawFood extends Component {
             </button>
           </span>
         ))}
-        {this.state.raws[this.state.raws.length - 1] !== "" ? (
+        {this.state.raws[this.state.raws.length - 1] !== "" &&
+        this.state.units[this.state.units.length - 1] !== "" &&
+        this.state.quans[this.state.quans.length - 1] !== "" &&
+        parseFloat(this.state.quans) > 0 ? (
           <button onClick={this.addMethod} type="button">
             <b>เพิ่มวัตุดิบ</b>
           </button>
