@@ -158,7 +158,7 @@ class InputRawFood extends Component {
         {this.state.raws[this.state.raws.length - 1] !== "" &&
         this.state.units[this.state.units.length - 1] !== "" &&
         this.state.quans[this.state.quans.length - 1] !== "" &&
-        parseFloat(this.state.quans) > 0 ? (
+        parseFloat(this.state.quans[this.state.quans.length - 1]) > 0 ? (
           <button onClick={this.addMethod} type="button">
             <b>เพิ่มวัตุดิบ</b>
           </button>
