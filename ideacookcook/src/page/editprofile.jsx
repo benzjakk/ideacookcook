@@ -148,7 +148,7 @@ class Editprofile extends Component {
     } else {
       return (
         <>
-          {this.state.KnownName ? (
+          {localStorage.getItem("currentMemID") ? (
             <form
               className="modal-content container1 "
               onSubmit={this.handleSubmit}
