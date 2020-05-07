@@ -155,12 +155,16 @@ class Recipe extends Component {
             alert("Something wrong");
             document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
           });
-        if (check && this.state.methsPic.length - 1 == index) {
-          alert("Upload success");
-          document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
-        }
+      }
+      if (check && this.state.methsPic.length - 1 == index) {
+        alert("Upload success");
+        document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
       }
     });
+    if (this.state.methsPic.length == 0) {
+      alert("Upload success");
+      document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
+    }
   }
   uploadText() {
     axios
@@ -217,6 +221,7 @@ class Recipe extends Component {
   uploadStepPic(recipeID) {
     let check = true;
     this.state.methsPic.map(async (methspic, index) => {
+      //console.log("ss");
       if (methspic) {
         const fd = new FormData();
         fd.append("RecipesID", recipeID);
@@ -236,13 +241,16 @@ class Recipe extends Component {
             alert("Something wrong");
             document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
           });
-        if (check && this.state.methsPic.length - 1 == index) {
-          alert("Upload success");
-          document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
-        }
+      }
+      if (check && this.state.methsPic.length - 1 == index) {
+        alert("Upload success");
+        document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
       }
     });
-
+    if (this.state.methsPic.length == 0) {
+      alert("Upload success");
+      document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
+    }
     return check;
   }
 
