@@ -105,6 +105,8 @@ class Hypersearch extends Component {
             <li>
               <p>ระยะเวลา : </p>
               <input
+                min="1"
+                max="999999"
                 required={true}
                 type="number"
                 name="Time"
