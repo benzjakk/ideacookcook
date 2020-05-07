@@ -153,13 +153,14 @@ class Recipe extends Component {
             console.log(error);
             check = false;
             alert("Something wrong");
+            document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
           });
+        if (check && this.state.methsPic.length - 1 == index) {
+          alert("Upload success");
+          document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
+        }
       }
     });
-    if (check) {
-      alert("Editing Success");
-    }
-    document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
   }
   uploadText() {
     axios
@@ -233,14 +234,16 @@ class Recipe extends Component {
             console.log(error);
             check = false;
             alert("Something wrong");
+            document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
           });
+        if (check && this.state.methsPic.length - 1 == index) {
+          alert("Upload success");
+          document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
+        }
       }
     });
-    if (check) {
-      alert("Upload Success");
-    }
 
-    document.getElementById("uploadrecipesbtn").innerHTML = "ยืนยัน";
+    return check;
   }
 
   componentDidMount = async () => {
@@ -365,6 +368,7 @@ class Recipe extends Component {
       <React.Fragment>
         <section className="inputrecipe">
           <h2>* กรุณา Login ก่อน upload *</h2>
+          <h2>* ชื่อเมนูห้ามซ้ำกับที่มีอยู่ *</h2>
           <h2>* กรุณากรอก Tag ตามที่ระบุเพื่อเพิ่มประสิทธิภาพในการค้นหา *</h2>
           <h2>* หากต้องการเพิ่ม Tag ให้ติดต่อ Admin *</h2>
         </section>
@@ -442,6 +446,17 @@ class Recipe extends Component {
                   mode={this.props.mode}
                   ref={this.state.refInputTool}
                 />
+
+                <p
+                  style={{
+                    marginTop: "10px",
+                    marginLeft: "10px",
+                    fontSize: "15px",
+                  }}
+                >
+                  {" "}
+                  กด Enter<br></br> เพื่อยืนยัน{" "}
+                </p>
               </li>
               <hr />
               <li>

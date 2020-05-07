@@ -44,7 +44,7 @@ function App() {
             textAlign: "center",
           }}
         >
-          .. Made by IdeaCookCook Group V1.22 ..
+          .. Made by IdeaCookCook Group V1.23 ..
         </div>
       </React.Fragment>
     </Router>

@@ -23,6 +23,7 @@ class method extends Component {
   };
 
   handleFile = (i) => async (e) => {
+    console.log("changeFile");
     let editFileURL = [...this.state.editFileURL];
     let methsPic = [...this.state.methsPic];
     let fileURL = [...this.state.fileURL];
@@ -32,6 +33,8 @@ class method extends Component {
     await this.setState({
       methsPic,
     });
+    //console.log("methsPic", methsPic[i], "fileURL", fileURL[i]);
+
     if (methsPic[i]) {
       fileURL[i] = URL.createObjectURL(methsPic[i]);
     } else {
